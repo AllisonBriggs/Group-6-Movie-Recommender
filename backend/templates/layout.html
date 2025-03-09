@@ -1,17 +1,21 @@
 <!doctype html>
 <title>{% block title %}Welcome{% endblock %} | SceneIt!</title>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
 <header>
-  <div class="container">
-    <div class="logo-container">
-      <img src="/static/logo.png" alt="SceneIt Logo" class="logo">
-    </div>
-    <nav class="topnav">
-      <a href="#home">Home</a>
-      <a href="#profile">Profile</a>
-      <a href="#search">Search</a>
-      <a href="#friends">Friends</a>
-      <a href="#about">About</a>
-    </nav>
+  <div class="nav-container">
+      <div class="logo-container">
+          <img src="{{ url_for('static', filename='logo4.png') }}" alt="SceneIt Logo" class="logo">
+      </div>
+      <nav class="topnav">
+          <a href="#home">Home</a>
+          <a href="#profile">Profile</a>
+          <a href="#search">Search</a>
+          <a href="#friends">Friends</a>
+          <a href="#about">About</a>
+      </nav>
   </div>
 </header>
 <div class="body">
