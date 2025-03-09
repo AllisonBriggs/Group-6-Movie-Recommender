@@ -31,18 +31,21 @@ class User(db.Model):
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    release_date = db.Column(db.Date, nullable=True)
+    release_date = db.Column(db.String(200), nullable=True)
+    #release_date = db.Column(db.Date, nullable=True)
     average_rating = db.Column(db.Float, default=0.0)
     director = db.Column(db.String(100), nullable=True)
     genre = db.Column(db.Text, nullable=True)
     cast_members = db.Column(db.Text, nullable=True)  # Store as a comma-separated string
+    poster_url = db.Column(db.String(300), nullable=True)
 
-    def __init__(self, title, release_date, director, genre, cast_members):
+    def __init__(self, title, release_date, director, genre, cast_members, poster_url=None):
         self.title = title
         self.release_date = release_date
         self.director = director
         self.genre = genre
         self.cast_members = cast_members
+        self.poster_url = poster_url
 
     def __repr__(self):
         return f"<Movie {self.title}>"

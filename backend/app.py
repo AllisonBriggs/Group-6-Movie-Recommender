@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from tmdb_service import add_nosferatu_to_db
 import os
 
 
 # Import models AFTER db initialization
-from models import db, User
+from models import db, User, Movie
 #from imdb_service import fetch_movie_from_imdb
 
 # Initialize Flask app
@@ -17,6 +18,11 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 #db = SQLAlchemy(app)
 db.init_app(app)
 bcrypt = Bcrypt(app)
+
+# Ensure Nosferatu is added at startup
+with app.app_context():
+    db.create_all()
+    add_nosferatu_to_db()  # Add Nosferatu automatically
 
 # Load logged-in user before each request
 @app.before_request
@@ -78,12 +84,16 @@ def login():
     return render_template("login.html")
 
 # Dashboard (Accessible After Login)
-@app.route("/dashboard")
+@app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
     if "user_id" not in session:
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
-    return render_template("dashboard.html", username=session["user_id"])
+
+    movies = Movie.query.all()  # Fetch all movies from the database
+    print("Movies in DB:", movies)  # Debugging: Check if movies exist
+
+    return render_template("dashboard.html", movies=movies, username=session.get("user_id"))
 
 # Home Route
 @app.route("/")

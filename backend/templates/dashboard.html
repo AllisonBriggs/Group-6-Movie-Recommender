@@ -1,7 +1,48 @@
-{% extends "layout.html" %}
-{% block title %}Dashboard{% endblock %}
-{% block content %}
-<h2>Welcome, {{ username }}!</h2>
-<p>This is your dashboard.</p>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
 
-{% endblock %}
+<div class="container">
+    <header class="mt-4">
+        <h2>Welcome, {{ username }}!</h2>
+        <p>Total Movies: {{ movies|length }}</p>
+    </header>
+
+    {% if not movies %}
+        <p class="text-muted">No movies found in the database. Please add a movie.</p>
+    {% else %}
+        <div class="row">
+            {% for movie in movies %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    {% if movie.poster_url %}
+                        <img src="{{ movie.poster_url }}" class="card-img-top" alt="{{ movie.title }} Poster">
+                    {% else %}
+                        <img src="https://via.placeholder.com/300x450?text=No+Image" class="card-img-top" alt="No Image">
+                    {% endif %}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ movie.title }}</h5>
+                        <p class="card-text"><strong>Genre:</strong> {{ movie.genre }}</p>
+                        <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
+                        <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<!-- Bootstrap JS for responsive design (optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
