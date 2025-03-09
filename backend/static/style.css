@@ -1,0 +1,57 @@
+/* Ensure the header is aligned properly */
+.container {
+  display: flex;
+  align-items: center;  /* Align items in the same row */
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ADD8E6; /* Light blue background */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Make sure logo and nav are evenly spaced */
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;  /* Allows it to take necessary space */
+}
+
+/* Adjust logo size */
+.logo {
+  width: 150px; /* Adjust based on your design */
+  height: auto;
+}
+
+/* Ensure navigation bar stays in line */
+.topnav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevents wrapping */
+}
+
+/* Style navigation links */
+.topnav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* Hover effect */
+.topnav a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .topnav {
+    margin-top: 10px;
+  }
+}
