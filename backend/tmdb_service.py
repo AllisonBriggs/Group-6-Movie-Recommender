@@ -18,11 +18,6 @@ df = pd.read_csv(file_path, encoding="ISO-8859-1")
 TMDB_API_KEY = "be7a1b6d19aadf8e429820ead6d4c592"
 IMDB_API_KEY = "8bc777d3"
 
-# Function to fetch cast members from IMDb API
-import requests
-
-
-
 def get_cast_from_imdb(imdb_id):
     """Fetches top 5 cast members from IMDb API using the IMDb ID."""
     url = f"https://imdb-api.com/en/API/FullCast/{IMDB_API_KEY}/{imdb_id}"
