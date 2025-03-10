@@ -1,0 +1,617 @@
+Movie,Year,Genres,Certification/Rating,IMDb ID,Writer,Director
+300,2006,"Action, Drama",R,tt0416449,Zack Snyder,Zack Snyder
+1408,2007,"Fantasy, Horror, Mystery",PG-13,tt0450385,Matt Greenberg,Mikael H�fstr�m
+2012,2009,"Action, Adventure, Sci-Fi",PG-13,tt1190080,Roland Emmerich,Roland Emmerich
+12 Angry Men,1957,"Crime, Drama",Approved,tt0050083,Reginald Rose,Sidney Lumet
+12 Strong,2018,"Action, Drama, History",R,tt1413492,Ted Tally,Nicolai Fuglsig
+12 Years a Slave,2013,"Biography, Drama, History",R,tt2024544,John Ridley,Steve McQueen
+127 Hours,2010,"Biography, Drama",R,tt1542344,Danny Boyle,Danny Boyle
+13 Hours,2016,"Action, Drama, History",R,tt4172430,Chuck Hogan,Michael Bay
+2001 A Space Odyssey,1968,"Adventure, Sci-Fi",G,tt0062622,Stanley Kubrick,Stanley Kubrick
+28 Weeks Later,2007,"Action, Adventure, Horror",R,tt0463854,Rowan Joffe,Juan Carlos Fresnadillo
+300 Rise Of An Empire,2014,"Action, Drama, War",R,tt1253863,Zack Snyder,Noam Murro
+5 Days of War,2011,"Action, Drama, War",R,tt1486193,Mikko Alanne,Renny Harlin
+8 Mile,2002,"Drama, Music",R,tt0298203,Scott Silver,Curtis Hanson
+A Beautiful Mind,2001,"Biography, Drama",PG-13,tt0268978,Akiva Goldsman,Ron Howard
+A Few Good Men,1992,"Drama, Thriller",R,tt0104257,Aaron Sorkin,Rob Reiner
+A Good Day to Die Hard,2013,"Action, Thriller",R,tt1606378,Skip Woods,John Moore
+A Good Year,2006,"Comedy, Drama, Romance",PG-13,tt0401445,Marc Klein,Ridley Scott
+A heart in winter,1992,"Drama, Music, Romance",N/A,tt0105682,Claude Sautet,Claude Sautet
+A Separation,2011,Drama,PG-13,tt1832382,Asghar Farhadi,Asghar Farhadi
+A View to a Kill,1985,"Action, Adventure, Thriller",PG,tt0090264,Richard Maibaum,John Glen
+A Walk On The Moon,1999,"Drama, Romance",R,tt0120613,Pamela Gray,Tony Goldwyn
+About Cherry,2012,Drama,R,tt1945062,Stephen Elliott,Stephen Elliott
+About Time,2013,"Comedy, Drama, Fantasy",R,tt2194499,Richard Curtis,Richard Curtis
+Absolutely Anything,2015,"Comedy, Sci-Fi",R,tt1727770,Terry Jones,Terry Jones
+Adrift,2018,"Action, Adventure, Biography",PG-13,tt6306064,Aaron Kandell,Baltasar Kormákur
+Against the Sun,2014,"Biography, Drama, War",PG,tt2557276,Brian Peter Falk,Brian Peter Falk
+"Alexander and the Terrible, Horrible, No Good, Very Bad Day",2014,"Comedy, Drama, Family",PG,tt1698641,Rob Lieber,Miguel Arteta
+Alita Battle Angel,2019,"Action, Adventure, Sci-Fi",PG-13,tt0437086,James Cameron,Robert Rodriguez
+All The Real Girls,2003,"Drama, Romance",R,tt0299458,David Gordon Green,David Gordon Green
+Allied,2016,"Action, Drama, Romance",R,tt3640424,Steven Knight,Robert Zemeckis
+Along Came Polly,2004,"Comedy, Romance",PG-13,tt0343135,John Hamburg,John Hamburg
+American Assassin,2017,"Action, Thriller",R,tt1961175,Stephen Schiff,Michael Cuesta
+American Hustle,2013,"Crime, Drama",R,tt1800241,Eric Warren Singer,David O. Russell
+American Sniper,2014,"Action, Biography, Drama",R,tt2179136,Jason Hall,Clint Eastwood
+America's Sweethearts,2001,"Comedy, Romance",PG-13,tt0265029,Billy Crystal,Joe Roth
+Amistad,1997,"Biography, Drama, History",R,tt0118607,David Franzoni,Steven Spielberg
+An Eye For Beauty,2014,Drama,Unrated,tt2414040,Denys Arcand,Denys Arcand
+An Inconvenient Truth,2006,"Documentary, News",PG,tt0497116,Al Gore,Davis Guggenheim
+Angel Has Fallen,2019,"Action, Thriller",R,tt6189022,Robert Mark Kamen,Ric Roman Waugh
+Angels & Demons,2009,"Action, Mystery, Thriller",PG-13,tt0808151,David Koepp,Ron Howard
+Angry Birds,2021,"Short, Action, Crime",N/A,tt15281754,Reejah,Reejah
+Anthropocene The Human Epoch,2018,Documentary,N/A,tt8399690,Jennifer Baichwal,"Jennifer Baichwal, Edward Burtynsky, Nicholas de Pencier"
+Ant-Man And The Wasp Quantumania,2023,"Action, Adventure, Comedy",PG-13,tt10954600,Jeff Loveness,Peyton Reed
+Argo,2012,"Biography, Drama, Thriller",R,tt1024648,Chris Terrio,Ben Affleck
+Armageddon,1998,"Action, Adventure, Sci-Fi",PG-13,tt0120591,Jonathan Hensleigh,Michael Bay
+Army Of Thieves,2021,"Action, Comedy, Crime",TV-MA,tt13024674,Zack Snyder,Matthias Schweighöfer
+Around The Sun,2019,Drama,N/A,tt5219958,Jonathan Kiefer,Oliver Krimpas
+Arrival,2016,"Drama, Mystery, Sci-Fi",PG-13,tt2543164,Eric Heisserer,Denis Villeneuve
+Artemisia,1997,"Biography, Drama, History",R,tt0123385,Patrick Amos,Agnès Merlet
+Assassin's Creed,2016,"Action, Adventure, Sci-Fi",PG-13,tt2094766,Michael Lesslie,Justin Kurzel
+August Rush,2007,"Drama, Music",PG,tt0426931,Nick Castle,Kirsten Sheridan
+Ava,2020,"Action, Drama, Thriller",R,tt8784956,Matthew Newton,Tate Taylor
+Avatar,2009,"Action, Adventure, Fantasy",PG-13,tt0499549,James Cameron,James Cameron
+Avatar The Way Of Water,2022,"Action, Adventure, Fantasy",PG-13,tt1630029,James Cameron,James Cameron
+Avengers Age of Ultron,2015,"Action, Adventure, Sci-Fi",PG-13,tt2395427,Joss Whedon,Joss Whedon
+Avengers Infinity War,2018,"Action, Adventure, Sci-Fi",PG-13,tt4154756,Christopher Markus,"Anthony Russo, Joe Russo"
+Avengers: Endgame,2019,"Action, Adventure, Drama",PG-13,tt4154796,Christopher Markus,"Anthony Russo, Joe Russo"
+Babylon,2022,"Comedy, Drama, History",R,tt10640346,Damien Chazelle,Damien Chazelle
+Batman V Superman Dawn Of Justice,2016,"Action, Adventure, Sci-Fi",PG-13,tt2975590,Bob Kane,Zack Snyder
+Battleship,2012,"Action, Adventure, Sci-Fi",PG-13,tt1440129,Jon Hoeber,Peter Berg
+Before Midnight,2013,"Drama, Romance",R,tt2209418,Richard Linklater,Richard Linklater
+Before Sunrise,1995,"Drama, Romance",R,tt0112471,Richard Linklater,Richard Linklater
+Before Sunset,2004,"Drama, Romance",R,tt0381681,Richard Linklater,Richard Linklater
+Beirut,2018,"Action, Crime, Drama",R,tt4669264,Tony Gilroy,Brad Anderson
+Black Adam,2022,"Action, Adventure, Fantasy",PG-13,tt6443346,Adam Sztykiel,Jaume Collet-Serra
+Black Hawk Down,2001,"Action, Drama, History",R,tt0265086,Mark Bowden,Ridley Scott
+Black Mass,2015,"Biography, Crime, Drama",R,tt1355683,Mark Mallouk,Scott Cooper
+Black Panther,2018,"Action, Adventure, Sci-Fi",PG-13,tt1825683,Ryan Coogler,Ryan Coogler
+Black Panther Wakanda Forever,2022,"Action, Adventure, Drama",PG-13,tt9114286,Ryan Coogler,Ryan Coogler
+Black Widow,2021,"Action, Adventure, Sci-Fi",PG-13,tt3480822,Eric Pearson,Cate Shortland
+Blade Runner 2049,2017,"Action, Drama, Mystery",R,tt1856101,Hampton Fancher,Denis Villeneuve
+Blood Diamond,2006,"Adventure, Drama, Thriller",R,tt0450259,Charles Leavitt,Edward Zwick
+Blue Valentine,2010,"Drama, Romance",R,tt1120985,Derek Cianfrance,Derek Cianfrance
+Boyhood,2014,Drama,R,tt1065073,Richard Linklater,Richard Linklater
+Braveheart,1995,"Biography, Drama, History",R,tt0112573,Randall Wallace,Mel Gibson
+Bridge of Spies,2015,"Drama, History, Thriller",PG-13,tt3682448,Matt Charman,Steven Spielberg
+Broken Arrow,1996,"Action, Adventure, Thriller",R,tt0115759,Graham Yost,John Woo
+Bullet Train,2022,"Action, Comedy, Thriller",R,tt12593682,Zak Olkewicz,David Leitch
+Bully,2001,"Biography, Crime, Drama",TV-MA,tt0242193,Jim Schutze,Larry Clark
+Buried,2010,"Drama, Mystery, Thriller",R,tt1462758,Chris Sparling,Rodrigo Cortés
+Burnt,2015,"Comedy, Drama",R,tt2503944,Steven Knight,John Wells
+Capote,2005,"Biography, Crime, Drama",R,tt0379725,Dan Futterman,Bennett Miller
+Captain America The Winter Soldier,2014,"Action, Adventure, Sci-Fi",PG-13,tt1843866,Christopher Markus,"Anthony Russo, Joe Russo"
+Captain America: Civil War,2016,"Action, Sci-Fi",PG-13,tt3498820,Christopher Markus,"Anthony Russo, Joe Russo"
+Captain Marvel,2019,"Action, Adventure, Sci-Fi",PG-13,tt4154664,Anna Boden,"Anna Boden, Ryan Fleck"
+Captain Phillips,2013,"Action, Biography, Crime",PG-13,tt1535109,Billy Ray,Paul Greengrass
+Cars,2006,"Animation, Adventure, Comedy",G,tt0317219,John Lasseter,"John Lasseter, Joe Ranft"
+Cars 2,2011,"Animation, Adventure, Comedy",G,tt1216475,John Lasseter,"John Lasseter, Bradford Lewis"
+Cars 3,2017,"Animation, Adventure, Comedy",G,tt3606752,Brian Fee,Brian Fee
+Casino Royale,2006,"Action, Adventure, Thriller",PG-13,tt0381061,Neal Purvis,Martin Campbell
+Clear and Present Danger,1994,"Action, Crime, Drama",PG-13,tt0109444,Tom Clancy,Phillip Noyce
+Cliffhanger,1993,"Action, Adventure, Thriller",R,tt0106582,John Long,Renny Harlin
+Closed Circuit,2013,"Crime, Drama, Mystery",R,tt2218003,Steven Knight,John Crowley
+Cold Mountain,2003,"Adventure, Drama, Romance",R,tt0159365,Charles Frazier,Anthony Minghella
+Color of Night,1994,"Drama, Mystery, Romance",R,tt0109456,Billy Ray,Richard Rush
+Conan The Barbarian,1982,"Action, Adventure, Fantasy",R,tt0082198,Robert E. Howard,John Milius
+Concussion,2015,"Biography, Drama, Sport",PG-13,tt3322364,Peter Landesman,Peter Landesman
+Constantine,2005,"Action, Fantasy, Horror",R,tt0360486,Jamie Delano,Francis Lawrence
+Contact,1997,"Drama, Mystery, Sci-Fi",PG,tt0118884,James V. Hart,Robert Zemeckis
+Contagion,2011,"Drama, Thriller",PG-13,tt1598778,Scott Z. Burns,Steven Soderbergh
+Crazy Stupid Love,2022,"Comedy, Drama, Romance",N/A,tt22029884,Jujur Prananto,Ainun Ridho
+Crimson Tide,1995,"Action, Drama, Thriller",R,tt0112740,Michael Schiffer,Tony Scott
+Dante's Peak,1997,"Action, Adventure, Thriller",PG-13,tt0118928,Leslie Bohem,Roger Donaldson
+Dark Phoenix,2019,"Action, Adventure, Sci-Fi",PG-13,tt6565702,Simon Kinberg,Simon Kinberg
+Deadpool,2016,"Action, Comedy",R,tt1431045,Rhett Reese,Tim Miller
+Deadpool 2,2018,"Action, Adventure, Comedy",R,tt5463162,Rhett Reese,David Leitch
+Defiance,2008,"Action, Drama, History",R,tt1034303,Clayton Frohman,Edward Zwick
+Definitely Maybe,2008,"Comedy, Drama, Romance",PG-13,tt0832266,Adam Brooks,Adam Brooks
+Deja Vu,2006,"Action, Crime, Sci-Fi",PG-13,tt0453467,Bill Marsilii,Tony Scott
+Den Of Thieves,2018,"Action, Crime, Drama",R,tt1259528,Christian Gudegast,Christian Gudegast
+Despicable,2010,"Animation, Adventure, Comedy",PG,tt1323594,Cinco Paul,"Pierre Coffin, Chris Renaud"
+Despicable Me 2,2013,"Animation, Adventure, Comedy",PG,tt1690953,Cinco Paul,"Pierre Coffin, Chris Renaud"
+Devotion,2022,"Action, Biography, Drama",PG-13,tt7693316,Jake Crane,J.D. Dillard
+Diamonds Are Forever,1971,"Action, Adventure, Thriller",GP,tt0066995,Richard Maibaum,Guy Hamilton
+Die Another Day,2002,"Action, Adventure, Thriller",PG-13,tt0246460,Ian Fleming,Lee Tamahori
+Die Hard,1988,"Action, Thriller",R,tt0095016,Roderick Thorp,John McTiernan
+Die Hard 2,1990,"Action, Thriller",R,tt0099423,Steven E. de Souza,Renny Harlin
+Die Hard with a Vengeance,1995,"Action, Adventure, Thriller",R,tt0112864,Jonathan Hensleigh,John McTiernan
+Disclosure,1994,"Drama, Thriller",R,tt0109635,Michael Crichton,Barry Levinson
+District 13: Ultimatum,2009,"Action, Crime, Thriller",R,tt1247640,Luc Besson,Patrick Alessandrin
+Divergent,2014,"Action, Adventure, Mystery",PG-13,tt1840309,Evan Daugherty,Neil Burger
+Django Unchained,2012,"Drama, Western",R,tt1853728,Quentin Tarantino,Quentin Tarantino
+Doctor Strange,2016,"Action, Adventure, Fantasy",PG-13,tt1211837,Jon Spaihts,Scott Derrickson
+Doctor Strange in the Multiverse of Madness,2022,"Action, Adventure, Fantasy",PG-13,tt9419884,Michael Waldron,Sam Raimi
+Don't Look Down,2008,"Drama, Romance",R,tt1233487,Eliseo Subiela,Eliseo Subiela
+Double Lover,2017,"Drama, Romance, Thriller",Not Rated,tt6367558,François Ozon,François Ozon
+Downfall,2004,"Biography, Drama, History",R,tt0363163,Bernd Eichinger,Oliver Hirschbiegel
+Dr No,1962,"Action, Adventure, Thriller",PG,tt10985716,Richard Maibaum,Terence Young
+Dressed to Kill,1980,"Crime, Drama, Mystery",R,tt0080661,Brian De Palma,Brian De Palma
+Dumb and Dumber,1994,Comedy,PG-13,tt0109686,Peter Farrelly,"Peter Farrelly, Bobby Farrelly"
+Dune,2021,"Action, Adventure, Drama",PG-13,tt1160419,Jon Spaihts,Denis Villeneuve
+Eagle Eye,2008,"Action, Mystery, Thriller",PG-13,tt1059786,John Glenn,D.J. Caruso
+Edge of Tomorrow,2014,"Action, Adventure, Sci-Fi",PG-13,tt1631867,Christopher McQuarrie,Doug Liman
+"Eleven Days, Eleven Nights",1987,"Drama, Romance",R,tt0091002,Rossella Drudi,Joe D'Amato
+Elysium,2013,"Action, Drama, Sci-Fi",R,tt1535108,Neill Blomkamp,Neill Blomkamp
+Enemy At The Gates,2001,"Action, Drama, War",R,tt0215750,Jean-Jacques Annaud,Jean-Jacques Annaud
+Enola Holmes 2 ,2022,"Action, Adventure, Crime",PG-13,tt14641788,Jack Thorne,Harry Bradbeer
+Ernest & Celestine,2012,"Animation, Adventure, Comedy",PG,tt1816518,Daniel Pennac,St�phane Aubier
+Escape from Alcatraz,1979,"Action, Biography, Crime",PG,tt0079116,J. Campbell Bruce,Don Siegel
+Escape Plan,2013,"Action, Thriller",R,tt1211956,Miles Chapman,Mikael Håfström
+Eternals,2021,"Action, Adventure, Fantasy",PG-13,tt9032400,Chloé Zhao,Chloé Zhao
+Everest,2015,"Action, Adventure, Biography",PG-13,tt2719848,William Nicholson,Baltasar Kormákur
+Ex Machina,2014,"Drama, Sci-Fi, Thriller",R,tt0470752,Alex Garland,Alex Garland
+exam,2009,"Crime, Horror, Mystery",Not Rated,tt1258197,Stuart Hazeldine,Stuart Hazeldine
+Exodus Gods and Kings,2014,"Action, Adventure, Drama",PG-13,tt1528100,Adam Cooper,Ridley Scott
+Extraction II,2023,"Action, Thriller",R,tt12263384,Joe Russo,Sam Hargrave
+Eye in the Sky,2015,"Action, Drama, Thriller",R,tt2057392,Guy Hibbert,Gavin Hood
+Eyes Wide Shut,1999,"Drama, Mystery, Thriller",TV-MA,tt0120663,Stanley Kubrick,Stanley Kubrick
+F9: The Fast Saga,2021,"Action, Crime, Thriller",PG-13,tt5433138,Daniel Casey,Justin Lin
+Fair Game,2010,"Biography, Drama, Thriller",PG-13,tt0977855,Jez Butterworth,Doug Liman
+Fast & Furious,2013,"Action, Adventure, Crime",PG-13,tt1905041,Chris Morgan,Justin Lin
+Fast & Furious 6,2013,"Action, Adventure, Crime",PG-13,tt1905041,Chris Morgan,Justin Lin
+Fast & Furious Presents: Hobbs & Shaw,2013,"Action, Adventure, Crime",PG-13,tt1905041,Chris Morgan,Justin Lin
+Fast Five,2011,"Action, Crime, Thriller",PG-13,tt1596343,Chris Morgan,Justin Lin
+Fast X,2023,"Action, Adventure, Crime",PG-13,tt5433140,Dan Mazeau,Louis Leterrier
+Feast of Love,2007,"Drama, Romance",R,tt0800027,Allison Burnett,Robert Benton
+Five Times Two,2004,"Drama, Romance",R,tt0354356,François Ozon,François Ozon
+Focus,2015,"Comedy, Crime, Drama",R,tt2381941,Glenn Ficarra,"Glenn Ficarra, John Requa"
+For Your Eyes Only,1981,"Action, Adventure, Thriller",PG,tt0082398,Richard Maibaum,John Glen
+Ford V Ferrari,2019,"Action, Biography, Drama",PG-13,tt1950186,Jez Butterworth,James Mangold
+Forrest Gump,1994,"Drama, Romance",PG-13,tt0109830,Winston Groom,Robert Zemeckis
+Four Lovers,2010,Romance,Unrated,tt1528750,Antony Cordier,Antony Cordier
+Frivolous Lola,1998,"Comedy, Romance",Not Rated,tt0174931,Tinto Brass,Tinto Brass
+From Russia With Love,1963,"Action, Adventure, Thriller",PG,tt0057076,Richard Maibaum,Terence Young
+Frozen,2013,"Animation, Adventure, Comedy",PG,tt2294629,Jennifer Lee,"Chris Buck, Jennifer Lee"
+Furious 7,2015,"Action, Crime, Thriller",PG-13,tt2820852,Chris Morgan,James Wan
+Fury,2014,"Action, Drama, War",R,tt2713180,David Ayer,David Ayer
+G.I. Joe: Retaliation,2013,"Action, Adventure, Sci-Fi",PG-13,tt1583421,Rhett Reese,Jon M. Chu
+Garfield,2004,"Animation, Adventure, Comedy",PG,tt0356634,Jim Davis,Peter Hewitt
+Geostorm,2017,"Action, Sci-Fi, Thriller",PG-13,tt1981128,Dean Devlin,Dean Devlin
+Get Hard,2015,"Comedy, Crime",R,tt2561572,Jay Martel,Etan Cohen
+Ghost,1990,"Drama, Fantasy, Romance",PG-13,tt0099653,Bruce Joel Rubin,Jerry Zucker
+Ghost In The Shell,2017,"Action, Crime, Drama",PG-13,tt1219827,Shirow Masamune,Rupert Sanders
+Ghosted,2023,"Action, Adventure, Comedy",PG-13,tt15326988,Rhett Reese,Dexter Fletcher
+Gladiator,2000,"Action, Adventure, Drama",R,tt0172495,David Franzoni,Ridley Scott
+Gods of Egypt,2016,"Action, Adventure, Drama",PG-13,tt2404233,Matt Sazama,Alex Proyas
+GoldenEye,1995,"Action, Adventure, Thriller",PG-13,tt0113189,Ian Fleming,Martin Campbell
+Goldfinger,1964,"Action, Adventure, Thriller",PG,tt0058150,Richard Maibaum,Guy Hamilton
+Gone Baby Gone,2007,"Crime, Drama, Mystery",R,tt0452623,Ben Affleck,Ben Affleck
+Gone Girl,2014,"Drama, Mystery, Thriller",R,tt2267998,Gillian Flynn,David Fincher
+Good Will Hunting,1997,"Drama, Romance",R,tt0119217,Matt Damon,Gus Van Sant
+Gravity,2013,"Drama, Sci-Fi, Thriller",PG-13,tt1454468,Alfonso Cuarón,Alfonso Cuarón
+Greenland,2020,"Action, Thriller",PG-13,tt7737786,Chris Sparling,Ric Roman Waugh
+Greyhound,2020,"Action, Drama, History",PG-13,tt6048922,Tom Hanks,Aaron Schneider
+Hacksaw Ridge,2016,"Biography, Drama, History",R,tt2119532,Robert Schenkkan,Mel Gibson
+Hail Mary,1985,Drama,Not Rated,tt0089366,Jean-Luc Godard,Jean-Luc Godard
+Hanna,2011,"Action, Adventure, Drama",PG-13,tt0993842,Seth Lochhead,Joe Wright
+Harry Potter And The Deathly Hallows Part 2,2011,"Adventure, Family, Fantasy",PG-13,tt1201607,Steve Kloves,David Yates
+Harry Potter and the Deathly Hallows: Part 1,2010,"Adventure, Family, Fantasy",PG-13,tt0926084,Steve Kloves,David Yates
+Heaven Is for Real,2014,"Biography, Drama, Family",PG,tt1929263,Randall Wallace,Randall Wallace
+Hereafter,2010,"Drama, Fantasy, Romance",PG-13,tt1212419,Peter Morgan,Clint Eastwood
+Hero,2002,"Action, Adventure, Drama",PG-13,tt0299977,Feng Li,Yimou Zhang
+He's Just Not That Into You,2009,"Comedy, Drama, Romance",PG-13,tt1001508,Abby Kohn,Ken Kwapis
+Hitler: The Rise of Evil,2003,"Biography, Drama, History",TV-14,tt0346293,N/A,N/A
+Hitman Agent 47,2015,"Action, Crime, Thriller",R,tt2679042,Skip Woods,Aleksander Bach
+Hollow Man,2000,"Action, Horror, Sci-Fi",R,tt0164052,Gary Scott Thompson,Paul Verhoeven
+How to Train Your Dragon 2,2014,"Animation, Action, Adventure",PG,tt1646971,Dean DeBlois,Dean DeBlois
+How to Train Your Dragon: The Hidden World,2019,"Animation, Action, Adventure",PG,tt2386490,Dean DeBlois,Dean DeBlois
+Hugo,2011,"Adventure, Drama, Family",PG,tt0970179,John Logan,Martin Scorsese
+Hunter Killer,2018,"Action, Thriller",R,tt1846589,Arne Schmidt,Donovan Marsh
+Hypnotic,2023,"Action, Mystery, Thriller",R,tt8080204,Robert Rodriguez,Robert Rodriguez
+I am Legend,2007,"Action, Drama, Horror",PG-13,tt0480249,Mark Protosevich,Francis Lawrence
+I am Number Four,2011,"Action, Adventure, Sci-Fi",PG-13,tt1464540,Alfred Gough,D.J. Caruso
+Ice Age Collision Course,2016,"Animation, Adventure, Comedy",PG,tt3416828,Michael J. Wilson,"Michael Thurmeier, Galen T. Chu"
+Ice Age: Continental Drift,2012,"Animation, Adventure, Comedy",PG,tt1667889,Michael Berg,"Steve Martino, Michael Thurmeier"
+In the Heart of the Sea,2015,"Action, Adventure, Biography",PG-13,tt1390411,Charles Leavitt,Ron Howard
+In Time,2011,"Action, Sci-Fi, Thriller",PG-13,tt1637688,Andrew Niccol,Andrew Niccol
+Inception,2010,"Action, Adventure, Sci-Fi",PG-13,tt1375666,Christopher Nolan,Christopher Nolan
+Independence Day,1996,"Action, Adventure, Sci-Fi",PG-13,tt0116629,Dean Devlin,Roland Emmerich
+Independence Day Resurgence,2016,"Action, Adventure, Sci-Fi",PG-13,tt1628841,Nicolas Wright,Roland Emmerich
+Indiana Jones And The Dial Of Destiny,2023,"Action, Adventure, Sci-Fi",PG-13,tt1462764,Jez Butterworth,James Mangold
+Indiana Jones and the Kingdom of the Crystal Skull,2008,"Action, Adventure",PG-13,tt0367882,David Koepp,Steven Spielberg
+Indiana Jones and the Last Crusade,1989,"Action, Adventure",PG-13,tt0097576,Jeffrey Boam,Steven Spielberg
+Indiana Jones and the Raiders of the Lost Ark,1981,"Action, Adventure",PG,tt0082971,Lawrence Kasdan,Steven Spielberg
+Indiana Jones And The Temple Of Doom,1984,"Action, Adventure",PG,tt0087469,Willard Huyck,Steven Spielberg
+Inglorious Bastards,1978,"Action, Adventure, War",R,tt0076584,Sandro Continenza,Enzo G. Castellari
+Inside Man,2006,"Crime, Drama, Mystery",R,tt0454848,Russell Gewirtz,Spike Lee
+InsideOut,2015," Animation,Adventure, Comedy",N/A,tt2951602,Pete Docter,Pete Docter
+Insomnia,2002,"Drama, Mystery, Thriller",R,tt0278504,Hillary Seitz,Christopher Nolan
+Insurgent,2015,"Action, Adventure, Sci-Fi",PG-13,tt2908446,Brian Duffield,Robert Schwentke
+Interceptor,2022,"Action, Adventure, Drama",TV-MA,tt14174940,Matthew Reilly,Matthew Reilly
+Interstellar,2014,"Adventure, Drama, Sci-Fi",PG-13,tt0816692,Jonathan Nolan,Christopher Nolan
+Into the Storm,2014,"Action, Adventure, Drama",PG-13,tt2106361,John Swetnam,Steven Quale
+Iron Man 2,2010,"Action, Sci-Fi",PG-13,tt1228705,Justin Theroux,Jon Favreau
+Iron Man 3,2013,"Action, Adventure, Sci-Fi",PG-13,tt1300854,Drew Pearce,Shane Black
+Jack Reacher,2012,"Action, Mystery, Thriller",PG-13,tt0790724,Lee Child,Christopher McQuarrie
+Jack Reacher Never Go Back,2016,"Action, Crime, Drama",PG-13,tt3393786,Richard Wenk,Edward Zwick
+Jeepers Creepers,2001,"Horror, Mystery",R,tt0263488,Victor Salva,Victor Salva
+JL50,2020,"Drama, Sci-Fi, Thriller",N/A,tt7441984,Shailender Vyas,N/A
+jOBS,2013,"Biography, Drama",PG-13,tt2357129,Matt Whiteley,Joshua Michael Stern
+John Wick,2014,"Action, Crime, Thriller",R,tt2911666,Derek Kolstad,"Chad Stahelski, David Leitch"
+John Wick Chapter 2,2017,"Action, Crime, Thriller",R,tt4425200,Derek Kolstad,Chad Stahelski
+John Wick Chapter 3 - Parabellum,2019,"Action, Crime, Thriller",R,tt6146586,Derek Kolstad,Chad Stahelski
+Johnny English Reborn,2011,"Action, Adventure, Comedy",PG,tt1634122,Hamish McColl,Oliver Parker
+Jungle Cruise,2021,"Action, Adventure, Comedy",PG-13,tt0870154,Michael Green,Jaume Collet-Serra
+Jupiter Ascending,2015,"Action, Adventure, Sci-Fi",PG-13,tt1617661,Lilly Wachowski,"Lana Wachowski, Lilly Wachowski"
+Jurassic World,2015,"Action, Adventure, Sci-Fi",PG-13,tt0369610,Rick Jaffa,Colin Trevorrow
+K-19: The Widowmaker,2002,"Drama, History, Thriller",PG-13,tt0267626,Louis Nowra,Kathryn Bigelow
+Kandahar,2023,"Action, Thriller",R,tt5761544,Mitchell LaFortune,Ric Roman Waugh
+Kill Command,2016,"Action, Horror, Sci-Fi",Not Rated,tt2667380,Steven Gomez,Steven Gomez
+Kingdom of Heaven,2005,"Action, Adventure, Drama",R,tt0320661,William Monahan,Ridley Scott
+Kingsman The Golden Circle,2017,"Action, Adventure, Comedy",R,tt4649466,Jane Goldman,Matthew Vaughn
+Kingsman: The Secret Service,2014,"Action, Adventure, Comedy",R,tt2802144,Jane Goldman,Matthew Vaughn
+Knowing,2009,"Action, Mystery, Sci-Fi",PG-13,tt0448011,Ryne Douglas Pearson,Alex Proyas
+Kodachrome,2017,Drama,TV-MA,tt1880399,Jonathan Tropper,Mark Raso
+Kung Fu Panda,2008,"Animation, Action, Adventure",PG,tt0441773,Jonathan Aibel,"Mark Osborne, John Stevenson"
+Kung Fu Panda 2,2011,"Animation, Action, Adventure",PG,tt1302011,Jonathan Aibel,Jennifer Yuh Nelson
+Kung Fu Panda 3,2016,"Animation, Action, Adventure",PG,tt2267968,Jonathan Aibel,"Alessandro Carloni, Jennifer Yuh Nelson"
+L.A. Confidential,1997,"Crime, Drama, Mystery",R,tt0119488,James Ellroy,Curtis Hanson
+Lady Chatterley's Lover,2022,"Drama, Romance",R,tt14369780,David Magee,Laure de Clermont-Tonnerre
+Lara Croft: Tomb Raider,2001,"Action, Adventure, Fantasy",PG-13,tt0146316,Sara B. Cooper,Simon West
+Lara Croft: Tomb Raider - The Cradle of Life,2003,"Action, Adventure, Fantasy",PG-13,tt0325703,Dean Georgaris,Jan de Bont
+Law Abiding Citizen,2009,"Action, Crime, Drama",R,tt1197624,Kurt Wimmer,F. Gary Gray
+Legends of the Fall,1994,"Drama, Romance, War",R,tt0110322,Susan Shilliday,Edward Zwick
+Lethal Weapon,1987,"Action, Crime, Thriller",R,tt0093409,Shane Black,Richard Donner
+Lethal Weapon 2,1989,"Action, Crime, Thriller",R,tt0097733,Jeffrey Boam,Richard Donner
+Lethal Weapon 3,1992,"Action, Crime, Thriller",R,tt0104714,Jeffrey Boam,Richard Donner
+Lethal Weapon 4,1998,"Action, Crime, Thriller",R,tt0122151,Shane Black,Richard Donner
+Letters From Iwo Jima,2006,"Action, Adventure, Drama",R,tt0498380,Iris Yamashita,Clint Eastwood
+Licence to Kill,1989,"Action, Adventure, Thriller",PG-13,tt0097742,Michael G. Wilson,John Glen
+Limitless,2011,"Sci-Fi, Thriller",PG-13,tt1219289,Leslie Dixon,Neil Burger
+Live and Let Die,1973,"Action, Adventure, Thriller",PG,tt0070328,Tom Mankiewicz,Guy Hamilton
+Live Free or Die Hard,2007,"Action, Thriller",PG-13,tt0337978,John Carlin,Len Wiseman
+London Has Fallen,2016,"Action, Thriller",R,tt3300542,Creighton Rothenberger,Babak Najafi
+Looper,2012,"Action, Drama, Sci-Fi",R,tt1276104,Rian Johnson,Rian Johnson
+Lord of War,2005,"Crime, Drama",R,tt0399295,Andrew Niccol,Andrew Niccol
+Love & Other Drugs,2015,"Drama, Romance",TV-MA,tt3774694,Gaspar Noé,Gaspar Noé
+Love Happens,2009,"Drama, Romance",PG-13,tt0899106,Brandon Camp,Brandon Camp
+Love the Coopers,2015,"Comedy, Fantasy, Romance",PG-13,tt2279339,Steven Rogers,Jessie Nelson
+Luciferina,2018,"Horror, Mystery",N/A,tt8072078,Gonzalo Calzada,Gonzalo Calzada
+Lucy,2014,"Action, Sci-Fi, Thriller",R,tt2872732,Luc Besson,Luc Besson
+Madagascar 3: Europe's Most Wanted,2012,"Animation, Adventure, Comedy",PG,tt1277953,Eric Darnell,"Eric Darnell, Tom McGrath, Conrad Vernon"
+Man of Steel,2013,"Action, Adventure, Sci-Fi",PG-13,tt0770828,David S. Goyer,Zack Snyder
+Marauders,2016,"Action, Crime, Thriller",R,tt3963816,Michael Cody,Steven C. Miller
+Margin Call,2011,"Drama, Thriller",R,tt1615147,J.C. Chandor,J.C. Chandor
+Marie Antoinette,2006,"Biography, Drama, History",PG-13,tt0422720,Sofia Coppola,Sofia Coppola
+Maze Runner The Death Cure,2018,"Action, Adventure, Sci-Fi",PG-13,tt4500922,T.S. Nowlin,Wes Ball
+Maze Runner: The Scorch Trials,2015,"Action, Adventure, Sci-Fi",PG-13,tt4046784,T.S. Nowlin,Wes Ball
+"McFarland, USA",2015,"Biography, Drama, Sport",PG,tt2097298,Christopher Cleveland,Niki Caro
+Me Before You,2016,"Drama, Romance",PG-13,tt2674426,Jojo Moyes,Thea Sharrock
+Mechanic: Resurrection,2016,"Action, Adventure, Crime",R,tt3522806,Lewis John Carlino,Dennis Gansel
+Medieval,2022,"Action, Drama, History",R,tt8883486,Petr Jákl,Petr Jákl
+Meg 2 The Trench,2023,"Action, Adventure, Horror",PG-13,tt9224104,Jon Hoeber,Ben Wheatley
+Memories Of My Melancholy Whores,2011,"Comedy, Drama, Romance",N/A,tt1504019,Jean-Claude Carrière,Henning Carlsen
+Miami Vice,2006,"Action, Adventure, Crime",R,tt0430357,Michael Mann,Michael Mann
+Midway,2019,"Action, Drama, History",PG-13,tt6924650,Wes Tooke,Roland Emmerich
+Minions,2015,"Animation, Adventure, Comedy",PG,tt2293640,Brian Lynch,"Kyle Balda, Pierre Coffin"
+Miracle at St Anna,2008,"Action, Drama, War",R,tt1046997,James McBride,Spike Lee
+Mission Impossible - Fallout,2018,"Action, Adventure, Thriller",PG-13,tt4912910,Bruce Geller,Christopher McQuarrie
+Mission to Mars,2000,"Adventure, Sci-Fi, Thriller",PG,tt0183523,Lowell Cannon,Brian De Palma
+Mission: Impossible - Ghost Protocol,2011,"Action, Adventure, Thriller",PG-13,tt1229238,Bruce Geller,Brad Bird
+Mission: Impossible - Rogue Nation,2015,"Action, Adventure, Thriller",PG-13,tt2381249,Bruce Geller,Christopher McQuarrie
+Moby Dick,1956,"Adventure, Drama",Not Rated,tt0049513,Ray Bradbury,John Huston
+Monster Hunter,2020,"Action, Adventure, Fantasy",PG-13,tt6475714,Paul W.S. Anderson,Paul W.S. Anderson
+Monster Hunters,2020,"Action, Sci-Fi, Thriller",Unrated,tt12942958,Jeremy M. Inman,Brendan Petrizzo
+Moonraker,1979,"Action, Adventure, Sci-Fi",PG,tt0079574,Christopher Wood,Lewis Gilbert
+Mr. & Mrs. Smith,2005,"Action, Comedy, Crime",PG-13,tt0356910,Simon Kinberg,Doug Liman
+Mr.Brooks,2007,"Crime, Drama, Mystery",R,tt0780571,Bruce A. Evans,Bruce A. Evans
+Munich,2005,"Action, Drama, History",R,tt0408306,Tony Kushner,Steven Spielberg
+National Treasure,2004,"Action, Adventure, Mystery",PG,tt0368891,Jim Kouf,Jon Turteltaub
+National Treasure Book of Secrets,2007,"Action, Adventure, Mystery",PG,tt0465234,Marianne Wibberley,Jon Turteltaub
+Need for Speed,2014,"Action, Adventure, Crime",PG-13,tt2369135,George Gatins,Scott Waugh
+Never Back Down,2008,"Action, Drama, Sport",PG-13,tt1023111,Chris Hauty,Jeff Wadlow
+Never Say Never Again,1983,"Action, Adventure, Thriller",PG,tt0086006,Kevin McClory,Irvin Kershner
+Next,2007,"Action, Sci-Fi, Thriller",PG-13,tt0435705,Gary Goldman,Lee Tamahori
+Night at the Museum: Battle of the Smithsonian,2009,"Adventure, Comedy, Family",PG,tt1078912,Robert Ben Garant,Shawn Levy
+No Doubt,2019,"Comedy, Romance",N/A,tt7368186,Clarence Williams IV,Clarence Williams IV
+No Time To Die,2021,"Action, Adventure, Thriller",PG-13,tt2382320,Neal Purvis,Cary Joji Fukunaga
+Noah,2014,"Action, Adventure, Drama",PG-13,tt1959490,Darren Aronofsky,Darren Aronofsky
+Non-Stop,2014,"Action, Mystery, Thriller",PG-13,tt2024469,John W. Richardson,Jaume Collet-Serra
+Notting Hill,1999,"Comedy, Drama, Romance",PG-13,tt0125439,Richard Curtis,Roger Michell
+Now You See Me,2013,"Crime, Mystery, Thriller",PG-13,tt1670345,Ed Solomon,Louis Leterrier
+Now You See Me 2,2016,"Action, Adventure, Comedy",PG-13,tt3110958,Ed Solomon,Jon M. Chu
+Nymphomaniac Vol. II,2013,Drama,Not Rated,tt2382009,Lars von Trier,Lars von Trier
+Oblivion,2013,"Action, Adventure, Sci-Fi",PG-13,tt1483013,Karl Gajdusek,Joseph Kosinski
+Octopussy,1983,"Action, Adventure, Thriller",PG,tt0086034,George MacDonald Fraser,John Glen
+Of Love And Shadows,1994,"Drama, Romance, Thriller",R,tt0110712,Isabel Allende,Betty Kaplan
+Olympus Has Fallen ,2013,"Action, Thriller",R,tt2302755,Creighton Rothenberger,Antoine Fuqua
+On Her Majesty's Secret Service,1969,"Action, Adventure, Thriller",PG,tt0064757,Simon Raven,Peter R. Hunt
+One Day We'll Tell Each Other Everything,2023,"Drama, History, Romance",N/A,tt21654390,Emily Atef,Emily Atef
+Original Sin,2001,"Drama, Mystery, Romance",R,tt0218922,Cornell Woolrich,Michael Cristofer
+Our Eternal Summer,2021,Drama,N/A,tt15078122,Emilie Aussel,Emilie Aussel
+Out of the Blue,2022,"Crime, Drama, Mystery",R,tt15333788,Neil LaBute,Neil LaBute
+Outside The Wire,2021,"Action, Adventure, Fantasy",R,tt10451914,Rob Yescombe,Mikael Håfström
+Pacific Rim,2013,"Action, Adventure, Sci-Fi",PG-13,tt1663662,Travis Beacham,Guillermo del Toro
+Pacific Rim Uprising,2018,"Action, Adventure, Fantasy",PG-13,tt2557478,Steven S. DeKnight,Steven S. DeKnight
+Paper Planes,2014,"Drama, Family",Not Rated,tt3328716,Robert Connolly,Robert Connolly
+Paper Towns,2015,"Adventure, Comedy, Drama",PG-13,tt3622592,Scott Neustadter,Jake Schreier
+Passengers,2016,"Drama, Romance, Sci-Fi",PG-13,tt1355644,Jon Spaihts,Morten Tyldum
+Paul Blart Mall Cop 2,2015,"Action, Comedy, Crime",PG,tt3450650,Kevin James,Andy Fickman
+Pawn Sacrifice,2014,"Biography, Drama, History",PG-13,tt1596345,Steven Knight,Edward Zwick
+Pearl Harbor,2001,"Action, Drama, History",PG-13,tt0213149,Randall Wallace,Michael Bay
+Pirates of the Caribbean: Dead Men Tell No Tales,2017,"Action, Adventure, Fantasy",PG-13,tt1790809,Jeff Nathanson,"Joachim Rønning, Espen Sandberg"
+Pirates of the Caribbean: On Stranger Tides,2011,"Action, Adventure, Fantasy",PG-13,tt1298650,Ted Elliott,Rob Marshall
+Please Come With Me,2018,"Drama, Romance",N/A,tt6353976,Michael Ciulla,Michael Ciulla
+Polar,2019,"Action, Thriller",TV-MA,tt4139588,Jayson Rothwell,Jonas Åkerlund
+Project Almanac,2015,"Drama, Mystery, Sci-Fi",PG-13,tt2436386,Jason Pagan,Dean Israelite
+Prometheus,2012,"Adventure, Mystery, Sci-Fi",R,tt1446714,Jon Spaihts,Ridley Scott
+Promising Young Woman,2020,"Crime, Drama, Mystery",R,tt9620292,Emerald Fennell,Emerald Fennell
+Quantum of Solace,2008,"Action, Adventure, Mystery",PG-13,tt0830515,Paul Haggis,Marc Forster
+Rain Man,1988,Drama,R,tt0095953,Barry Morrow,Barry Levinson
+Rambo III,1988,"Action, Adventure, Thriller",R,tt0095956,David Morrell,Peter MacDonald
+Rango,2011,"Animation, Action, Adventure",PG,tt1192628,John Logan,Gore Verbinski
+Ratatouille,2007,"Animation, Adventure, Comedy",G,tt0382932,Brad Bird,"Brad Bird, Jan Pinkava"
+Ready Player One,2018,"Action, Adventure, Sci-Fi",PG-13,tt1677720,Zak Penn,Steven Spielberg
+Real Steel,2011,"Action, Drama, Sci-Fi",PG-13,tt0433035,John Gatins,Shawn Levy
+Red Cliff,2008,"Action, Adventure, Drama",R,tt0425637,John Woo,John Woo
+Red Cliff II,2009,"Action, Adventure, Drama",N/A,tt1326972,John Woo,John Woo
+Red Notice,2021,"Action, Comedy, Thriller",PG-13,tt7991608,Rawson Marshall Thurber,Rawson Marshall Thurber
+Red Shoe Diaries,1992,"Drama, Mystery, Romance",R,tt0105227,Patricia Louisianna Knop,Zalman King
+Red Sparrow,2018,"Action, Drama, Thriller",R,tt2873282,Justin Haythe,Francis Lawrence
+Red Tails,2012,"Action, Drama, History",PG-13,tt0485985,John Ridley,Anthony Hemingway
+Remember the Titans,2000,"Biography, Drama, Sport",PG,tt0210945,Gregory Allen Howard,Boaz Yakin
+Resident Evil Afterlife,2010,"Action, Horror, Sci-Fi",R,tt1220634,Paul W.S. Anderson,Paul W.S. Anderson
+Restless,2000,"Drama, Romance",R,tt1498569,Aleksi Bardy,Aku Louhimies
+Revenge,1990,"Action, Crime, Drama",R,tt0100485,Jim Harrison,Tony Scott
+Ricki and the Flash,2015,"Comedy, Drama, Music",PG-13,tt3623726,Diablo Cody,Jonathan Demme
+Rio,2011,"Animation, Adventure, Comedy",PG,tt1436562,Carlos Saldanha,Carlos Saldanha
+Rogue Agent,2022,"Drama, Thriller",N/A,tt9731386,Michael Bronner,"Declan Lawn, Adam Patterson"
+Rogue One,2016,"Action, Adventure, Sci-Fi",PG-13,tt3748528,Chris Weitz,Gareth Edwards
+Safe House,2012,"Action, Thriller",R,tt1599348,David Guggenheim,Daniel Espinosa
+Sahara,2005,"Action, Adventure, Comedy",PG-13,tt0318649,Clive Cussler,Breck Eisner
+Salt,2010,"Action, Thriller",PG-13,tt0944835,Kurt Wimmer,Phillip Noyce
+Samsara,2011,"Documentary, Music",PG-13,tt0770802,Ron Fricke,Ron Fricke
+Sangre En La Boca,2008,Short,N/A,tt2094106,Marcelo Pitrola,Hernán Belón
+Savages,2012,"Action, Crime, Drama",R,tt1615065,Shane Salerno,Oliver Stone
+Saving Private Ryan,1998,"Drama, War",R,tt0120815,Robert Rodat,Steven Spielberg
+Say Anything,1989,"Comedy, Drama, Romance",PG-13,tt0098258,Cameron Crowe,Cameron Crowe
+Scary Movie 4,2006,Comedy,PG-13,tt0362120,Craig Mazin,David Zucker
+Secret Defense,2008,Thriller,N/A,tt1003052,Natalie Carter,Philippe Haïm
+Secret Things,2002,"Comedy, Drama, Fantasy",Unrated,tt0287963,Jean-Claude Brisseau,Jean-Claude Brisseau
+Serena,2014,"Drama, History, Romance",R,tt1247690,Christopher Kyle,Susanne Bier
+Serendipity,2001,"Comedy, Romance",PG-13,tt0240890,Marc Klein,Peter Chelsom
+Sherlock Holmes A Game Of Shadows,2011,"Action, Adventure, Mystery",PG-13,tt1515091,Michele Mulroney,Guy Ritchie
+Shutter Island,2010,"Mystery, Thriller",R,tt1130884,Laeta Kalogridis,Martin Scorsese
+Sicario,2015,"Action, Crime, Drama",R,tt3397884,Taylor Sheridan,Denis Villeneuve
+Sicario Day Of The Soldado,2018,"Action, Crime, Drama",R,tt5052474,Taylor Sheridan,Stefano Sollima
+Silent House,2011,"Horror, Thriller",R,tt1767382,Gustavo Hernández,"Chris Kentis, Laura Lau"
+Silver Linings Playbook,2012,"Comedy, Drama, Romance",R,tt1045658,David O. Russell,David O. Russell
+Sisters,2015,Comedy,R,tt1850457,Paula Pell,Jason Moore
+Sky Fighters,2005,"Action, Adventure, Drama",Not Rated,tt0421974,Gilles Malençon,Gérard Pirès
+Skyfall,2012,"Action, Adventure, Thriller",PG-13,tt1074638,Neal Purvis,Sam Mendes
+Sliver,1993,"Drama, Thriller",R,tt0108162,Ira Levin,Phillip Noyce
+Snakes on a Plane,2006,"Action, Adventure, Crime",R,tt0417148,John Heffernan,David R. Ellis
+Snow White and the Huntsman,2012,"Action, Adventure, Drama",PG-13,tt1735898,Evan Daugherty,Rupert Sanders
+Snowden,2016,"Biography, Crime, Drama",R,tt3774114,Kieran Fitzgerald,Oliver Stone
+Solaris,1972,"Drama, Mystery, Sci-Fi",PG,tt0069293,Stanislaw Lem,Andrei Tarkovsky
+Soul Surfer,2011,"Biography, Drama, Family",PG,tt1596346,Sean McNamara,Sean McNamara
+Source Code,2011,"Action, Drama, Mystery",PG-13,tt0945513,Ben Ripley,Duncan Jones
+Southpaw,2015,"Action, Drama, Sport",R,tt1798684,Kurt Sutter,Antoine Fuqua
+Special Forces,2011,"Action, Drama, War",R,tt1656192,Stéphane Rybojad,Stéphane Rybojad
+Species,1995,"Action, Horror, Sci-Fi",R,tt0114508,Dennis Feldman,Roger Donaldson
+Species II,1998,"Action, Horror, Sci-Fi",R,tt0120841,Dennis Feldman,Peter Medak
+Species The Awakening,2007,"Action, Adventure, Horror",Not Rated,tt0844894,Dennis Feldman,Nick Lyon
+Spectral,2016,"Action, Adventure, Sci-Fi",PG-13,tt2106651,Ian Fried,Nic Mathieu
+Spectre,2015,"Action, Adventure, Thriller",PG-13,tt2379713,John Logan,Sam Mendes
+Speed,1994,"Action, Adventure, Thriller",R,tt0111257,Graham Yost,Jan de Bont
+Spirit,2012,"Comedy, Drama",N/A,tt2175672,Ranjith,Ranjith
+Spotlight,2015,"Biography, Crime, Drama",R,tt1895587,Josh Singer,Tom McCarthy
+Spy Game,2001,"Action, Crime, Thriller",R,tt0266987,Michael Frost Beckner,Tony Scott
+Star Trek Beyond,2016,"Action, Adventure, Sci-Fi",PG-13,tt2660888,Simon Pegg,Justin Lin
+Star Trek Into Darkness,2013,"Action, Adventure, Sci-Fi",PG-13,tt1408101,Roberto Orci,J.J. Abrams
+Stars At Noon,2022,"Drama, Romance, Thriller",R,tt10354106,Claire Denis,Claire Denis
+State Of Play,2009,"Crime, Drama, Mystery",PG-13,tt0473705,Matthew Michael Carnahan,Kevin Macdonald
+Stealth,2005,"Action, Adventure, Sci-Fi",PG-13,tt0382992,W.D. Richter,Rob Cohen
+Steve Jobs,2015,"Biography, Drama",R,tt2080374,Aaron Sorkin,Danny Boyle
+Straw Dogs,1971,"Crime, Drama, Thriller",R,tt0067800,David Zelag Goodman,Sam Peckinpah
+Suicide Squad,2016,"Action, Adventure, Fantasy",PG-13,tt1386697,David Ayer,David Ayer
+Sunshine,2007,"Sci-Fi, Thriller",R,tt0448134,Alex Garland,Danny Boyle
+Sweet November,2001,"Drama, Romance",PG-13,tt0230838,Herman Raucher,Pat O'Connor
+Taken 3,2014,"Action, Crime, Thriller",PG-13,tt2446042,Luc Besson,Olivier Megaton
+Tears of the Sun,2003,"Action, Drama, Thriller",R,tt0314353,Alex Lasker,Antoine Fuqua
+Ted,2012,Comedy,R,tt1637725,Seth MacFarlane,Seth MacFarlane
+Tenet,2020,"Action, Sci-Fi, Thriller",PG-13,tt6723592,Christopher Nolan,Christopher Nolan
+Terminator,1991,"Short, Action, Sci-Fi",N/A,tt5817168,James Cameron,Ben Hernandez
+Terminator 2: Judgment Day,1991,"Action, Sci-Fi",R,tt0103064,James Cameron,James Cameron
+Terminator 3 Rise Of the Machines,2003,"Action, Sci-Fi",R,tt0181852,John Brancato,Jonathan Mostow
+Terminator Dark Fate,2019,"Action, Adventure, Sci-Fi",R,tt6450804,David S. Goyer,Tim Miller
+Terminator Genisys,2015,"Action, Adventure, Sci-Fi",PG-13,tt1340138,Laeta Kalogridis,Alan Taylor
+Terminator Salvation,2009,"Action, Adventure, Sci-Fi",PG-13,tt0438488,John Brancato,McG
+The 355,2022,"Action, Thriller",PG-13,tt8356942,Theresa Rebeck,Simon Kinberg
+The Accountant,2016,"Action, Thriller",R,tt2140479,Bill Dubuque,Gavin O'Connor
+The Adjustment Bureau,2011,"Crime, Mystery, Romance",PG-13,tt1385826,George Nolfi,George Nolfi
+The Adventures Of Tintin,2011,"Animation, Action, Adventure",PG,tt0983193,Hergé,Steven Spielberg
+The Aftermath,2019,"Drama, Romance, War",R,tt5977276,Joe Shrapnel,James Kent
+The Age of Adaline,2015,"Drama, Fantasy, Romance",PG-13,tt1655441,J. Mills Goodloe,Lee Toland Krieger
+The Alamo,2004,"Drama, History, War",PG-13,tt0318974,Leslie Bohem,John Lee Hancock
+The Angry Birds Movie,2016,"Animation, Action, Adventure",PG,tt1985949,Jon Vitti,"Clay Kaytis, Fergal Reilly"
+The Anomaly,2014,"Action, Mystery, Sci-Fi",Not Rated,tt2962726,Simon Lewis,Noel Clarke
+The Assignment,1997,"Action, Crime, Thriller",R,tt0118647,Dan Gordon,Christian Duguay
+The A-Team,2010,"Action, Adventure, Crime",PG-13,tt0429493,Joe Carnahan,Joe Carnahan
+The Avengers,2012,"Action, Sci-Fi",PG-13,tt0848228,Joss Whedon,Joss Whedon
+The Bank Job,2008,"Crime, Drama, Thriller",R,tt0200465,Dick Clement,Roger Donaldson
+The Big Easy,1986,"Comedy, Crime, Drama",R,tt0092654,Daniel Petrie Jr.,Jim McBride
+The Blood Oranges,1997,Drama,R,tt0118743,John Hawkes,Philip Haas
+The Blue Lagoon,1980,"Adventure, Drama, Romance",R,tt0080453,Henry De Vere Stacpoole,Randal Kleiser
+The Boss Baby,2017,"Animation, Adventure, Comedy",PG,tt3874544,Michael McCullers,Tom McGrath
+The Bourne Legacy,2012,"Action, Adventure, Thriller",PG-13,tt1194173,Tony Gilroy,Tony Gilroy
+The Call,2013,"Drama, Thriller",R,tt1911644,Richard D'Ovidio,Brad Anderson
+The Conjuring,2013,"Horror, Mystery, Thriller",R,tt1457767,Chad Hayes,James Wan
+The Conjuring 2,2016,"Horror, Mystery, Thriller",R,tt3065204,Chad Hayes,James Wan
+The Constant Gardener,2005,"Drama, Mystery, Romance",R,tt0387131,Jeffrey Caine,Fernando Meirelles
+The Core,2003,"Action, Adventure, Sci-Fi",PG-13,tt0298814,Cooper Layne,Jon Amiel
+The Counselor,2013,"Crime, Drama, Thriller",R,tt2193215,Cormac McCarthy,Ridley Scott
+The Courier,2020,"Drama, History, Mystery",PG-13,tt8368512,Tom O'Connor,Dominic Cooke
+The Covenant,2023,"Action, Thriller, War",R,tt4873118,Guy Ritchie,Guy Ritchie
+The Croods,2013,"Animation, Action, Adventure",PG,tt0481499,Kirk DeMicco,"Kirk DeMicco, Chris Sanders"
+The Da Vinci Code,2006,"Mystery, Thriller",PG-13,tt0382625,Akiva Goldsman,Ron Howard
+The Dark Knight Rises,2012,"Action, Drama, Thriller",PG-13,tt1345836,Jonathan Nolan,Christopher Nolan
+The Dark Side Of The Heart,1992,"Comedy, Romance, Drama",R,tt0104662,Mario Benedetti,Eliseo Subiela
+The Day After Tomorrow,2004,"Action, Adventure, Sci-Fi",PG-13,tt0319262,Roland Emmerich,Roland Emmerich
+The Day the Earth Stood Still,2008,"Adventure, Drama, Sci-Fi",PG-13,tt0970416,David Scarpa,Scott Derrickson
+The Devil's Advocate,1997,"Drama, Fantasy, Mystery",R,tt0118971,Andrew Neiderman,Taylor Hackford
+The Devil's Own,1997,"Action, Crime, Drama",R,tt0118972,Kevin Jarre,Alan J. Pakula
+The Dreamers,2003,"Drama, Romance",NC-17,tt0309987,Gilbert Adair,Bernardo Bertolucci
+The Dunwich Horror,1970,Horror,R,tt0065669,Curtis Hanson,Daniel Haller
+The Equalizer,2014,"Action, Crime, Thriller",R,tt0455944,Richard Wenk,Antoine Fuqua
+The Equalizer 2,2018,"Action, Crime, Thriller",R,tt3766354,Richard Wenk,Antoine Fuqua
+The Exterminating Angels,2006,"Drama, Fantasy",Not Rated,tt0792948,Jean-Claude Brisseau,Jean-Claude Brisseau
+The Fate of the Furious,2017,"Action, Crime, Thriller",PG-13,tt4630562,Gary Scott Thompson,F. Gary Gray
+The Fault in Our Stars,2014,"Drama, Romance",PG-13,tt2582846,Scott Neustadter,Josh Boone
+The Fountain,2006,"Drama, Mystery, Romance",PG-13,tt0414993,Darren Aronofsky,Darren Aronofsky
+The Fourth Kind,2009,"Horror, Mystery, Sci-Fi",PG-13,tt1220198,Olatunde Osunsanmi,Olatunde Osunsanmi
+The General's Daughter,1999,"Crime, Drama, Mystery",R,tt0144214,Nelson DeMille,Simon West
+The Gift,2015,"Drama, Mystery, Thriller",R,tt4178092,Joel Edgerton,Joel Edgerton
+The Girl On The Train,2016,"Crime, Drama, Mystery",R,tt3631112,Erin Cressida Wilson,Tate Taylor
+The Godfather,1972,"Crime, Drama",R,tt0068646,Mario Puzo,Francis Ford Coppola
+The Godfather Part II,1974,"Crime, Drama",R,tt0071562,Francis Ford Coppola,Francis Ford Coppola
+The Godfather Part III,1990,"Crime, Drama",R,tt0099674,Mario Puzo,Francis Ford Coppola
+The Grand Budapest Hotel,2014,"Adventure, Comedy, Crime",R,tt2278388,Stefan Zweig,Wes Anderson
+The Gray Man,2022,"Action, Thriller",PG-13,tt1649418,Joe Russo,"Anthony Russo, Joe Russo"
+The Great Gatsby,2013,"Drama, Romance",PG-13,tt1343092,Baz Luhrmann,Baz Luhrmann
+The Great Wall,2016,"Action, Adventure, Fantasy",PG-13,tt2034800,Carlo Bernard,Yimou Zhang
+The Green Mile,1999,"Crime, Drama, Fantasy",R,tt0120689,Stephen King,Frank Darabont
+The Grey,2011,"Action, Adventure, Drama",R,tt1601913,Joe Carnahan,Joe Carnahan
+The Guns Of Navarone,1961,"Action, Adventure, Drama",Not Rated,tt0054953,Alistair MacLean,J. Lee Thompson
+The Heir Apparent Largo Winch,2008,"Action, Thriller",Not Rated,tt0808339,Julien Rappeneau,Jérôme Salle
+The Hobbit: An Unexpected Journey,2012,"Adventure, Fantasy",PG-13,tt0903624,Fran Walsh,Peter Jackson
+The Holiday,2006,"Comedy, Romance",PG-13,tt0457939,Nancy Meyers,Nancy Meyers
+The Hot Spot,1990,"Crime, Drama, Romance",R,tt0099797,Charles Williams,Dennis Hopper
+The Hunt For Red October,1990,"Action, Adventure, Thriller",PG,tt0099810,Tom Clancy,John McTiernan
+The Hurt Locker,2008,"Drama, Thriller, War",R,tt0887912,Mark Boal,Kathryn Bigelow
+The Illusionist,2006,"Drama, Fantasy, Mystery",PG-13,tt0443543,Neil Burger,Neil Burger
+The Imitation Game,2014,"Biography, Drama, Thriller",PG-13,tt2084970,Graham Moore,Morten Tyldum
+The Insider,1999,"Biography, Drama, Thriller",R,tt0140352,Marie Brenner,Michael Mann
+The Intern,2015,"Comedy, Drama",PG-13,tt2361509,Nancy Meyers,Nancy Meyers
+The Intern - A Summer Of Lust,2019,"Adult, Drama",N/A,tt11497326,Erika Lust,Erika Lust
+The Internship,2013,Comedy,PG-13,tt2234155,Vince Vaughn,Shawn Levy
+The Invasion,2007,"Sci-Fi, Thriller",PG-13,tt0427392,David Kajganich,Oliver Hirschbiegel
+The Irishman,2019,"Biography, Crime, Drama",R,tt1302006,Steven Zaillian,Martin Scorsese
+The Italian Job,2003,"Action, Crime, Thriller",PG-13,tt0317740,Troy Kennedy Martin,F. Gary Gray
+The Jackal,1997,"Action, Crime, Drama",R,tt0119395,Kenneth Ross,Michael Caton-Jones
+The Last Airbender,2010,"Action, Adventure, Family",PG,tt0938283,M. Night Shyamalan,M. Night Shyamalan
+The Last Samurai,2003,"Action, Drama",R,tt0325710,John Logan,Edward Zwick
+The Last Stand,2013,"Action, Thriller, Western",R,tt1549920,Andrew Knauer,Jee-woon Kim
+The Last Witch Hunter,2015,"Action, Adventure, Fantasy",PG-13,tt1618442,Cory Goodman,Breck Eisner
+The Lion King,1994,"Animation, Adventure, Drama",G,tt0110357,Irene Mecchi,"Roger Allers, Rob Minkoff"
+The Living Daylights,1987,"Action, Adventure, Thriller",PG,tt0093428,Richard Maibaum,John Glen
+The Longest Yard,2005,"Comedy, Crime, Sport",PG-13,tt0398165,Albert S. Ruddy,Peter Segal
+The Lucky One,2012,"Drama, Mystery, Romance",PG-13,tt1327194,Will Fetters,Scott Hicks
+The Man from U.N.C.L.E.,2015,"Action, Adventure, Comedy",PG-13,tt1638355,Guy Ritchie,Guy Ritchie
+The Man with the Golden Gun,1974,"Action, Adventure, Thriller",PG,tt0071807,Richard Maibaum,Guy Hamilton
+The Martian,2015,"Adventure, Drama, Sci-Fi",PG-13,tt3659388,Drew Goddard,Ridley Scott
+The Mask Of Zorro,1998,"Action, Adventure, Comedy",PG-13,tt0120746,Johnston McCulley,Martin Campbell
+The Matrix,1999,"Action, Sci-Fi",R,tt0133093,Lilly Wachowski,"Lana Wachowski, Lilly Wachowski"
+The Matrix Reloaded,2003,"Action, Sci-Fi",R,tt0234215,Lilly Wachowski,"Lana Wachowski, Lilly Wachowski"
+The Matrix Resurrections,2021,"Action, Sci-Fi",R,tt10838180,Lana Wachowski,Lana Wachowski
+The Matrix Revolutions,2003,"Action, Sci-Fi",R,tt0242653,Lilly Wachowski,"Lana Wachowski, Lilly Wachowski"
+The Maze Runner,2014,"Action, Mystery, Sci-Fi",PG-13,tt1790864,Noah Oppenheim,Wes Ball
+The Meg,2018,"Action, Horror, Sci-Fi",PG-13,tt4779682,Dean Georgaris,Jon Turteltaub
+The Model Solution,2002,Drama,R,tt0307180,N/A,Edward Holzman
+The Mummy,1999,"Action, Adventure, Fantasy",PG-13,tt0120616,Stephen Sommers,Stephen Sommers
+The Mummy Returns,2001,"Action, Adventure, Fantasy",PG-13,tt0209163,Stephen Sommers,Stephen Sommers
+The Next 365 Days,2022,"Drama, Romance",TV-MA,tt21106646,Blanka Lipinska,"Barbara Bialowas, Tomasz Mandes"
+The Ninth Gate,1999,"Mystery, Thriller",R,tt0142688,Arturo Pérez-Reverte,Roman Polanski
+The Notebook,2004,"Drama, Romance",PG-13,tt0332280,Jeremy Leven,Nick Cassavetes
+The Outpost,2019,"Action, Drama, History",R,tt3833480,Paul Tamasy,Rod Lurie
+The Pale Blue Eye,2022,"Crime, Horror, Mystery",R,tt14138650,Scott Cooper,Scott Cooper
+The Paperboy,2012,"Crime, Drama, Mystery",R,tt1496422,Peter Dexter,Lee Daniels
+The Patriot,2000,"Action, Drama, History",R,tt0187393,Robert Rodat,Roland Emmerich
+The Peacemaker,1997,"Action, Drama, Thriller",R,tt0119874,Leslie Cockburn,Mimi Leder
+The Peanuts,2015,"Animation, Adventure, Comedy",G,tt2452042,Craig Schulz,Steve Martino
+The Perks Of Being A Wallflower,2012,Drama,PG-13,tt1659337,Stephen Chbosky,Stephen Chbosky
+The Piano Teacher,2001,"Drama, Music",R,tt0254686,Michael Haneke,Michael Haneke
+The Pink Panther,2006,"Adventure, Comedy, Crime",PG,tt0383216,Len Blum,Shawn Levy
+The Pope's Exorcist,2023,"Horror, Thriller",R,tt13375076,Michael Petroni,Julius Avery
+The Post,2017,"Biography, Drama, History",PG-13,tt6294822,Liz Hannah,Steven Spielberg
+The Reader,2008,"Drama, Romance",R,tt0976051,David Hare,Stephen Daldry
+The Red Balloon,1956,"Short, Comedy, Drama",Not Rated,tt0048980,Albert Lamorisse,Albert Lamorisse
+The Red Violin,1998,"Drama, Music, Mystery",R,tt0120802,Don McKellar,François Girard
+The Revenant,2015,"Action, Adventure, Drama",R,tt1663202,Mark L. Smith,Alejandro G. Iñárritu
+The River Why,2010,"Drama, Romance",PG-13,tt1241329,Thomas A. Cohen,Matthew Leutwyler
+The Scarlet Letter,1995,"Drama, Romance",R,tt0114345,Nathaniel Hawthorne,Roland Joffé
+The Scorpion King,2002,"Action, Adventure, Fantasy",PG-13,tt0277296,Stephen Sommers,Chuck Russell
+The Secret,2006,Documentary,PG,tt0846789,Rhonda Byrne (original concept),Drew Heriot
+The Secret In Their Eyes,2009,"Drama, Mystery, Romance",R,tt1305806,Eduardo Sacheri,Juan José Campanella
+The Secret of Kells,2009,"Animation, Adventure, Family",Not Rated,tt0485601,Tomm Moore,"Tomm Moore, Nora Twomey"
+The Seventh Sign,1988,"Drama, Fantasy, Horror",R,tt0096073,Ellen Green,Carl Schultz
+The Shawshank Redemption,1994,Drama,R,tt0111161,Stephen King,Frank Darabont
+The Social Dilemma,2020,"Documentary, Drama",PG-13,tt11464826,Vickie Curtis,Jeff Orlowski-Yang
+The Sorcerer's Apprentice,2010,"Action, Adventure, Family",PG,tt0963966,Lawrence Konner,Jon Turteltaub
+The Sound of Music,1965,"Biography, Drama, Family",G,tt0059742,Georg Hurdalek,Robert Wise
+The Specialist,1994,"Action, Drama, Thriller",R,tt0111255,John Shirley,Luis Llosa
+The Spy Who Loved Me,1977,"Action, Adventure, Thriller",PG,tt0076752,Christopher Wood,Lewis Gilbert
+The Student,2016,Drama,Unrated,tt4874206,Kirill Serebrennikov,Kirill Serebrennikov
+The Suicide Squad,2021,"Action, Adventure, Comedy",R,tt6334354,James Gunn,James Gunn
+The Sum of All Fears,2002,"Action, Drama, Thriller",PG-13,tt0164184,Tom Clancy,Phil Alden Robinson
+The Thomas Crown Affair,1999,"Crime, Romance, Thriller",R,tt0155267,Alan Trustman,John McTiernan
+The Three Musketeers,2011,"Action, Adventure, Fantasy",PG-13,tt1509767,Alex Litvak,Paul W.S. Anderson
+The Tomorrow War,2021,"Action, Adventure, Drama",PG-13,tt9777666,Zach Dean,Chris McKay
+The Transporter Refueled,2015,"Action, Thriller",PG-13,tt2938956,Adam Cooper,Camille Delamarre
+The Trigger Effect,1996,"Drama, Thriller",R,tt0117965,James Burke,David Koepp
+The Unbearable Lightness of Being,1988,"Drama, Romance",R,tt0096332,Milan Kundera,Philip Kaufman
+The Usual Suspects,1995,"Crime, Drama, Mystery",R,tt0114814,Christopher McQuarrie,Bryan Singer
+The Vow,2012,"Drama, Romance",PG-13,tt1606389,Abby Kohn,Michael Sucsy
+The Wait,2013,"Drama, Thriller",R,tt1675759,M. Blash,M. Blash
+The Wedding Ringer,2015,"Comedy, Romance",R,tt0884732,Jeremy Garelick,Jeremy Garelick
+The Wolf of Wall Street,2013,"Biography, Comedy, Crime",R,tt0993846,Terence Winter,Martin Scorsese
+The Wolverine,2013,"Action, Sci-Fi",PG-13,tt1430132,Mark Bomback,James Mangold
+The World Is Not Enough,1999,"Action, Adventure, Thriller",PG-13,tt0143145,Neal Purvis,Michael Apted
+The_Hundred_Foot_Journey,2014,"Comedy, Drama",PG,tt2980648,Steven Knight,Lasse Hallström
+This Means War,2012,"Action, Comedy, Romance",PG-13,tt1596350,Timothy Dowling,McG
+Thor Ragnarok,2017,"Action, Adventure, Comedy",PG-13,tt3501632,Eric Pearson,Taika Waititi
+Thunderball,1965,"Action, Adventure, Thriller",PG,tt0059800,Richard Maibaum,Terence Young
+"Tiger, Blood in the Mouth",2016,"Drama, Sport",N/A,tt4791322,Hernán Belón,Hernán Belón
+Titanic,1997,"Drama, Romance",PG-13,tt0120338,James Cameron,James Cameron
+Tomorrow Never Dies,1997,"Action, Adventure, Thriller",PG-13,tt0120347,Bruce Feirstein,Roger Spottiswoode
+Tomorrowland,2015,"Action, Adventure, Family",PG,tt1964418,Damon Lindelof,Brad Bird
+Top Gun,1986,"Action, Drama",PG,tt0092099,Jim Cash,Tony Scott
+Top Gun Maverick,2022,"Action, Drama",PG-13,tt1745960,Jim Cash,Joseph Kosinski
+Torment,1994,"Crime, Drama, Thriller",Not Rated,tt0109731,Claude Chabrol,Claude Chabrol
+Total Recall,1990,"Action, Adventure, Sci-Fi",R,tt0100802,Philip K. Dick,Paul Verhoeven
+Tracks,2013,"Adventure, Biography, Drama",PG-13,tt2167266,Marion Nelson,John Curran
+Transcendence,2014,"Action, Drama, Sci-Fi",PG-13,tt2209764,Jack Paglen,Wally Pfister
+Transformers: Revenge of the Fallen,2009,"Action, Adventure, Sci-Fi",PG-13,tt1055369,Ehren Kruger,Michael Bay
+Transformers-Dark Of The Moon,2011,"Action, Adventure, Sci-Fi",PG-13,tt1399103,Ehren Kruger,Michael Bay
+Transporter 3,2008,"Action, Adventure, Thriller",PG-13,tt1129442,Luc Besson,Olivier Megaton
+Tristan + Isolde,2006,"Action, Drama, Romance",PG-13,tt0375154,Dean Georgaris,Kevin Reynolds
+Troy,2004,Drama,R,tt0332452,Homer,Wolfgang Petersen
+True Grit,2010,"Drama, Western",PG-13,tt1403865,Joel Coen,"Ethan Coen, Joel Coen"
+True Lies,1994,"Action, Comedy, Thriller",R,tt0111503,James Cameron,James Cameron
+Twentynine Palms,2003,"Drama, Horror",Unrated,tt0315110,Bruno Dumont,Bruno Dumont
+Two Moon Junction,1988,"Drama, Romance",R,tt0096324,Zalman King,Zalman King
+U 571,2000,"Action, War",PG-13,tt0141926,Jonathan Mostow,Jonathan Mostow
+"Ultramarines: A Warhammer 40,000 Movie",2010,"Animation, Action, Fantasy",R,tt1679332,Dan Abnett,Martyn Pick
+Underwater,2020,"Action, Horror, Sci-Fi",PG-13,tt5774060,Brian Duffield,William Eubank
+Unknown,2011,"Action, Mystery, Thriller",PG-13,tt1401152,Oliver Butcher,Jaume Collet-Serra
+Unstoppable,2010,"Action, Thriller",PG-13,tt0477080,Mark Bomback,Tony Scott
+Untraceable,2008,"Crime, Mystery, Thriller",R,tt0880578,Robert Fyvolent,Gregory Hoblit
+Up,2009,"Animation, Adventure, Comedy",PG,tt1049413,Pete Docter,"Pete Docter, Bob Peterson"
+V for Vendetta,2005,"Action, Drama, Sci-Fi",R,tt0434409,Lilly Wachowski,James McTeigue
+Vacation,2015,"Adventure, Comedy",R,tt1524930,Jonathan Goldstein,"John Francis Daley, Jonathan Goldstein"
+Valkyrie,2008,"Drama, History, Thriller",PG-13,tt0985699,Christopher McQuarrie,Bryan Singer
+Valley of Flowers,2006,"Adventure, Drama, Fantasy",N/A,tt0392883,Pan Nalin,Pan Nalin
+Vanilla Sky,2001,"Fantasy, Mystery, Romance",R,tt0259711,Alejandro Amenábar,Cameron Crowe
+Venom,2018,"Action, Adventure, Sci-Fi",PG-13,tt1270797,Jeff Pinkner,Ruben Fleischer
+Venom Let There Be Carnage,2021,"Action, Sci-Fi, Thriller",PG-13,tt7097896,Kelly Marcel,Andy Serkis
+Vernost,2019,Drama,N/A,tt10516086,Lyubov Mulmenko,Nigina Sayfullaeva
+Vertical Limit,2000,"Action, Adventure, Drama",PG-13,tt0190865,Robert King,Martin Campbell
+Voyagers,2021,"Adventure, Sci-Fi, Thriller",PG-13,tt9664108,Neil Burger,Neil Burger
+Walking Tall,2004,"Action, Crime",PG-13,tt0351977,Mort Briskin,Kevin Bray
+War Games,2010,"Action, Horror, Thriller",N/A,tt1543459,Cosimo Alemà,Cosimo Alemà
+War Horse,2011,"Action, Adventure, Drama",PG-13,tt1568911,Lee Hall,Steven Spielberg
+WAR MACHINE,2017,"Comedy, Drama, War",TV-MA,tt4758646,Michael Hastings,David Michôd
+Watchmen,2009,"Action, Drama, Mystery",R,tt0409459,Dave Gibbons,Zack Snyder
+Wicker Park,2004,"Drama, Mystery, Romance",PG-13,tt0324554,Gilles Mimouni,Paul McGuigan
+Windtalkers,2002,"Action, Drama, War",R,tt0245562,John Rice,John Woo
+Without Remorse,2021,"Action, Thriller, War",R,tt0499097,Taylor Sheridan,Stefano Sollima
+Woman in Gold,2015,"Biography, Drama, History",PG-13,tt2404425,Alexi Kaye Campbell,Simon Curtis
+Wonder Woman 1984,2020,"Action, Adventure, Fantasy",PG-13,tt7126948,Patty Jenkins,Patty Jenkins
+World War Z ,2013,"Action, Adventure, Horror",PG-13,tt0816711,Matthew Michael Carnahan,Marc Forster
+Wrath Of Man,2021,"Action, Crime, Thriller",R,tt11083552,Nicolas Boukhrief,Guy Ritchie
+X-Men First Class,2011,"Action, Sci-Fi",PG-13,tt1270798,Ashley Miller,Matthew Vaughn
+You Only Live Twice,1967,"Action, Adventure, Thriller",PG,tt0062512,Harold Jack Bloom,Lewis Gilbert
+Zack Snyder's Justice League,2021,"Action, Adventure, Fantasy",R,tt12361974,Jerry Siegel,Zack Snyder
+Zero Dark Thirty,2012,"Drama, History, Thriller",R,tt1790885,Mark Boal,Kathryn Bigelow

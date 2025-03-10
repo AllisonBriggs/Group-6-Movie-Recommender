@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from tmdb_service import add_nosferatu_to_db
 import os
-
 
 # Import models AFTER db initialization
 from models import db, User, Movie
-#from imdb_service import fetch_movie_from_imdb
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -18,11 +15,6 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 #db = SQLAlchemy(app)
 db.init_app(app)
 bcrypt = Bcrypt(app)
-
-# Ensure Nosferatu is added at startup
-with app.app_context():
-    db.create_all()
-    add_nosferatu_to_db()  # Add Nosferatu automatically
 
 # Load logged-in user before each request
 @app.before_request

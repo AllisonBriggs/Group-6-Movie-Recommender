@@ -3,6 +3,8 @@ from flask_bcrypt import Bcrypt
 from datetime import datetime
 from scipy.spatial.distance import cosine
 import numpy as np
+from datetime import datetime
+import pandas as pd
 
 db = SQLAlchemy()
 bcrypt = Bcrypt()
@@ -31,13 +33,16 @@ class User(db.Model):
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    release_date = db.Column(db.String(200), nullable=True)
-    #release_date = db.Column(db.Date, nullable=True)
+    #release_date = db.Column(db.String(200), nullable=True)
+    release_date = db.Column(db.Date, nullable=True)
     average_rating = db.Column(db.Float, default=0.0)
     director = db.Column(db.String(100), nullable=True)
+    writer = db.Column(db.String(100), nullable=True)
     genre = db.Column(db.Text, nullable=True)
     cast_members = db.Column(db.Text, nullable=True)  # Store as a comma-separated string
+    tv_rating = db.Column(db.String(100), nullable=True)
     poster_url = db.Column(db.String(300), nullable=True)
+    summary = db.Column(db.String(800), nullable=True)
 
     def __init__(self, title, release_date, director, genre, cast_members, poster_url=None):
         self.title = title
