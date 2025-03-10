@@ -33,7 +33,7 @@ class User(db.Model):
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
-    release_date = db.Column(db.Date, nullable=True)
+    release_date = db.Column(db.String(100), nullable=True)
     average_rating = db.Column(db.Float, default=0.0)
     director = db.Column(db.String(100), nullable=True)
     writer = db.Column(db.String(100), nullable=True)

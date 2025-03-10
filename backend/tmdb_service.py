@@ -112,9 +112,7 @@ with app.app_context():
         director = row["Director"]
         writer = row["Writer"]
         tv_rating = row["Certification/Rating"]
-
-        # Convert release year to a full date (assuming January 1st)
-        release_date = datetime.strptime(f"{year}-01-01", "%Y-%m-%d")
+        release_date = row["Year"]
 
         # Fetch cast members from IMDb
         #cast_members = get_cast_from_imdb(imdb_id)
