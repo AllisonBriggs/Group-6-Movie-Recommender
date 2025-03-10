@@ -86,6 +86,14 @@ def dashboard():
     print("Movies in DB:", movies)  # Debugging: Check if movies exist
 
     return render_template("dashboard.html", movies=movies, username=session.get("user_id"))
+# Acount Route
+@app.route("/profile")
+def profile():
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+    
+    return render_template("profile.html")
 
 # Home Route
 @app.route("/")
@@ -94,3 +102,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
