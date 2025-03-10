@@ -1,57 +1,61 @@
-/* Ensure the header is aligned properly */
-.container {
+/* Ensure navbar and logo are in one row */
+header {
   display: flex;
-  align-items: center;  /* Align items in the same row */
+  align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: #ADD8E6; /* Light blue background */
+  background-color: #3B82F6;
+  padding: 5px 20px; /* Reduce padding */
   width: 100%;
+  height: 100px; /* Reduce overall height */
   box-sizing: border-box;
+  margin: 0; /* Remove any default margins */
 }
 
-/* Make sure logo and nav are evenly spaced */
+
+.nav-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0; /* Prevent excess margin */
+  padding: 0; /* Prevent extra padding */
+  max-width: 1200px;
+}
+
+
+
+/* Ensure logo and navbar share space */
 .logo-container {
   display: flex;
   align-items: center;
-  flex-grow: 1;  /* Allows it to take necessary space */
 }
 
 /* Adjust logo size */
 .logo {
-  width: 150px; /* Adjust based on your design */
+  width: 80px; /* Adjust logo size */
   height: auto;
 }
 
-/* Ensure navigation bar stays in line */
+/* Align navbar properly */
 .topnav {
   display: flex;
   gap: 20px;
-  flex-wrap: nowrap; /* Prevents wrapping */
+  align-items: center;
+  justify-content: flex-end; /* Ensures navbar is aligned correctly */
 }
 
-/* Style navigation links */
+/* Ensure navigation links don't stack */
 .topnav a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-weight: bold;
   padding: 8px 12px;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Prevents text from wrapping */
+  white-space: nowrap; /* Prevents wrapping */
 }
 
-/* Hover effect */
+/* Hover effect for nav bar*/
 .topnav a:hover {
-  color: #007bff;
+  color: #d1d5db;
   text-decoration: underline;
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .topnav {
-    margin-top: 10px;
-  }
 }
