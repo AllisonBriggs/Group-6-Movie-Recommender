@@ -12,20 +12,42 @@ db.init_app(app)
 
 # Load the CSV dataset
 file_path = "Movie_Database.csv"  # Update with correct path
-df = pd.read_csv(file_path)
+df = pd.read_csv(file_path, encoding="ISO-8859-1")
 
 # API Keys
 TMDB_API_KEY = "be7a1b6d19aadf8e429820ead6d4c592"
 IMDB_API_KEY = "8bc777d3"
 
 # Function to fetch cast members from IMDb API
+import requests
+
+
+
 def get_cast_from_imdb(imdb_id):
+    """Fetches top 5 cast members from IMDb API using the IMDb ID."""
     url = f"https://imdb-api.com/en/API/FullCast/{IMDB_API_KEY}/{imdb_id}"
-    response = requests.get(url).json()
-    if "actors" in response:
-        cast_list = [actor["name"] for actor in response["actors"][:5]]  # Get top 5 actors
-        return ", ".join(cast_list)
+    
+    try:
+        response = requests.get(url, timeout=10)  # Set a timeout to prevent hanging
+        if response.status_code == 429:
+            print("Error: Rate limit exceeded! Wait until the next day.")
+        response.raise_for_status()  # Raises an error if the response status is not 200
+        data = response.json()
+
+        if "cast" in data and isinstance(data["cast"], list):
+            cast_list = [actor["name"] for actor in data["cast"][:5]]  # Get top 5 actors
+            return ", ".join(cast_list)
+
+        if "items" in data and isinstance(data["items"], list):
+            cast_list = [actor["name"] for actor in data["items"][:5]]  # Alternate key
+            return ", ".join(cast_list)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Error fetching cast for {imdb_id}: {e}")
+        return "No cast data available"
+
     return "No cast data available"
+
 
 # Function to fetch movie poster from TMDb API
 def get_movie_poster(movie_title):
@@ -85,13 +107,13 @@ with app.app_context():
         imdb_id = row["IMDb ID"]
         director = row["Director"]
         writer = row["Writer"]
-        certification = row["Certification/Rating"]
+        tv_rating = row["Certification/Rating"]
 
         # Convert release year to a full date (assuming January 1st)
         release_date = datetime.strptime(f"{year}-01-01", "%Y-%m-%d")
 
         # Fetch cast members from IMDb
-        cast_members = get_cast_from_imdb(imdb_id)
+        #cast_members = get_cast_from_imdb(imdb_id)
 
         # Fetch movie poster from TMDb
         poster_url = get_movie_poster(title)
@@ -111,12 +133,13 @@ with app.app_context():
             director=director,
             writer=writer,
             genre=genres,
-            cast_members=cast_members,
-            tv_rating=certification,
+            #cast_members=cast_members,
+            tv_rating=tv_rating,
             poster_url=poster_url,
             summary=summary
         )
         db.session.add(new_movie)
+        print(f"added movie{title}")
 
     db.session.commit()
     print("Movies successfully added to the database!")
