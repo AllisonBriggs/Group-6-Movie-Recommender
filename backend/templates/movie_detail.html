@@ -1,29 +1,71 @@
 {% extends "layout.html" %}
-
-{% block title %}{{ movie.title }} - Details{% endblock %}
+{% block title %}{{ movie.title }}{% endblock %}
 
 {% block body %}
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-4">
-            {% if movie.poster_url %}
-                <img src="{{ movie.poster_url }}" class="img-fluid" alt="{{ movie.title }} Poster">
-            {% else %}
-                <img src="https://via.placeholder.com/300x450?text=No+Image" class="img-fluid" alt="No Image">
-            {% endif %}
-        </div>
-        <div class="col-md-8">
-            <h2>{{ movie.title }}</h2>
-            <p><strong>Genre:</strong> {{ movie.genre }}</p>
-            <p><strong>Director:</strong> {{ movie.director }}</p>
-            <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
-            <p><strong>Rating:</strong> {{ movie.tv_rating }}</p>
-            <p><strong>Summary:</strong> {{ movie.summary }}</p>
-            {% if movie.cast_members %}
-                <p><strong>Cast:</strong> {{ movie.cast_members }}</p>
-            {% endif %}
-            <a href="{{ url_for('dashboard') }}" class="btn btn-primary mt-3">Back to Dashboard</a>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ movie.title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .movie-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .movie-poster {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .movie-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .movie-details p {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="movie-container row">
+            <!-- Movie Poster on the Left -->
+            <div class="col-md-4 text-center">
+                {% if movie.poster_url %}
+                    <img src="{{ movie.poster_url }}" alt="{{ movie.title }} Poster" class="movie-poster">
+                {% else %}
+                    <img src="https://via.placeholder.com/300x450?text=No+Image" class="movie-poster">
+                {% endif %}
+            </div>
+
+            <!-- Movie Details on the Right -->
+            <div class="col-md-8">
+                <h1 class="movie-title">{{ movie.title }}</h1>
+                <p><strong>Genre:</strong> {{ movie.genre }}</p>
+                <p><strong>Director:</strong> {{ movie.director }}</p>
+                <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                <p><strong>Rating:</strong> {{ movie.average_rating or "Not Available" }}</p>
+                <p><strong>Summary:</strong> {{ movie.summary or "No summary available." }}</p>
+                
+                <a href="{{ url_for('dashboard') }}" class="back-link">← Back to Dashboard</a>
+            </div>
         </div>
     </div>
-</div>
+</body>
 {% endblock %}
