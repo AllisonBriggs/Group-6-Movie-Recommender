@@ -28,26 +28,26 @@
     <h3 class="mt-4">Recommended Movies</h3>
     {% if movies %}
         <div class="row">
-            {% for movie in movies %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" style="text-decoration: none; color: inherit;">
-                            {% if movie.poster_url %}
-                                <img src="{{ movie.poster_url }}" class="card-img-top" alt="{{ movie.title }} Poster">
-                            {% else %}
-                                <img src="https://via.placeholder.com/300x450?text=No+Image" class="card-img-top" alt="No Image">
-                            {% endif %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ movie.title }}</h5>
-                                <p class="card-text"><strong>Genre:</strong> {{ movie.genre }}</p>
-                                <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
-                                <p class="card-text"><strong>Release Year:</strong> {{ movie.release_date }}</p>
+            {% for genre, genre_movies in movies.items() %}
+                <h4>{{ genre }}</h4>
+                <div class="row">
+                    {% for movie in genre_movies %}
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="{{ movie.poster_url or 'https://via.placeholder.com/300x450?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ movie.title }}</h5>
+                                    <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
+                                    <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                                </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+            {% endfor %}
         </div>
+    {% else %}
+        <p class="text-muted">No recommendations yet. Please select your favorite genres.</p>
     {% endif %}
 </div>
 
