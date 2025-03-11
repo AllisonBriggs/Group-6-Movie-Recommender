@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, g
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from flask_migrate import Migrate
+from sqlalchemy.sql.expression import func 
 import os
 
 # Import models AFTER db initialization
@@ -15,6 +17,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 #db = SQLAlchemy(app)
 db.init_app(app)
 bcrypt = Bcrypt(app)
+migrate = Migrate(app, db)
 
 # Load logged-in user before each request
 @app.before_request
@@ -82,10 +85,38 @@ def dashboard():
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
 
-    movies = Movie.query.all()  # Fetch all movies from the database
-    print("Movies in DB:", movies)  # Debugging: Check if movies exist
+    user = User.query.get(session["user_id"])
 
-    return render_template("dashboard.html", movies=movies, username=session.get("user_id"))
+    if request.method == "POST":
+        selected_genres = request.form.getlist("genre")
+
+        if len(selected_genres) == 0:
+            flash("Please select at least one genre.", "danger")
+            return redirect(url_for("dashboard"))
+
+        if len(selected_genres) > 3:
+            flash("You can select up to 3 genres.", "danger")
+            return redirect(url_for("dashboard"))
+
+        # Save genres to the user profile
+        user.set_favorite_genres(selected_genres)
+
+        flash("Genres updated successfully!", "success")
+        return redirect(url_for("dashboard"))
+
+    # Get previously saved genres
+    selected_genres = user.get_favorite_genres()
+
+    # Fetch random movies based on stored genres
+    recommended_movies = {}
+    for genre in selected_genres:
+        movies = Movie.query.filter(Movie.genre.ilike(f"%{genre}%")).order_by(func.random()).limit(5).all()
+        recommended_movies[genre] = movies
+
+    return render_template("dashboard.html", movies=recommended_movies, selected_genres=selected_genres, username=user.username)
+
+
+
 # Acount Route
 @app.route("/profile")
 def profile():
