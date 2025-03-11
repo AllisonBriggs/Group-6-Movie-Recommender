@@ -48,7 +48,7 @@ def register():
             return redirect(url_for("register"))
 
         # Hash the password using set_password()
-        new_user = User(username=username, password=password)
+        new_user = User(username=username, password=password, favorite_genres=null)
         new_user.set_password(password)
 
         db.session.add(new_user)
@@ -113,7 +113,7 @@ def dashboard():
         movies = Movie.query.filter(Movie.genre.ilike(f"%{genre}%")).order_by(func.random()).limit(5).all()
         recommended_movies[genre] = movies
 
-    return render_template("dashboard.html", movies=movies, selected_genres=selected_genres, username=g.user.username)
+    return render_template("dashboard.html", movies=recommended_movies, selected_genres=selected_genres, username=g.user.username)
 # Acount Route
 @app.route("/profile")
 def profile():
