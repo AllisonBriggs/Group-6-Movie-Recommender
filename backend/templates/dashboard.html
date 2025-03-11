@@ -42,6 +42,7 @@
                                     <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
                                     <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
                                     <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
+                                    <button id="addToFav{{movie.id}}" onclick="addToFavorite({{ movie.id }})" class="btn btn-danger">+</button>
                                 </div>
                             </div>
                         </div>
@@ -66,6 +67,42 @@
             });
         });
     });
+
+ 
+    let favorites = [];
+
+    function addToFavorite(movie_id){
+
+        let index = favorites.indexOf(movie_id);
+        
+        checkButton = document.getElementById("addToFav" + movie_id);
+
+       
+        if (index !== -1) {
+            //remove movie from favorites
+            favorites.splice(index, 1);
+
+            //switch back to plus sign
+            checkButton.classList.remove("btn-success");
+            checkButton.classList.add("btn-danger");
+            checkButton.textContent = "+";
+        }
+        else{
+            //add movie to favorites
+            favorites.push(movie_id);
+
+            //switch to check
+            checkButton.classList.remove("btn-danger");
+            checkButton.classList.add("btn-success");
+            checkButton.textContent = "✓";
+        }
+
+    }
+
+    function getLength(){
+        return favorites.length();
+    }
+
 </script>
 
 {% endblock %}
