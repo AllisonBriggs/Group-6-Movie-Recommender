@@ -85,7 +85,7 @@ def dashboard():
     movies = Movie.query.all()  # Fetch all movies from the database
     print("Movies in DB:", movies)  # Debugging: Check if movies exist
 
-    return render_template("dashboard.html", movies=movies, username=session.get("user_id"))
+    return render_template("dashboard.html", movies=movies, username=g.user.username)
 # Acount Route
 @app.route("/profile")
 def profile():
@@ -93,7 +93,7 @@ def profile():
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
     
-    return render_template("profile.html")
+    return render_template("profile.html", username=g.user.username)
 
 # Movie Details
 @app.route("/movie/<int:movie_id>")

@@ -6,6 +6,13 @@ import numpy as np
 from datetime import datetime
 import pandas as pd
 
+VALID_GENRES = {
+    "Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+    "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
+    "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
+    "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"
+}
+
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 

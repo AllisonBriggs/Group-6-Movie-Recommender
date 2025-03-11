@@ -59,3 +59,18 @@ header {
   color: #d1d5db;
   text-decoration: underline;
 }
+
+.profile_header {
+  text-align: center;
+  color: #ffffff;
+  background-color: #9db4da;
+  
+}
+
+.prof_movie_display{
+  background-color: #d1d5dba2;
+}
+
+.prof_genres{
+  background-color: #d1d5dba2;
+}
