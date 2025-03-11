@@ -53,6 +53,7 @@
     {% else %}
         <p class="text-muted">No recommendations yet. Please select your favorite genres.</p>
     {% endif %}
+    <a href="{{ url_for('profile') }}"class="btn btn-primary">Submit</a>
 </div>
 
 <script>
@@ -97,10 +98,6 @@
             checkButton.textContent = "✓";
         }
 
-    }
-
-    function getLength(){
-        return favorites.length();
     }
 
 </script>

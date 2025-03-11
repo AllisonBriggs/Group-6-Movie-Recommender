@@ -62,62 +62,6 @@
                 <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
                 <p><strong>Rating:</strong> {{ movie.average_rating or "Not Available" }}</p>
                 <p><strong>Summary:</strong> {{ movie.summary or "No summary available." }}</p>
-
-                <button id="reviewBtn" onclick="reviewMovie()" class="btn btn-danger">Review Movie</button>
-
-                <div id="inputZone">
-                    <!-- New input fields will appear here -->
-                </div>
-
-                <script>
-                    function reviewMovie(){
-
-                        document.getElementById("reviewBtn").style.display = "none";
-
-                        // Create a new div for the form group
-                        let formGroup = document.createElement("div");
-                        formGroup.classList.add("form-group", "mb-3");
-
-                        // Create a label
-                        let label = document.createElement("label");
-                        label.setAttribute("for", "exampleFormControlTextarea");
-                        label.textContent = "Leave a Review:";
-
-                        // Create a textarea
-                        let textarea = document.createElement("textarea");
-                        textarea.classList.add("form-control");
-                        textarea.id = "exampleFormControlTextarea";
-                        textarea.rows = 3;
-
-                        // Create a remove button
-                        let removeBtn = document.createElement("button");
-                        removeBtn.classList.add("btn", "btn-danger", "mt-2");
-                        removeBtn.textContent = "Delete";
-                        removeBtn.onclick = function () {
-                            //formGroup.remove();
-                        };
-
-                        // Create a remove button
-                        let submitBtn = document.createElement("button");
-                        submitBtn.classList.add("btn", "btn-primary", "mt-2");
-                        submitBtn.textContent = "Submit";
-                        submitBtn.onclick = function () {
-                            formGroup.remove();
-                            window.location.href = "{{ url_for('dashboard') }}";
-                        };
-
-                        // Append label, textarea, and remove button to form group
-                        formGroup.appendChild(label);
-                        formGroup.appendChild(textarea);
-                        formGroup.appendChild(removeBtn);
-                        formGroup.appendChild(submitBtn);
-                        
-
-                        // Append form group to inputZone
-                        document.getElementById("inputZone").appendChild(formGroup);
-                    }
-
-                </script>
                 
                 <a href="{{ url_for('dashboard') }}" class="back-link">← Back to Dashboard</a>
             </div>
