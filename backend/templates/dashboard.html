@@ -6,8 +6,8 @@
 
     <header class="mt-4">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <h2>Welcome, {{ username }}!</h2>
-        <p>Total Movies: {{ movies|length }}</p>
+        <h2 class="text-white">Welcome, {{ username }}!</h2>
+        <p class="text-white">Total Movies: {{ movies|length }}</p>
     </header>
 
     <h3>Select Your Top Genres</h3>
@@ -53,7 +53,7 @@
     {% else %}
         <p class="text-muted">No recommendations yet. Please select your favorite genres.</p>
     {% endif %}
-    <a href="{{ url_for('profile') }}"class="btn btn-primary">Submit</a>
+    <a href="{{ url_for('profile') }}"class="btn btn-primary btn-block">Submit</a>
 </div>
 
 <script>
