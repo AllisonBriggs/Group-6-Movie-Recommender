@@ -126,6 +126,22 @@ def profile():
     
     return render_template("profile.html")
 
+# Movie Details
+@app.route("/movie/<int:movie_id>")
+def movie_detail(movie_id):
+    movie = Movie.query.get_or_404(movie_id)  # Fetch movie or return 404 if not found
+
+    return render_template("movie_detail.html", movie=movie)
+
+@app.route("/debug-movies")
+def debug_movies():
+    movies = Movie.query.all()
+    output = "<h1>Movie Summaries</h1><ul>"
+    for movie in movies:
+        output += f"<li><strong>{movie.title}</strong>: {movie.summary}</li>"
+    output += "</ul>"
+    return output  # This will display all movies and their summaries in your browser.
+
 # Home Route
 @app.route("/")
 def home():

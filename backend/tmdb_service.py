@@ -18,11 +18,6 @@ df = pd.read_csv(file_path, encoding="ISO-8859-1")
 TMDB_API_KEY = "be7a1b6d19aadf8e429820ead6d4c592"
 IMDB_API_KEY = "8bc777d3"
 
-# Function to fetch cast members from IMDb API
-import requests
-
-
-
 def get_cast_from_imdb(imdb_id):
     """Fetches top 5 cast members from IMDb API using the IMDb ID."""
     url = f"https://imdb-api.com/en/API/FullCast/{IMDB_API_KEY}/{imdb_id}"
@@ -88,15 +83,24 @@ def add_nosferatu_to_db():
     """
 
 
+
 def get_movie_summary(movie_title):
-    """Fetches movie summary (overview) from TMDb API."""
+    """Fetches movie summary (overview) from TMDb API and prints response."""
     url = f"https://api.themoviedb.org/3/search/movie?api_key={TMDB_API_KEY}&query={movie_title}"
+    
     response = requests.get(url).json()
+
+    print(f"Fetching summary for: {movie_title}")  # Debugging
+    print("API Response:", response)  # Debugging: Print full API response
     
-    if response["results"]:
-        return response["results"][0].get("overview", "No summary available.")
+    if "results" in response and response["results"]:
+        summary = response["results"][0].get("overview", "No summary available.")
+        print(f"Summary Found: {summary}")  # Debugging: Check summary
+        return summary
     
-    return "No summary found."
+    print("No summary found!")  # Debugging: If no summary exists
+    return "No summary available."
+
 
 # Insert movies into the database
 with app.app_context():
@@ -108,9 +112,7 @@ with app.app_context():
         director = row["Director"]
         writer = row["Writer"]
         tv_rating = row["Certification/Rating"]
-
-        # Convert release year to a full date (assuming January 1st)
-        release_date = datetime.strptime(f"{year}-01-01", "%Y-%m-%d")
+        release_date = row["Year"]
 
         # Fetch cast members from IMDb
         #cast_members = get_cast_from_imdb(imdb_id)
@@ -121,8 +123,17 @@ with app.app_context():
         # Check if movie already exists to prevent duplicates
         existing_movie = Movie.query.filter_by(title=title).first()
         if existing_movie:
-            print(f"Skipping {title}, already exists in DB.")
+            # Fetch the summary
+            summary = get_movie_summary(title)
+            
+            if not existing_movie.summary or existing_movie.summary == "No summary available.":
+                existing_movie.summary = summary  # Update the summary
+                db.session.commit()  # Save the update
+                print(f"Updated summary for {title}: {summary}")
+            else:
+                print(f"Skipping {title}, summary already exists.")
             continue
+
 
         summary = get_movie_summary(title)
 
