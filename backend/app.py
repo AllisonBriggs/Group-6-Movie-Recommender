@@ -142,6 +142,32 @@ def debug_movies():
     output += "</ul>"
     return output  # This will display all movies and their summaries in your browser.
 
+@app.route('/submit_favorites', methods=["POST"])
+def submit_favorites():
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+
+    # Get the list of favorite movie IDs from the hidden input field
+    favorites_data = request.form.get("favorites")
+    
+    # Ensure that the data exists and is valid
+    if not favorites_data:
+        flash("No favorite movies selected.", "danger")
+        return redirect(url_for("dashboard"))
+    
+    # Parse the JSON string into a Python list
+    favorites = json.loads(favorites_data)
+    
+    # Get the current user from the session
+    user = User.query.get(session["user_id"])
+
+    # Update the user's favorite movies (assuming youk have a method to set favorites)
+    user.set_favorite_movies(favorites)
+    
+    flash("Favorites updated successfully!", "success")
+    return redirect(url_for("dashboard"))
+
 # Home Route
 @app.route("/")
 def home():

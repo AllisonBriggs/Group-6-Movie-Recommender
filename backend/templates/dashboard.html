@@ -42,7 +42,10 @@
                                     <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
                                     <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
                                     <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
-                                    <button id="addToFav{{movie.id}}" onclick="addToFavorite({{ movie.id }})" class="btn btn-danger">+</button>
+                                    <!-- Button to toggle favorites -->
+                                    <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">
+                                        +
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +56,10 @@
     {% else %}
         <p class="text-muted">No recommendations yet. Please select your favorite genres.</p>
     {% endif %}
-    <a href="{{ url_for('profile') }}"class="btn btn-primary btn-block">Submit</a>
+    <!-- Hidden input to store the list of selected movie IDs -->
+    <input type="hidden" name="favorites" id="favorites-input">
+
+    <button onclick="submitFavorites()" class="btn btn-primary">Submit Favorites</button>
 </div>
 
 <script>
@@ -72,32 +78,38 @@
  
     let favorites = [];
 
-    function addToFavorite(movie_id){
+    // Function to toggle the button state
+    function toggleFavorite(movie_id) {
+        const checkButton = document.getElementById(`addToFav${movie_id}`);
+        const isFavorite = favorites.includes(movie_id);
 
-        let index = favorites.indexOf(movie_id);
-        
-        checkButton = document.getElementById("addToFav" + movie_id);
-
-       
-        if (index !== -1) {
-            //remove movie from favorites
-            favorites.splice(index, 1);
-
-            //switch back to plus sign
+        if (isFavorite) {
+            // If the movie is already a favorite, remove it from the array
+            favorites.splice(favorites.indexOf(movie_id), 1);
             checkButton.classList.remove("btn-success");
             checkButton.classList.add("btn-danger");
-            checkButton.textContent = "+";
-        }
-        else{
-            //add movie to favorites
+            checkButton.textContent = "+";  // Change button text to "+"
+        } else {
+            // If the movie is not a favorite, add it to the array
             favorites.push(movie_id);
-
-            //switch to check
             checkButton.classList.remove("btn-danger");
             checkButton.classList.add("btn-success");
-            checkButton.textContent = "✓";
+            checkButton.textContent = "✓";  // Change button text to "✓"
         }
 
+        // Optionally, update the hidden input field with the list of selected favorites (as JSON)
+        document.getElementById('favorites-input').value = JSON.stringify(favorites);
+    }
+
+    // Function to submit the favorites list when the form is submitted
+    function submitFavorites() {
+        if (favorites.length === 0) {
+            alert("Please select at least one favorite movie.");
+            return;
+        }
+
+        // If favorites are selected, the form can be submitted
+        document.querySelector('form').submit();
     }
 
 </script>
