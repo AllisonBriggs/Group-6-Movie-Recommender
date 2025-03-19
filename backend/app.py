@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from sqlalchemy.sql.expression import func 
 import os
+import json
 
 # Import models AFTER db initialization
 from models import db, User, Movie
@@ -148,24 +149,20 @@ def submit_favorites():
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
 
-    # Get the list of favorite movie IDs from the hidden input field
     favorites_data = request.form.get("favorites")
     
-    # Ensure that the data exists and is valid
     if not favorites_data:
         flash("No favorite movies selected.", "danger")
         return redirect(url_for("dashboard"))
     
-    # Parse the JSON string into a Python list
     favorites = json.loads(favorites_data)
-    
-    # Get the current user from the session
+
     user = User.query.get(session["user_id"])
 
-    # Update the user's favorite movies (assuming youk have a method to set favorites)
     user.set_favorite_movies(favorites)
-    
-    flash("Favorites updated successfully!", "success")
+    db.session.commit()  
+
+    flash("Movies updated successfully!", "success")
     return redirect(url_for("dashboard"))
 
 # Home Route
