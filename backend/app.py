@@ -131,27 +131,34 @@ def movie_detail(movie_id):
     reviews = Review.query.filter_by(movie_id=movie_id).all()
     return render_template("movie_detail.html", movie=movie, reviews=reviews)
 
-@app.route("/movie/<int:movie_id>/review", methods=["POST"])
+@app.route("/submit_review/<int:movie_id>", methods=["POST"])
 def submit_review(movie_id):
     if "user_id" not in session:
-        flash("Please log in to leave a review.", "danger")
+        flash("Please log in to leave a review.", "warning")
         return redirect(url_for("login"))
 
-    user_id = session["user_id"]
-    rating = float(request.form.get("rating"))
-    review_text = request.form.get("review_text")
+    rating = float(request.form["rating"])
+    review_text = request.form["review_text"]
 
-    existing_review = Review.query.filter_by(user_id=user_id, movie_id=movie_id).first()
-
-    if existing_review:
-        existing_review.update_review(rating, review_text)
-        flash("Your review has been updated.", "success")
-    else:
-        new_review = Review(user_id=user_id, movie_id=movie_id, rating=rating, review_text=review_text)
-        db.session.add(new_review)
-        flash("Thanks for reviewing!", "success")
-
+    # Save the new review
+    new_review = Review(
+        user_id=session["user_id"],
+        movie_id=movie_id,
+        rating=rating,
+        review_text=review_text
+    )
+    db.session.add(new_review)
     db.session.commit()
+
+    # Recalculate average rating
+    all_reviews = Review.query.filter_by(movie_id=movie_id).all()
+    if all_reviews:
+        average = sum(r.rating for r in all_reviews) / len(all_reviews)
+        movie = Movie.query.get(movie_id)
+        movie.average_rating = round(average, 2)
+        db.session.commit()
+
+    flash("Review submitted successfully!", "success")
     return redirect(url_for("movie_detail", movie_id=movie_id))
 
 @app.route("/debug-movies")
