@@ -15,9 +15,9 @@
       <nav class="topnav">
           <a href="{{ url_for('dashboard') }}">Home</a>
           <a href="{{ url_for('profile') }}">Profile</a>
-          <a href="#search">Search</a>
+          <a href="{{ url_for('search') }}">Search</a>
           <a href="#friends">Friends</a>
-          <a href="#about">About</a>
+          <a href="{{ url_for('logout') }}">Logout</a>
       </nav>
   </div>
 </header>
