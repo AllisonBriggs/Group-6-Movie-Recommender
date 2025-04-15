@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from sqlalchemy.sql.expression import func 
 import os
 import json
+from recommender import Recommendation
 
 # Import models AFTER db initialization
 from models import db, User, Movie, Review
@@ -134,12 +135,22 @@ def dashboard():
         flash("Genres updated successfully!", "success")
         return redirect(url_for("dashboard"))
 
-    
-    # Fetch random movies based on stored genres
+    recommender = Recommendation(user, db)
+    recommended_movies_list = recommender.rec_by_genre()
+
+    # Group movies by genre for display (optional: keep layout)
     recommended_movies = {}
-    for genre in selected_genres:
-        movies = Movie.query.filter(Movie.genre.ilike(f"%{genre}%")).order_by(func.random()).limit(5).all()
-        recommended_movies[genre] = movies
+    for movie in recommended_movies_list:
+        for genre in user.get_favorite_genres():
+            if genre.lower() in movie.genre.lower():
+                recommended_movies.setdefault(genre, []).append(movie)
+                break
+
+    # # Fetch random movies based on stored genres
+    # recommended_movies = {}
+    # for genre in selected_genres:
+    #     movies = Movie.query.filter(Movie.genre.ilike(f"%{genre}%")).order_by(func.random()).limit(5).all()
+    #     recommended_movies[genre] = movies
 
     return render_template("dashboard.html",
                        username=user.username,
