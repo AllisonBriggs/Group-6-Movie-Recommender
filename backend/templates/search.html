@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}Search{% endblock %}
+{% block body %}
+
+<div class="container">
+
+    <header class="mt-4">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <h2 class="text-white">Search Movies</h2>
+    </header>
+
+    <form method="GET" action="{{ url_for('search') }}" class="mb-4">
+        <div class="form-row">
+            <div class="col-md-5 mb-2">
+                <input type="text" name="query" class="form-control" placeholder="Search by title..." value="{{ query }}">
+            </div>
+            <div class="col-md-5 mb-2">
+                <input type="text" name="genre" class="form-control" placeholder="Filter by genre..." value="{{ genre }}">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary btn-block">Search</button>
+            </div>
+        </div>
+    </form>
+
+    {% if results %}
+        <h4 class="text-white mb-3">Search Results ({{ results|length }})</h4>
+        <div class="row">
+            {% for movie in results %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ movie.poster_url or 'https://via.placeholder.com/300x450?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-text"><strong>Genre:</strong> {{ movie.genre or "N/A" }}</p>
+                            <p class="card-text"><strong>Director:</strong> {{ movie.director or "Unknown" }}</p>
+                            <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date or "Unknown" }}</p>
+                            <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary btn-block">View Movie</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% elif query or genre %}
+        <p class="text-muted">No results found. Try different keywords or genres.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -162,6 +162,30 @@ def submit_favorites():
     flash("Movies updated successfully!", "success")
     return redirect(url_for("dashboard"))
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.args.get("query", "").strip()
+    genre = request.args.get("genre", "").strip()
+
+    results = Movie.query
+
+    if query:
+        results = results.filter(Movie.title.ilike(f"%{query}%"))
+
+    if genre:
+        results = results.filter(Movie.genre.ilike(f"%{genre}%"))
+
+    results = results.all()
+
+    return render_template("search.html", results=results, query=query, genre=genre)
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("You have been logged out.", "info")
+    return redirect(url_for("login"))
+
+
 # Home Route
 @app.route("/")
 def home():
