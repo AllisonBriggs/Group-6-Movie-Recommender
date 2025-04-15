@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
 from sqlalchemy.sql.expression import func 
 import os
+import json
 
 # Import models AFTER db initialization
 from models import db, User, Movie
@@ -138,6 +139,28 @@ def debug_movies():
         output += f"<li><strong>{movie.title}</strong>: {movie.summary}</li>"
     output += "</ul>"
     return output  # This will display all movies and their summaries in your browser.
+
+@app.route('/submit_favorites', methods=["POST"])
+def submit_favorites():
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+
+    favorites_data = request.form.get("favorites")
+    
+    if not favorites_data:
+        flash("No favorite movies selected.", "danger")
+        return redirect(url_for("dashboard"))
+    
+    favorites = json.loads(favorites_data)
+
+    user = User.query.get(session["user_id"])
+
+    user.set_favorite_movies(favorites)
+    db.session.commit()  
+
+    flash("Movies updated successfully!", "success")
+    return redirect(url_for("dashboard"))
 
 # Home Route
 @app.route("/")
