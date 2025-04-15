@@ -7,7 +7,7 @@ import os
 import json
 
 # Import models AFTER db initialization
-from models import db, User, Movie
+from models import db, User, Movie, Review
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -127,9 +127,32 @@ def profile():
 # Movie Details
 @app.route("/movie/<int:movie_id>")
 def movie_detail(movie_id):
-    movie = Movie.query.get_or_404(movie_id)  # Fetch movie or return 404 if not found
+    movie = Movie.query.get_or_404(movie_id)
+    reviews = Review.query.filter_by(movie_id=movie_id).all()
+    return render_template("movie_detail.html", movie=movie, reviews=reviews)
 
-    return render_template("movie_detail.html", movie=movie)
+@app.route("/movie/<int:movie_id>/review", methods=["POST"])
+def submit_review(movie_id):
+    if "user_id" not in session:
+        flash("Please log in to leave a review.", "danger")
+        return redirect(url_for("login"))
+
+    user_id = session["user_id"]
+    rating = float(request.form.get("rating"))
+    review_text = request.form.get("review_text")
+
+    existing_review = Review.query.filter_by(user_id=user_id, movie_id=movie_id).first()
+
+    if existing_review:
+        existing_review.update_review(rating, review_text)
+        flash("Your review has been updated.", "success")
+    else:
+        new_review = Review(user_id=user_id, movie_id=movie_id, rating=rating, review_text=review_text)
+        db.session.add(new_review)
+        flash("Thanks for reviewing!", "success")
+
+    db.session.commit()
+    return redirect(url_for("movie_detail", movie_id=movie_id))
 
 @app.route("/debug-movies")
 def debug_movies():

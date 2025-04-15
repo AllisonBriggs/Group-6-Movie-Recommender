@@ -144,6 +144,8 @@ class Review(db.Model):
     rating = db.Column(db.Float, nullable=False)
     review_text = db.Column(db.Text, nullable=True)
     review_date = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    user = db.relationship("User", backref="reviews")  # <- THIS is key
 
     def __init__(self, user_id, movie_id, rating, review_text):
         self.user_id = user_id
@@ -161,4 +163,4 @@ class Review(db.Model):
 
     def delete_review(self):
         db.session.delete(self)
-        db.session.commit()
+        db.session.commit() 
