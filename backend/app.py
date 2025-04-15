@@ -7,7 +7,7 @@ import os
 import json
 
 # Import models AFTER db initialization
-from models import db, User, Movie, Review
+from models import db, User, Movie, Review, Watchlist
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -121,8 +121,34 @@ def profile():
     if "user_id" not in session:
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
-    
-    return render_template("profile.html", username=g.user.username)
+
+    user = User.query.get(session["user_id"])
+
+    watchlist_entries = Watchlist.query.filter_by(user_id=user.id).all()
+    reviews = Review.query.filter_by(user_id=user.id).all()
+
+    # Get movie info for watchlist
+    watchlist_movies = [Movie.query.get(entry.movie_id) for entry in watchlist_entries]
+
+    # Get movies for each review
+    rated_movies = []
+    for review in reviews:
+        movie = Movie.query.get(review.movie_id)
+        if movie:
+            rated_movies.append({
+                "title": movie.title,
+                "rating": review.rating,
+                "comment": review.review_text,
+                "date": review.review_date.strftime("%Y-%m-%d")
+            })
+
+    return render_template(
+        "profile.html",
+        username=user.username,
+        watchlist_movies=watchlist_movies,
+        rated_movies=rated_movies,
+        favorite_genres=user.get_favorite_genres()
+    )
 
 # Movie Details
 @app.route("/movie/<int:movie_id>")
@@ -137,28 +163,25 @@ def submit_review(movie_id):
         flash("Please log in to leave a review.", "warning")
         return redirect(url_for("login"))
 
+    user_id = session["user_id"]
     rating = float(request.form["rating"])
     review_text = request.form["review_text"]
 
-    # Save the new review
-    new_review = Review(
-        user_id=session["user_id"],
-        movie_id=movie_id,
-        rating=rating,
-        review_text=review_text
-    )
-    db.session.add(new_review)
+    # Save the review
+    existing_review = Review.query.filter_by(user_id=user_id, movie_id=movie_id).first()
+    if existing_review:
+        existing_review.update_review(rating, review_text)
+    else:
+        new_review = Review(user_id=user_id, movie_id=movie_id, rating=rating, review_text=review_text)
+        db.session.add(new_review)
+
+    # Add to watchlist if not already there
+    existing_watch = Watchlist.query.filter_by(user_id=user_id, movie_id=movie_id).first()
+    if not existing_watch:
+        db.session.add(Watchlist(user_id=user_id, movie_id=movie_id))
+
     db.session.commit()
-
-    # Recalculate average rating
-    all_reviews = Review.query.filter_by(movie_id=movie_id).all()
-    if all_reviews:
-        average = sum(r.rating for r in all_reviews) / len(all_reviews)
-        movie = Movie.query.get(movie_id)
-        movie.average_rating = round(average, 2)
-        db.session.commit()
-
-    flash("Review submitted successfully!", "success")
+    flash("Review submitted!", "success")
     return redirect(url_for("movie_detail", movie_id=movie_id))
 
 @app.route("/debug-movies")
