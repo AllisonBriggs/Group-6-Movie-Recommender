@@ -58,37 +58,40 @@
         <h6><i>If you wish to update them use the drop down</i></h6>
         <!--Display the favorite Genres-->
         <!--Option to change genres-->
-        <div class="genre_dropdown">
-            <select name="genre1" id="genre1">
-                <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
-                {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-                                 "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-                                 "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-                                 "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 0 and selected_genres[0] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-            <select name="genre2" id="genre2">
-                <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
-                {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-                                 "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-                                 "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-                                 "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 1 and selected_genres[1] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>            
-            <select name="genre3" id="genre3">
-                <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
-                {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-                                 "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-                                 "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-                                 "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 2 and selected_genres[2] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-            
-            <button type="submit">Update</button>
-        </div>
+        <form method="POST" action="{{ url_for('profile') }}">
+            <div class="genre_dropdown">
+                <select name="genre1" id="genre1">
+                    <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
+                    {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+                                     "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
+                                     "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
+                                     "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
+                        <option value="{{ genre }}" {% if selected_genres|length > 0 and selected_genres[0] == genre %}selected{% endif %}>{{ genre }}</option>
+                    {% endfor %}
+                </select>
+                <select name="genre2" id="genre2">
+                    <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
+                    {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+                                     "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
+                                     "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
+                                     "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
+                        <option value="{{ genre }}" {% if selected_genres|length > 1 and selected_genres[1] == genre %}selected{% endif %}>{{ genre }}</option>
+                    {% endfor %}
+                </select>            
+                <select name="genre3" id="genre3">
+                    <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
+                    {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+                                     "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
+                                     "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
+                                     "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
+                        <option value="{{ genre }}" {% if selected_genres|length > 2 and selected_genres[2] == genre %}selected{% endif %}>{{ genre }}</option>
+                    {% endfor %}
+                </select>
+                
+                <button type="submit">Update</button>
+            </div>
+        </form>
+        
         
 >>>>>>> 6b030f5db32837a2d6eeadf20e21af5337e69b83
     </div>
