@@ -44,8 +44,7 @@ class User(db.Model):
         db.session.commit()
 
     def get_favorite_genres(self):
-        """Return genres as a list"""
-        return self.favorite_genres.split(", ") if self.favorite_genres else []
+        return self.favorite_genres.split(",") if self.favorite_genres else []
     
     def set_favorite_movies(self, movies):
         """Store movies as a comma-separated string"""

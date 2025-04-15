@@ -36,6 +36,11 @@ def initdb_command():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    genres = ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+        "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
+        "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
+        "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"]
+
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -47,9 +52,23 @@ def register():
         if User.query.filter_by(username=username).first():
             flash("Username already taken, choose another!", "danger")
             return redirect(url_for("register"))
+        
+        genre1 = request.form.get('genre1')
+        genre2 = request.form.get('genre2')
+        genre3 = request.form.get('genre3')
+
+        # Remove empty values and duplicates
+        selected_genres = [g for g in [genre1, genre2, genre3] if g]
+        if len(set(selected_genres)) != len(selected_genres):
+            flash("Please select different genres.", "danger")
+            return redirect(url_for('register'))
+
+        favorite_genres = ",".join(selected_genres)
+
+
 
         # Hash the password using set_password()
-        new_user = User(username=username, password=password, favorite_genres=null)
+        new_user = User(username=username, password=password, favorite_genres=favorite_genres)
         new_user.set_password(password)
 
         db.session.add(new_user)
@@ -58,7 +77,8 @@ def register():
         flash("Account created! Please log in.", "success")
         return redirect(url_for("login"))
 
-    return render_template("register.html")
+    return render_template("register.html", genres=genres)
+
 
 
 # User Login Route
@@ -82,11 +102,20 @@ def login():
 # Dashboard (Accessible After Login)
 @app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
+    genres = ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+        "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
+        "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
+        "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"]
+    
     if "user_id" not in session:
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
 
     user = User.query.get(session["user_id"])
+    # Get previously saved genres
+    selected_genres = user.get_favorite_genres()
+
+
 
     if request.method == "POST":
         selected_genres = request.form.getlist("genre")
@@ -105,24 +134,30 @@ def dashboard():
         flash("Genres updated successfully!", "success")
         return redirect(url_for("dashboard"))
 
-    # Get previously saved genres
-    selected_genres = user.get_favorite_genres()
-
+    
     # Fetch random movies based on stored genres
     recommended_movies = {}
     for genre in selected_genres:
         movies = Movie.query.filter(Movie.genre.ilike(f"%{genre}%")).order_by(func.random()).limit(5).all()
         recommended_movies[genre] = movies
 
-    return render_template("dashboard.html", movies=recommended_movies, selected_genres=selected_genres, username=g.user.username)
+    return render_template("dashboard.html",
+                       username=user.username,
+                       genres=genres,
+                       selected_genres=selected_genres,
+                       movies=recommended_movies)
+
+
 # Acount Route
 @app.route("/profile")
 def profile():
     if "user_id" not in session:
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
+    user = User.query.get(session["user_id"])
+    selected_genres = user.get_favorite_genres()
     
-    return render_template("profile.html", username=g.user.username)
+    return render_template("profile.html", username=user.username, selected_genres=selected_genres)
 
 # Movie Details
 @app.route("/movie/<int:movie_id>")
