@@ -165,7 +165,6 @@ def profile():
     if "user_id" not in session:
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
-<<<<<<< HEAD
 
     user = User.query.get(session["user_id"])
 
@@ -194,12 +193,10 @@ def profile():
         rated_movies=rated_movies,
         favorite_genres=user.get_favorite_genres()
     )
-=======
-    user = User.query.get(session["user_id"])
-    selected_genres = user.get_favorite_genres()
+    # user = User.query.get(session["user_id"])
+    # selected_genres = user.get_favorite_genres()
     
-    return render_template("profile.html", username=user.username, selected_genres=selected_genres)
->>>>>>> 6b030f5db32837a2d6eeadf20e21af5337e69b83
+    # return render_template("profile.html", username=user.username, selected_genres=selected_genres)
 
 # Movie Details
 @app.route("/movie/<int:movie_id>")
