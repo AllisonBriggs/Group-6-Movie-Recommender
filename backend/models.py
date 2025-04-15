@@ -7,10 +7,10 @@ from datetime import datetime
 import pandas as pd
 
 VALID_GENRES = {
-    "Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-    "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-    "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-    "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"
+    'Action', 'Adult', 'Adventure', 'Animation', 'Biography', 'Comedy', 
+    'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'History', 'Horror', 
+    'Music', 'Mystery', 'News', 'Romance', 'Sci-Fi', 'Short', 'Sport', 'Thriller', 
+    'War', 'Western'
 }
 
 db = SQLAlchemy()
