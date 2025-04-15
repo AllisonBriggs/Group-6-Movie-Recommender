@@ -38,6 +38,38 @@
                         <input type="password" class="form-control" id="confirm_password" name="confirm_password" required placeholder="Re-enter your password">
                     </div>
 
+                    <div class="form-group">
+                        <label for="genre1">Top Genre 1</label>
+                        <select class="form-control genre-select" id="genre1" name="genre1" required>
+                            <option value="" disabled selected>Select a genre</option>
+                            {% for genre in genres %}
+                                <option value="{{ genre }}">{{ genre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genre2">Top Genre 2</label>
+                        <select class="form-control genre-select" id="genre2" name="genre2">
+                            <option value="" disabled selected>Select a genre</option>
+                            {% for genre in genres %}
+                                <option value="{{ genre }}">{{ genre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genre3">Top Genre 3</label>
+                        <select class="form-control genre-select" id="genre3" name="genre3">
+                            <option value="" disabled selected>Select a genre</option>
+                            {% for genre in genres %}
+                                <option value="{{ genre }}">{{ genre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    
+
                     <button type="submit" class="btn btn-success btn-block">Register</button>
                 </form>
 
@@ -61,6 +93,30 @@
             return true;
         }
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selects = document.querySelectorAll(".genre-select");
+
+            selects.forEach(select => {
+                select.addEventListener("change", function () {
+                    const values = Array.from(selects).map(s => s.value);
+                    
+                    selects.forEach(s => {
+                        Array.from(s.options).forEach(option => {
+                            if (option.value && values.includes(option.value) && s.value !== option.value) {
+                                option.disabled = true;
+                            } else {
+                                option.disabled = false;
+                            }
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+
+
 {% endblock %}
 
 <!-- Bootstrap and jQuery scripts -->
