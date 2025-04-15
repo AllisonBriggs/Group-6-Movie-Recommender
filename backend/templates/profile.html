@@ -1,23 +1,59 @@
 {% extends "layout.html" %}
 {% block title %}Profile{% endblock %}
 {% block body %}
+
 <head>
     <meta charset="UTF-8">
     <title>SceneIt - Profile</title>
 </head>
+
 <body>
    <h1 class="profile_header">{{ username }}'s Profile</h1>
+
    <div class="prof_movie_display">
         <h2>Rated Movies</h2>
-        <!--Display the user's rated movies-->
+        {% if rated_movies %}
+            <ul>
+            {% for review in rated_movies %}
+                <li>
+                    <strong>{{ review.title }}</strong><br>
+                    ⭐ {{ review.rating }} / 5<br>
+                    "{{ review.comment }}"<br>
+                    <small>{{ review.date }}</small>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't rated any movies yet.</p>
+        {% endif %}
    </div>
+
     <div class="prof_movie_display">
         <h2>Watch List</h2>
-        <!--Display the user's watch list movies-->
-        
+        {% if watchlist_movies %}
+            <ul>
+                {% for movie in watchlist_movies %}
+                    <li>{{ movie.title }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Your watchlist is empty.</p>
+        {% endif %}
     </div>
+
     <div class="prof_genres">
         <h2>Favorite Genres</h2>
+<<<<<<< HEAD
+        {% if favorite_genres %}
+            <ul>
+                {% for genre in favorite_genres %}
+                    <li>{{ genre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No favorite genres selected.</p>
+        {% endif %}
+=======
         <h5>Your top three movie genres</h5>
         <h6><i>If you wish to update them use the drop down</i></h6>
         <!--Display the favorite Genres-->
@@ -54,5 +90,8 @@
             <button type="submit">Update</button>
         </div>
         
+>>>>>>> 6b030f5db32837a2d6eeadf20e21af5337e69b83
     </div>
+
+</body>
 {% endblock %}
