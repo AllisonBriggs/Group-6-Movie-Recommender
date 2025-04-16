@@ -4,29 +4,55 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
     <title>SceneIt - Profile</title>
 </head>
 
 <body>
    <h1 class="profile_header">{{ username }}'s Profile</h1>
 
-   <div class="prof_movie_display">
+    <div class="prof_movie_display">
         <h2>Rated Movies</h2>
         {% if rated_movies %}
-            <ul>
-            {% for review in rated_movies %}
-                <li>
-                    <strong>{{ review.title }}</strong><br>
-                    ⭐ {{ review.rating }} / 5<br>
-                    "{{ review.comment }}"<br>
-                    <small>{{ review.date }}</small>
-                </li>
-            {% endfor %}
+        <div class="row">
+            <ul class="movie-list">
+                {% for review in rated_movies %}
+                    <li class="review-card">
+                        <div class="review-body">
+                            <h5 class="movie-title">{{ review.title }}</h5>
+                            <p class="review-text"> "{{ review.comment }}"</p>
+                        </div>
+                        <div class="rating">
+                            {% for star in "12345" %}
+                                {% if loop.index <= review.rating %}
+                                    <div class="star">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e6b632" class="size-6">
+                                            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                {% else %}
+                                    <div class="star">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" class="size-6">
+                                            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="info">
+                            <div class="info-title">
+                                <p>{{ review.date }}</p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
+        </div>
         {% else %}
             <p>You haven't rated any movies yet.</p>
         {% endif %}
-   </div>
+    </div>
 
     <div class="prof_movie_display">
         <h2>Watch List</h2>
@@ -43,7 +69,6 @@
 
     <div class="prof_genres">
         <h2>Favorite Genres</h2>
-<<<<<<< HEAD
         {% if favorite_genres %}
             <ul>
                 {% for genre in favorite_genres %}
@@ -53,44 +78,6 @@
         {% else %}
             <p>No favorite genres selected.</p>
         {% endif %}
-=======
-        <h5>Your top three movie genres</h5>
-        <h6><i>If you wish to update them use the drop down</i></h6>
-        <!--Display the favorite Genres-->
-        <!--Option to change genres-->
-        <div class="genre_dropdown">
-            <select name="genre1" id="genre1">
-                <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
-                {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-                                 "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-                                 "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-                                 "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 0 and selected_genres[0] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-            <select name="genre2" id="genre2">
-                <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
-                {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-                                 "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-                                 "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-                                 "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 1 and selected_genres[1] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>            
-            <select name="genre3" id="genre3">
-                <option value="" disabled {% if selected_genres|length == 0 %}selected{% endif %}>Select a genre</option>
-                {% for genre in ["Action", "Adult", "Adventure", "Animation", "Biography", "Comedy", "Crime",
-                                 "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "Game Show", "History",
-                                 "Horror", "Musical", "Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi",
-                                 "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"] %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 2 and selected_genres[2] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-            
-            <button type="submit">Update</button>
-        </div>
-        
->>>>>>> 6b030f5db32837a2d6eeadf20e21af5337e69b83
     </div>
 
 </body>
