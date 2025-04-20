@@ -3,17 +3,18 @@
 <head>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <script src="{{ url_for('static', filename='stars.js') }}"></script>
 </head>
 
 <header>
   <div class="nav-container">
       <div class="logo-container">
-        <a href="{{ url_for('dashboard') }}">
+        <a href="{{ url_for('main_page') }}">
           <img src="{{ url_for('static', filename='logo4.png') }}" alt="SceneIt Logo" class="logo">
         </a>
       </div>
       <nav class="topnav">
-          <a href="{{ url_for('dashboard') }}">Home</a>
+          <a href="{{ url_for('main_page') }}">Home</a>
           <a href="{{ url_for('profile') }}">Profile</a>
           <a href="{{ url_for('search') }}">Search</a>
           <a href="#friends">Friends</a>

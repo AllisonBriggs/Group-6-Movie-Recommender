@@ -1,92 +1,35 @@
-/* Review Card */
-.review-card {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px;
-    gap: 12px;
-    position: relative;
-    max-width: 500px;
-    height: 171px;
-    background: #FFFFFF;
-    border: 1px solid #D9D9D9;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  /* Review Body */
-  .review-body {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  /* Movie Title */
-  .movie-title {
-    font-weight: 600;
-    font-size: 20px;
-    color: #1E1E1E;
-    margin: 0;
-  }
-  
-  /* Review Text */
-  .review-text {
-    font-weight: 400;
-    font-size: 16px;
-    color: #1E1E1E;
-    margin: 0;
-  }
-  
-  /* Rating Stars */
-  .rating {
-    display: flex;
-    gap: 4px;
-    position: absolute;
-    top: 18px;
-    right: 24px;
-  }
-  
-  
   .star {
-    width: 20px;
-    height: 20px;
+    color: lightgray;
   }
   
-  /* Avatar Block */
-  .avatar-block {
+  .star.filled {
+    color: gold;
+  }
+  
+  .star.half-filled {
+    color: gold;
+    background: linear-gradient(90deg, gold 50%, lightgray 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #999; /* darker gray on hover */
+    opacity: 1;
+}
+
+/* Make the arrow icons inside look right */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: white;
     display: flex;
-    flex-direction: row;
-    gap: 12px;
     align-items: center;
-    margin-top: auto;
-  }
-  
-  /* Avatar */
-  .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: url(image.png);
-    background-size: cover;
-    background-position: center;
-  }
-  
-  /* Info */
-  .info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  
-  .info .title {
-    font-weight: 600;
-    font-size: 16px;
-    color: #757575;
-  }
-  
-  .info .description {
-    font-weight: 400;
-    font-size: 16px;
-    color: #B3B3B3;
-  }
+    justify-content: center;
+}
+
+
+.badge{
+  font-size:large;
+  font-weight:450;
+}

@@ -10,44 +10,64 @@
 </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
    <h1 class="profile_header">{{ username }}'s Profile</h1>
+
+   <div class="prof_genres">
+        <h2>Favorite Genres</h2>
+        {% if favorite_genres %}
+            <div class="container-fluid">
+                <div class="py-3">
+                    {% for genre in favorite_genres %}
+                            <span class="badge badge-primary">{{genre}}</span>    
+                    {% endfor %}
+                    <span class="badge badge-primary">+</span>
+                </div>
+            </div>
+        {% else %}
+            <p>No favorite genres selected.</p>
+        {% endif %}
+    </div>
 
     <div class="prof_movie_display">
         <h2>Rated Movies</h2>
         {% if rated_movies %}
-        <div class="row">
-            <ul class="movie-list">
-                {% for review in rated_movies %}
-                    <li class="review-card">
-                        <div class="review-body">
-                            <h5 class="movie-title">{{ review.title }}</h5>
-                            <p class="review-text"> "{{ review.comment }}"</p>
+        <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              {% for review in rated_movies|batch(4, '') %}
+              <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="d-flex justify-content-center">
+                  {% for r in review %}
+                  {% if r %}
+                  <div class="card m-2" style="width: 20rem;">
+                    <div class="card-body">
+                      <div class="card-title">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <h5 class="movie-title">{{ r.title }}</h5>
+                          <div class="star-score" data-score="{{ r.rating }}"></div>
                         </div>
-                        <div class="rating">
-                            {% for star in "12345" %}
-                                {% if loop.index <= review.rating %}
-                                    <div class="star">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#e6b632" class="size-6">
-                                            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                {% else %}
-                                    <div class="star">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" class="size-6">
-                                            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                        <div class="info">
-                            <div class="info-title">
-                                <p>{{ review.date }}</p>
-                            </div>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+                      </div>
+                      <p>"{{ r.comment }}"</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <small>{{ r.date }}</small>
+                      </div>
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          
+            <a class="carousel-control-prev" href="#reviewCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#reviewCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
         </div>
         {% else %}
             <p>You haven't rated any movies yet.</p>
@@ -57,28 +77,49 @@
     <div class="prof_movie_display">
         <h2>Watch List</h2>
         {% if watchlist_movies %}
-            <ul>
-                {% for movie in watchlist_movies %}
-                    <li>{{ movie.title }}</li>
-                {% endfor %}
-            </ul>
+            <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for movie_group in watchlist_movies|batch(4, '') %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <div class="d-flex justify-content-center">
+                                {% for movie in movie_group %}
+                                    {% if movie %}
+                                        <div class="col-md-3">
+                                            <div class="card mb-4">
+                                                <img src="{{ movie.poster_url or 'https://via.placeholder.com/300x450?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h5 class="card-title">{{ movie.title }}</h5>
+                                                        <div class="star-score" data-score="{{ movie.average_rating }}"></div>
+                                                    </div>
+                                                    <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
+                                                    <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                                                    <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+    
+                <!-- Carousel Controls -->
+                <a class="carousel-control-prev" href="#reviewCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#reviewCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         {% else %}
             <p>Your watchlist is empty.</p>
         {% endif %}
     </div>
 
-    <div class="prof_genres">
-        <h2>Favorite Genres</h2>
-        {% if favorite_genres %}
-            <ul>
-                {% for genre in favorite_genres %}
-                    <li>{{ genre }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No favorite genres selected.</p>
-        {% endif %}
-    </div>
-
+    
 </body>
 {% endblock %}
