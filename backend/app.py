@@ -94,16 +94,11 @@ def login():
         if user and user.check_password(password):
             session["user_id"] = user.id
             flash("Logged in successfully!", "success")
-            return redirect(url_for("main_page"))
+            return redirect(url_for("dashboard"))
 
         flash("Invalid username or password", "danger")
 
     return render_template("login.html")
-
-@app.route('/home_page')
-def main_page():
-    movies = Movie.query.all()
-    return render_template('home_page.html',movies=movies)
 
 # Dashboard (Accessible After Login)
 @app.route("/dashboard", methods=["GET", "POST"])

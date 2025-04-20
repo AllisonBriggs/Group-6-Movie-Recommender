@@ -54,7 +54,7 @@
         <div class="row">
             {% for genre, genre_movies in movies.items() %}
             <form method="POST" action="{{ url_for('submit_favorites') }}">
-                <h4>{{ genre }}</h4>
+                <h4>{{ genre }}</h4><hr class="border-secondary my-3">
                 <div class="row">
                     {% for movie in genre_movies %}
                         <div class="col-md-4">
