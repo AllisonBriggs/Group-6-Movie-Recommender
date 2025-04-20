@@ -8,11 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 1; i <= 5; i++) {
             const star = document.createElement("span");
             star.innerHTML = '&#9733;'; // ★ Unicode star
-            if(i <= score){
-                star.style.color = 'gold';
+            if(i <= Math.floor(score)){
+                star.classList.add('filled');
+            }
+            else if((i - score) <= 0.5 && (i - score) > 0){
+                star.classList.add('half-filled');
             }
             else if(i > score){
-                star.style.color = 'lightgray';
+                star.classList.add('star');
             }
             star.style.fontSize = '20px';
             ratingEl.appendChild(star);

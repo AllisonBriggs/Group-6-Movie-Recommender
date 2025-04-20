@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
+    
     <title>SceneIt - Profile</title>
 </head>
 
@@ -22,6 +23,7 @@
                     {% for genre in favorite_genres %}
                             <span class="badge badge-primary">{{genre}}</span>    
                     {% endfor %}
+                    <span class="badge badge-primary">...</span>  
                 </div>
             </div>
         {% else %}

@@ -84,7 +84,9 @@ class Movie(db.Model):
         return f"<Movie {self.title}>"
 
     def update_rating(self, new_rating):
-        self.average_rating = new_rating
+        ratings = Review.query.filter_by(movie_id=self.id).all()
+        if ratings:
+            self.average_rating = sum(r.rating for r in ratings) / len(ratings)
         db.session.commit()
 
     def add_cast_member(self, member_name):

@@ -2,11 +2,11 @@
     color: lightgray;
   }
   
-  .star.filled {
+  .filled {
     color: gold;
   }
   
-  .star.half-filled {
+  .half-filled {
     color: gold;
     background: linear-gradient(90deg, gold 50%, lightgray 50%);
     -webkit-background-clip: text;

@@ -217,11 +217,14 @@ def submit_review(movie_id):
 
     # Save the review
     existing_review = Review.query.filter_by(user_id=user_id, movie_id=movie_id).first()
+    movie_rating = Movie.query.filter_by(id=movie_id).first()
     if existing_review:
         existing_review.update_review(rating, review_text)
+        movie_rating.update_rating(rating)
     else:
         new_review = Review(user_id=user_id, movie_id=movie_id, rating=rating, review_text=review_text)
         db.session.add(new_review)
+        movie_rating.update_rating(new_review.rating)
 
     # Add to watchlist if not already there
     existing_watch = Watchlist.query.filter_by(user_id=user_id, movie_id=movie_id).first()
