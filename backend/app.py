@@ -234,8 +234,8 @@ def submit_favorites():
     user.set_favorite_movies(favorites)
     db.session.commit()  
 
-    flash("Movies updated successfully!", "success")
-    return redirect(url_for("dashboard"))
+    #flash("Movies updated successfully!", "success")
+    return redirect(url_for("home"))
 
 @app.route("/search", methods=["GET", "POST"])
 def search():

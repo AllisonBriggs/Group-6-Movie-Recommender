@@ -1,0 +1,51 @@
+
+  .carousel-control-prev:hover
+  {
+    width: 5rem;
+    background: linear-gradient(to right, rgba(128,128,128,0.8), rgba(128,128,128,0));
+    /*background-color: #999; /* darker gray on hover */
+    opacity: 1;
+  }
+.carousel-control-next:hover {
+    width: 5rem;
+    background: linear-gradient(to left, rgba(128,128,128,0.8), rgba(128,128,128,0));
+      /*background-color: #999; /* darker gray on hover */
+    opacity: 1;
+}
+
+#reviewCarousel .carousel-inner {
+  height: 250px; /* or whatever height you want */
+}
+
+#reviewCarousel .carousel-item {
+  height: 100%;
+}
+
+#reviewCarousel .card {
+  height: 100%;
+}
+
+/* Make the arrow icons inside look right */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.badge{
+  font-size:large;
+  font-weight:450;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  max-height: 10rem; /* adjust this value to match the card size */
+  line-height: 1.2rem; /* height per line */
+  -webkit-line-clamp: 4; /* fallback limit */
+}

@@ -1,0 +1,14 @@
+.star {
+    color: lightgray;
+  }
+  
+  .star.filled {
+    color: gold;
+  }
+  
+  .star.half-filled {
+    color: gold;
+    background: linear-gradient(90deg, gold 50%, lightgray 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
