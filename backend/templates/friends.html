@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+{% block title %}Friends{% endblock %}
+{% block body %}
+<div class="container">
+    
+    <header class="mt-4">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <h2 class="text-white">Friends</h2>
+        <p class="text-white">Welcome to your Friends page</p>
+    </header>
+
+
+    <section class="text-center mb-5">
+        <h4 class="site-theme">What Your Friends Are Watching</h4>
+        <p class="text-muted">See what movies your friends have recently rated</p>
+        <div class="container">
+            <div class="row justify-content-center">
+                {% for movie in recent_friend_movies %}
+                <div class="col-md-3 mb-4">
+                    <div class="card bg-dark text-white h-100">
+                        <img src="{{ movie.poster_url or 'https://via.placeholder.com/200x300?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-text">Watched by @{{ movie.username }}</p>
+                            <p class="card-text"><small class="text-muted">{{ movie.watched_on.strftime('%b %d, %Y') }}</small></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center mb-5">
+        <h4 class="site-theme">Your Friends</h4>
+        <p class="text-muted">Your current following list</p>
+        <div class="container">
+            {% if friends %}
+            <div id="friendsCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for chunk in friends|batch(3, '') %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <div class="row justify-content-center">
+                            {% for user in chunk %}
+                                {% if user %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card bg-dark text-white">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">{{ user.name }}</h5>
+                                            <p class="card-text">@{{ user.username }}</p>
+                                            <form method="POST" action="{{ url_for('unfriend_request', user_id=user.id) }}">
+                                                <button type="submit" class="btn btn-danger">Unfriend</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#friendsCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#friendsCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            {% else %}
+                <p class="site-theme">You are not following anyone yet</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="text-center mb-5">
+        <h4 class="site-theme">Your Followers</h4>
+        <p class="text-muted">Your current follower list</p>
+        <div class="container">
+            {% if followers %}
+            <div id="followersCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for chunk in followers|batch(3, '') %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <div class="row justify-content-center">
+                            {% for user in chunk %}
+                                {% if user %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card bg-dark text-white">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">{{ user.name }}</h5>
+                                            <p class="card-text">@{{ user.username }}</p>
+                                            {% if user.id in friends %}
+                                            <form method="POST" action="{{ url_for('unfriend_request', user_id=user.id) }}">
+                                                <button type="submit" class="btn btn-danger">Unfriend</button>
+                                            </form>
+                                            {% else %}
+                                            <form method="POST" action="{{ url_for('send_friend_request', user_id=user.id) }}">
+                                                <button type="submit" class="btn btn-success">Add Friend</button>
+                                            </form>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#friendsCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#friendsCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            {% else %}
+                <p class="site-theme">You have no followers yet</p>
+            {% endif %}
+        </div>
+    </section>
+
+
+
+    <div class="text-center mb-5">
+        <a href="{{ url_for('add_friends') }}" class="site-theme">➕ Add Friends</a>
+    </div>
+    
+
+
+    
+</div>
+{% endblock %}

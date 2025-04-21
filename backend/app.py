@@ -8,7 +8,7 @@ import json
 from recommender import Recommendation
 
 # Import models AFTER db initialization
-from models import db, User, Movie, Review, Watchlist
+from models import db, User, Movie, Review, Watchlist, Friend
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -155,6 +155,140 @@ def profile():
     
     
     return render_template("profile.html", username=user.username, selected_genres=selected_genres)
+
+@app.route("/friends", methods=["GET", "POST"])
+def friends():
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+
+    user = User.query.get(session["user_id"])
+    query = request.args.get("query", "")
+    
+    users = []
+    if query:
+        users = User.query.filter(
+            (User.username.ilike(f"%{query}%"))
+        ).all()
+    
+
+
+    # Get the current friends of user 
+    friend_ids = (
+    db.session.query(Friend.friend_id)
+    .filter_by(user_id=user.id)
+    .all()
+    )
+    friend_ids = [fid for (fid,) in friend_ids]
+
+    friends = User.query.filter(User.id.in_(friend_ids)).all()
+
+    # Get the current followers of user
+    follower_ids = (
+    db.session.query(Friend.user_id)
+    .filter_by(friend_id=user.id)
+    .all()
+    )
+    follower_ids = [fid for (fid,) in follower_ids]
+
+    followers = User.query.filter(User.id.in_(follower_ids)).all()
+
+    print(friend_ids)
+    return render_template("friends.html", username=user.username, users=users, query=query, friends=friends, followers=followers)
+
+@app.route("/add-friends", methods=["GET", "POST"])
+def add_friends():
+    # Make sure use in session before searching for friends
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+
+    query = request.args.get("query", "")
+    current_user_id = session.get("user_id")
+    
+    users = []
+    if query:
+        users = User.query.filter(
+            (User.username.ilike(f"%{query}%"))
+        ).all()
+
+    # IDs of people the user already follows
+    followed_ids = db.session.query(Friend.friend_id).filter_by(user_id=current_user_id)
+
+    # IDs of user’s friends
+    my_friends = db.session.query(Friend.friend_id).filter_by(user_id=current_user_id).subquery()
+
+    # Find people who are followed by friends but not the user
+    # Mutual friends suggestions based on who my friends are friends with, also only get like 15
+    mutual_results = (
+        db.session.query(
+            User,
+            func.count(Friend.user_id).label("mutual_count")
+        )
+        .join(Friend, Friend.friend_id == User.id)
+        .filter(Friend.user_id.in_(my_friends))
+        .filter(~User.id.in_(followed_ids))
+        .filter(User.id != current_user_id)
+        .group_by(User.id)
+        .order_by(func.count(Friend.user_id).desc())
+        .limit(15) 
+        .all()
+    )
+
+    # If mutuals < 15, fill with other users
+    suggested_users = {user.id for user, _ in mutual_results}
+    remaining = 15 - len(mutual_results)
+
+    if remaining > 0:
+        filler_users = (
+            User.query
+            .filter(
+                ~User.id.in_(suggested_users),
+                ~User.id.in_(followed_ids),
+                User.id != current_user_id
+            )
+            .limit(remaining)
+            .all()
+        )
+        mutual_results += [(user, 0) for user in filler_users]
+
+    # Get the current friends of user
+    friend_ids = db.session.query(Friend.friend_id).filter_by(user_id=current_user_id).all()
+    friend_ids = [fid for (fid,) in friend_ids]
+
+    return render_template(
+        "addFriends.html",
+        users=users,
+        query=query,
+        suggested_friends=mutual_results,
+        friend_ids=friend_ids
+    )
+# Adds a friend by creating new relationship through users
+@app.route("/send-friend-request/<int:user_id>", methods=["POST"])
+def send_friend_request(user_id):
+    current_user_id = session.get("user_id") 
+    if current_user_id and current_user_id != user_id:
+        existing = Friend.query.filter_by(user_id=current_user_id, friend_id=user_id).first()
+        if not existing:
+            new_friend = Friend(user_id=current_user_id, friend_id=user_id)
+            db.session.add(new_friend)
+            db.session.commit()
+    return redirect(url_for("add_friends", query=request.args.get("query", "")))
+
+# Removes a friend by deleting relationship
+@app.route("/unfriend-request/<int:user_id>", methods=["POST"])
+def unfriend_request(user_id):
+    current_user_id = session.get("user_id") 
+    if current_user_id and current_user_id != user_id:
+        # Look for an existing friend relationship
+        existing = Friend.query.filter_by(user_id=current_user_id, friend_id=user_id).first()
+        if existing:
+            db.session.delete(existing)
+            db.session.commit()
+    return redirect(url_for("add_friends", query=request.args.get("query", "")))
+
+
+
 
 # Movie Details
 @app.route("/movie/<int:movie_id>")
