@@ -85,9 +85,12 @@ class Movie(db.Model):
     def __repr__(self):
         return f"<Movie {self.title}>"
 
-    def update_rating(self, new_rating):
-        self.average_rating = new_rating
-        db.session.commit()
+    def update_rating(self):
+        ratings = Review.query.filter_by(movie_id=self.id).all()
+        if ratings:
+            average_rating = round(sum(r.rating for r in ratings) / len(ratings), 2)
+            self.average_rating = average_rating
+            db.session.commit()
 
     def add_cast_member(self, member_name):
         if self.cast_members:

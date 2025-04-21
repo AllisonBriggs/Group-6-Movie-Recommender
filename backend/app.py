@@ -365,6 +365,9 @@ def unfriend_request(user_id):
 def movie_detail(movie_id):
     movie = Movie.query.get_or_404(movie_id)
     reviews = Review.query.filter_by(movie_id=movie_id).all()
+
+    movie.update_rating()
+
     favorite_ids = g.user.get_favorite_movies() if g.user else []
     return render_template("movie_detail.html", movie=movie, reviews=reviews, favorite_ids=favorite_ids)
 
@@ -383,11 +386,11 @@ def submit_review(movie_id):
     movie_rating = Movie.query.filter_by(id=movie_id).first()
     if existing_review:
         existing_review.update_review(rating, review_text)
-        movie_rating.update_rating(rating)
+        movie_rating.update_rating()
     else:
         new_review = Review(user_id=user_id, movie_id=movie_id, rating=rating, review_text=review_text)
         db.session.add(new_review)
-        movie_rating.update_rating(new_review.rating)
+        movie_rating.update_rating()
 
     # Add to watchlist if not already there
     existing_watch = Watchlist.query.filter_by(user_id=user_id, movie_id=movie_id).first()
