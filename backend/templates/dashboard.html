@@ -89,80 +89,65 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const checkboxes = document.querySelectorAll('.genre-checkbox');
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                let checkedBoxes = document.querySelectorAll('.genre-checkbox:checked');
-                if (checkedBoxes.length > 3) {
-                    this.checked = false;
-                }
-            });
-        });
-    });
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     const checkboxes = document.querySelectorAll('.genre-checkbox');
+    //     checkboxes.forEach(checkbox => {
+    //         checkbox.addEventListener('change', function () {
+    //             let checkedBoxes = document.querySelectorAll('.genre-checkbox:checked');
+    //             if (checkedBoxes.length > 3) {
+    //                 this.checked = false;
+    //             }
+    //         });
+    //     });
+    // });
 
- 
-    let favorites = [];
+    // Get favorite IDs passed from Flask
+    const initialFavorites = {{ favorite_ids|tojson }};
+    let favorites = [...initialFavorites];
 
-    // Function to toggle the button state
     function toggleFavorite(movie_id) {
         event.preventDefault();
 
-        const checkButton = document.getElementById(`addToFav${movie_id}`);
+        const button = document.getElementById(`addToFav${movie_id}`);
         const isFavorite = favorites.includes(movie_id);
 
         if (isFavorite) {
-           
-            favorites.splice(favorites.indexOf(movie_id), 1);
-            checkButton.classList.remove("btn-success");
-            checkButton.classList.add("btn-danger");
-            checkButton.textContent = "+";  
+            favorites = favorites.filter(id => id !== movie_id);
+            button.classList.remove("btn-success");
+            button.classList.add("btn-danger");
+            button.textContent = "+";
         } else {
-            
             favorites.push(movie_id);
-            checkButton.classList.remove("btn-danger");
-            checkButton.classList.add("btn-success");
-            checkButton.textContent = "✓";  
+            button.classList.remove("btn-danger");
+            button.classList.add("btn-success");
+            button.textContent = "✓";
         }
 
         document.getElementById('favorites-input').value = JSON.stringify(favorites);
     }
 
-    
     function submitFavorites() {
         if (favorites.length === 0) {
             alert("Please select at least one favorite movie.");
             return;
         }
-        
+
         document.querySelector('form').submit();
     }
 
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const selects = document.querySelectorAll(".genre-select");
-
-        selects.forEach(select => {
-            select.addEventListener("change", function () {
-                const values = Array.from(selects).map(s => s.value);
-
-                selects.forEach(s => {
-                    Array.from(s.options).forEach(option => {
-                        if (option.value && values.includes(option.value) && s.value !== option.value) {
-                            option.disabled = true;
-                        } else {
-                            option.disabled = false;
-                        }
-                    });
-                });
-            });
+    // On load: update buttons based on current favorites
+    document.addEventListener("DOMContentLoaded", () => {
+        initialFavorites.forEach(id => {
+            const btn = document.getElementById(`addToFav${id}`);
+            if (btn) {
+                btn.classList.remove("btn-danger");
+                btn.classList.add("btn-success");
+                btn.textContent = "✓";
+            }
         });
     });
-
-    
 </script>
+
 
 
 

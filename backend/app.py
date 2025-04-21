@@ -157,11 +157,13 @@ def dashboard():
     # Top-rated movies
     top_rated = recommender.rec_top_rated()
 
+    favorite_movie_ids = user.get_favorite_movies()
     return render_template("dashboard.html",
-                           username=user.username,
-                           algo_movies=unique_algo_recs,
-                           genre_movies=genre_recs,
-                           top_movies=top_rated)
+                        username=user.username,
+                        algo_movies=unique_algo_recs,
+                        genre_movies=genre_recs,
+                        top_movies=top_rated,
+                        favorite_ids=favorite_movie_ids)
 
 # Acount Route
 @app.route("/profile", methods=["GET", "POST"])
@@ -224,37 +226,47 @@ def friends():
 
     user = User.query.get(session["user_id"])
     query = request.args.get("query", "")
-    
-    users = []
-    if query:
-        users = User.query.filter(
-            (User.username.ilike(f"%{query}%"))
-        ).all()
-    
 
-
-    # Get the current friends of user 
-    friend_ids = (
-    db.session.query(Friend.friend_id)
-    .filter_by(user_id=user.id)
-    .all()
-    )
-    friend_ids = [fid for (fid,) in friend_ids]
-
+    # Friend/follower logic (same as before)
+    friend_ids = [fid for (fid,) in db.session.query(Friend.friend_id).filter_by(user_id=user.id).all()]
     friends = User.query.filter(User.id.in_(friend_ids)).all()
 
-    # Get the current followers of user
-    follower_ids = (
-    db.session.query(Friend.user_id)
-    .filter_by(friend_id=user.id)
-    .all()
-    )
-    follower_ids = [fid for (fid,) in follower_ids]
-
+    follower_ids = [fid for (fid,) in db.session.query(Friend.user_id).filter_by(friend_id=user.id).all()]
     followers = User.query.filter(User.id.in_(follower_ids)).all()
 
-    print(friend_ids)
-    return render_template("friends.html", username=user.username, users=users, query=query, friends=friends, followers=followers)
+    # ✅ Get recent reviews by friends
+    recent_friend_reviews = (
+        db.session.query(Review, Movie, User)
+        .join(Movie, Review.movie_id == Movie.id)
+        .join(User, Review.user_id == User.id)
+        .filter(Review.user_id.in_(friend_ids))
+        .order_by(Review.review_date.desc())
+        .limit(6)
+        .all()
+    )
+
+    # Format for the template
+    recent_friend_movies = []
+    for review, movie, reviewer in recent_friend_reviews:
+        recent_friend_movies.append({
+            "title": movie.title,
+            "poster_url": movie.poster_url,
+            "username": reviewer.username,
+            "watched_on": review.review_date,
+            "review_text": review.review_text,
+            "movie_id": movie.id  # ✅ Add movie_id for "View Movie" button
+        })
+
+
+    return render_template(
+        "friends.html",
+        username=user.username,
+        users=[],
+        query=query,
+        friends=friends,
+        followers=followers,
+        recent_friend_movies=recent_friend_movies  # ✅ pass this to template
+    )
 
 @app.route("/add-friends", methods=["GET", "POST"])
 def add_friends():
@@ -348,14 +360,13 @@ def unfriend_request(user_id):
     return redirect(url_for("add_friends", query=request.args.get("query", "")))
 
 
-
-
 # Movie Details
 @app.route("/movie/<int:movie_id>")
 def movie_detail(movie_id):
     movie = Movie.query.get_or_404(movie_id)
     reviews = Review.query.filter_by(movie_id=movie_id).all()
-    return render_template("movie_detail.html", movie=movie, reviews=reviews)
+    favorite_ids = g.user.get_favorite_movies() if g.user else []
+    return render_template("movie_detail.html", movie=movie, reviews=reviews, favorite_ids=favorite_ids)
 
 @app.route("/submit_review/<int:movie_id>", methods=["POST"])
 def submit_review(movie_id):
@@ -403,20 +414,21 @@ def submit_favorites():
         return redirect(url_for("login"))
 
     favorites_data = request.form.get("favorites")
-    
     if not favorites_data:
         flash("No favorite movies selected.", "danger")
         return redirect(url_for("dashboard"))
-    
-    favorites = json.loads(favorites_data)
 
+    new_favorites = json.loads(favorites_data)
     user = User.query.get(session["user_id"])
+    
+    current_favorites = set(user.get_favorite_movies())
+    updated_favorites = current_favorites.union(set(new_favorites))  # Merge without duplicates
 
-    user.set_favorite_movies(favorites)
-    db.session.commit()  
+    user.set_favorite_movies(list(updated_favorites))
+    db.session.commit()
 
-    #flash("Movies updated successfully!", "success")
-    return redirect(url_for("dashboard"))
+    return redirect(request.referrer or url_for("dashboard"))  # Redirect back to the same page
+
 
 @app.route("/search", methods=["GET", "POST"])
 def search():

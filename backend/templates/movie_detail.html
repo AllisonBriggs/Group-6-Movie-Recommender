@@ -63,6 +63,12 @@
                 <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
                 <p><strong>Rating:</strong> {{ movie.average_rating or "Not Available" }}</p>
                 <p><strong>Summary:</strong> {{ movie.summary or "No summary available." }}</p>
+
+                <form method="POST" action="{{ url_for('submit_favorites') }}" id="favoriteForm">
+                    <input type="hidden" name="favorites" id="favorites-input" value="">
+                    <button id="addToFav{{ movie.id }}" class="btn btn-danger mt-2" onclick="toggleFavorite({{ movie.id }})">+</button>
+                </form>
+                
                 <a href="javascript:history.back()" class="back-link">← Back to Dashboard</a>
             </div>
         </div>
@@ -101,6 +107,53 @@
             <p>No reviews yet. Be the first to leave one!</p>
         {% endif %}
     </div>
+
+    <script>
+        const initialFavorites = {{ favorite_ids|tojson }};
+        let favorites = [...initialFavorites];
+    
+        function toggleFavorite(movie_id) {
+            event.preventDefault();
+    
+            const button = document.getElementById(`addToFav${movie_id}`);
+            const isFavorite = favorites.includes(movie_id);
+    
+            if (isFavorite) {
+                favorites = favorites.filter(id => id !== movie_id);
+                button.classList.remove("btn-success");
+                button.classList.add("btn-danger");
+                button.textContent = "+";
+            } else {
+                favorites.push(movie_id);
+                button.classList.remove("btn-danger");
+                button.classList.add("btn-success");
+                button.textContent = "✓";
+            }
+    
+            document.getElementById('favorites-input').value = JSON.stringify(favorites);
+        }
+    
+        function submitFavorites() {
+            if (favorites.length === 0) {
+                alert("Please select at least one favorite movie.");
+                return;
+            }
+            document.querySelector('form').submit();
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            initialFavorites.forEach(id => {
+                const btn = document.getElementById(`addToFav${id}`);
+                if (btn) {
+                    btn.classList.remove("btn-danger");
+                    btn.classList.add("btn-success");
+                    btn.textContent = "✓";
+                }
+            });
+        });
+    </script>
+    
+
     
 </body>
 {% endblock %}
