@@ -144,7 +144,7 @@ def dashboard():
                        movies=recommended_movies)
 
 # Acount Route
-@app.route("/profile")
+@app.route("/profile", methods=["GET", "POST"])
 def profile():
     if "user_id" not in session:
         flash("Please log in first!", "warning")
@@ -152,13 +152,26 @@ def profile():
 
     user = User.query.get(session["user_id"])
 
+    if request.method == "POST":
+        genre1 = request.form.get("genre1")
+        genre2 = request.form.get("genre2")
+        genre3 = request.form.get("genre3")
+
+        selected_genres = [g for g in [genre1, genre2, genre3] if g]
+        if len(set(selected_genres)) != len(selected_genres):
+            flash("Please select different genres.", "danger")
+            return redirect(url_for("profile"))
+
+        user.favorite_genres = ",".join(selected_genres)
+        db.session.commit()
+        flash("Favorite genres updated!", "success")
+        return redirect(url_for("profile"))
+
     watchlist_entries = Watchlist.query.filter_by(user_id=user.id).all()
     reviews = Review.query.filter_by(user_id=user.id).all()
 
-    # Get movie info for watchlist
     watchlist_movies = [Movie.query.get(entry.movie_id) for entry in watchlist_entries]
 
-    # Get movies for each review
     rated_movies = []
     for review in reviews:
         movie = Movie.query.get(review.movie_id)
@@ -175,12 +188,8 @@ def profile():
         username=user.username,
         watchlist_movies=watchlist_movies,
         rated_movies=rated_movies,
-        favorite_genres=user.get_favorite_genres()
+        selected_genres=user.get_favorite_genres()
     )
-    # user = User.query.get(session["user_id"])
-    # selected_genres = user.get_favorite_genres()
-    
-    # return render_template("profile.html", username=user.username, selected_genres=selected_genres)
 
 @app.route("/friends", methods=["GET", "POST"])
 def friends():
