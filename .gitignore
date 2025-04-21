@@ -2,3 +2,4 @@
 venv/
 .venv/
 backend/instance/movies.db
+backend/__pycache__/
