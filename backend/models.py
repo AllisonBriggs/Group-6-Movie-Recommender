@@ -22,7 +22,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(128), nullable=False)
     favorite_genres = db.Column(db.String(800), nullable=True)
 
-    def __init__(self, username, password, favorite_genres):
+    def __init__(self, username, password, favorite_genres=""):
         self.username = username
         self.set_password(password)
         self.favorite_genres = favorite_genres

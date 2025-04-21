@@ -10,45 +10,6 @@
         <p class="text-white">Let's get you set up</p>
     </header>
 
-    <h3>Select Your Top Genres</h3>
-    <p class="text-muted">Choose up to 3 genres.</p>
-
-    <form method="POST" action="{{ url_for('dashboard') }}">
-        <div class="form-group">
-            <label for="genre1">Top Genre 1</label>
-            <select class="form-control genre-select" name="genre1" id="genre1" required>
-                <option disabled selected value="">Select a genre</option>
-                {% for genre in genres %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 0 and selected_genres[0] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="genre2">Top Genre 2</label>
-            <select class="form-control genre-select" name="genre2" id="genre2">
-                <option disabled selected value="">Select a genre</option>
-                {% for genre in genres %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 1 and selected_genres[1] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="genre3">Top Genre 3</label>
-            <select class="form-control genre-select" name="genre3" id="genre3">
-                <option disabled selected value="">Select a genre</option>
-                {% for genre in genres %}
-                    <option value="{{ genre }}" {% if selected_genres|length > 2 and selected_genres[2] == genre %}selected{% endif %}>{{ genre }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        
-
-        <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
-        <p id="error-message" class="text-danger text-center mt-3" style="display: none;">Please select up to 3 genres.</p>
-    </form>
-
     <h3 class="mt-4">Recommended Movies</h3>
     {% if movies %}
         <div class="row">
@@ -77,7 +38,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <p class="text-muted">No recommendations yet. Please select your favorite genres.</p>
+        <p class="text-muted">No recommendations yet. Please visit your profile to update your favorite genres.</p>
     {% endif %}
         
         <input type="hidden" name="favorites" id="favorites-input" value="">
@@ -137,6 +98,7 @@
 
 </script>
 
+<<<<<<< HEAD
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const selects = document.querySelectorAll(".genre-select");
@@ -163,3 +125,6 @@
 
 
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> ara/main
