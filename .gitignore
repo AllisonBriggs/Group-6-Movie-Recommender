@@ -1,5 +1,4 @@
 # Ignore virtual environment
 venv/
 .venv/
-backend/instance/movies.db
-backend/__pycache__/
+
