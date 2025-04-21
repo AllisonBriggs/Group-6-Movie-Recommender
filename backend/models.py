@@ -21,6 +21,7 @@ class User(db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
     favorite_genres = db.Column(db.String(800), nullable=True)
+    favorite_movies = db.Column(db.String, nullable=True)  # Comma-separated movie IDs
 
     def __init__(self, username, password, favorite_genres=""):
         self.username = username
@@ -52,9 +53,10 @@ class User(db.Model):
         db.session.commit()
 
     def get_favorite_movies(self):
-        """Return movies as a list"""
-        return self.favorite_movies.split(", ") if self.favorite_movies else []
-        
+        if not self.favorite_movies:
+            return []
+        return [int(mid) for mid in self.favorite_movies.split(",") if mid.strip().isdigit()]
+
 
 class Movie(db.Model):
     id = db.Column(db.Integer, primary_key=True)

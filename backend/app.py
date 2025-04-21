@@ -183,13 +183,18 @@ def profile():
                 "date": review.review_date.strftime("%Y-%m-%d")
             })
 
+    favorite_movie_ids = user.get_favorite_movies()
+    favorite_movies = Movie.query.filter(Movie.id.in_(favorite_movie_ids)).all() if favorite_movie_ids else []
+
     return render_template(
         "profile.html",
         username=user.username,
         watchlist_movies=watchlist_movies,
         rated_movies=rated_movies,
-        selected_genres=user.get_favorite_genres()
+        selected_genres=user.get_favorite_genres(),
+        favorite_movies=favorite_movies  # ← Pass to template
     )
+
 
 @app.route("/friends", methods=["GET", "POST"])
 def friends():
@@ -391,7 +396,7 @@ def submit_favorites():
     db.session.commit()  
 
     #flash("Movies updated successfully!", "success")
-    return redirect(url_for("home"))
+    return redirect(url_for("dashboard"))
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
