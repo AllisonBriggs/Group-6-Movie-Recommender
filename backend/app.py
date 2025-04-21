@@ -152,7 +152,36 @@ def profile():
 
     user = User.query.get(session["user_id"])
 
-<<<<<<< HEAD
+    watchlist_entries = Watchlist.query.filter_by(user_id=user.id).all()
+    reviews = Review.query.filter_by(user_id=user.id).all()
+
+    # Get movie info for watchlist
+    watchlist_movies = [Movie.query.get(entry.movie_id) for entry in watchlist_entries]
+
+    # Get movies for each review
+    rated_movies = []
+    for review in reviews:
+        movie = Movie.query.get(review.movie_id)
+        if movie:
+            rated_movies.append({
+                "title": movie.title,
+                "rating": review.rating,
+                "comment": review.review_text,
+                "date": review.review_date.strftime("%Y-%m-%d")
+            })
+
+    return render_template(
+        "profile.html",
+        username=user.username,
+        watchlist_movies=watchlist_movies,
+        rated_movies=rated_movies,
+        favorite_genres=user.get_favorite_genres()
+    )
+    # user = User.query.get(session["user_id"])
+    # selected_genres = user.get_favorite_genres()
+    
+    # return render_template("profile.html", username=user.username, selected_genres=selected_genres)
+
 @app.route("/friends", methods=["GET", "POST"])
 def friends():
     if "user_id" not in session:
@@ -287,33 +316,6 @@ def unfriend_request(user_id):
 
 
 
-=======
-    watchlist_entries = Watchlist.query.filter_by(user_id=user.id).all()
-    reviews = Review.query.filter_by(user_id=user.id).all()
-
-    # Get movie info for watchlist
-    watchlist_movies = [Movie.query.get(entry.movie_id) for entry in watchlist_entries]
-
-    # Get movies for each review
-    rated_movies = []
-    for review in reviews:
-        movie = Movie.query.get(review.movie_id)
-        if movie:
-            rated_movies.append({
-                "title": movie.title,
-                "rating": review.rating,
-                "comment": review.review_text,
-                "date": review.review_date.strftime("%Y-%m-%d")
-            })
-
-    return render_template(
-        "profile.html",
-        username=user.username,
-        watchlist_movies=watchlist_movies,
-        rated_movies=rated_movies,
-        favorite_genres=user.get_favorite_genres()
-    )
->>>>>>> 559ee29516f1d9b2e5741ec7c587407b4d2a0acf
 # Movie Details
 @app.route("/movie/<int:movie_id>")
 def movie_detail(movie_id):
@@ -333,11 +335,14 @@ def submit_review(movie_id):
 
     # Save the review
     existing_review = Review.query.filter_by(user_id=user_id, movie_id=movie_id).first()
+    movie_rating = Movie.query.filter_by(id=movie_id).first()
     if existing_review:
         existing_review.update_review(rating, review_text)
+        movie_rating.update_rating(rating)
     else:
         new_review = Review(user_id=user_id, movie_id=movie_id, rating=rating, review_text=review_text)
         db.session.add(new_review)
+        movie_rating.update_rating(new_review.rating)
 
     # Add to watchlist if not already there
     existing_watch = Watchlist.query.filter_by(user_id=user_id, movie_id=movie_id).first()

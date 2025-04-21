@@ -63,7 +63,7 @@
                 <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
                 <p><strong>Rating:</strong> {{ movie.average_rating or "Not Available" }}</p>
                 <p><strong>Summary:</strong> {{ movie.summary or "No summary available." }}</p>
-                <a href="{{ url_for('dashboard') }}" class="back-link">← Back to Dashboard</a>
+                <a href="javascript:history.back()" class="back-link">← Back to Dashboard</a>
             </div>
         </div>
     </div>

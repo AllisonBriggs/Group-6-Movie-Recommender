@@ -28,6 +28,7 @@
 /* Make the arrow icons inside look right */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
+    width: 5rem;
     color: white;
     display: flex;
     align-items: center;
