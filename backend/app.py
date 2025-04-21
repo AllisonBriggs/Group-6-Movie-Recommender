@@ -144,18 +144,15 @@ def dashboard():
                        movies=recommended_movies)
 
 # Acount Route
-@app.route("/profile", methods=["GET", "POST"])
+@app.route("/profile")
 def profile():
     if "user_id" not in session:
         flash("Please log in first!", "warning")
         return redirect(url_for("login"))
 
     user = User.query.get(session["user_id"])
-    selected_genres = user.get_favorite_genres()
-    
-    
-    return render_template("profile.html", username=user.username, selected_genres=selected_genres)
 
+<<<<<<< HEAD
 @app.route("/friends", methods=["GET", "POST"])
 def friends():
     if "user_id" not in session:
@@ -290,6 +287,33 @@ def unfriend_request(user_id):
 
 
 
+=======
+    watchlist_entries = Watchlist.query.filter_by(user_id=user.id).all()
+    reviews = Review.query.filter_by(user_id=user.id).all()
+
+    # Get movie info for watchlist
+    watchlist_movies = [Movie.query.get(entry.movie_id) for entry in watchlist_entries]
+
+    # Get movies for each review
+    rated_movies = []
+    for review in reviews:
+        movie = Movie.query.get(review.movie_id)
+        if movie:
+            rated_movies.append({
+                "title": movie.title,
+                "rating": review.rating,
+                "comment": review.review_text,
+                "date": review.review_date.strftime("%Y-%m-%d")
+            })
+
+    return render_template(
+        "profile.html",
+        username=user.username,
+        watchlist_movies=watchlist_movies,
+        rated_movies=rated_movies,
+        favorite_genres=user.get_favorite_genres()
+    )
+>>>>>>> 559ee29516f1d9b2e5741ec7c587407b4d2a0acf
 # Movie Details
 @app.route("/movie/<int:movie_id>")
 def movie_detail(movie_id):
