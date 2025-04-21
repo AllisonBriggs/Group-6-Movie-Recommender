@@ -124,24 +124,44 @@ def dashboard():
         return redirect(url_for("login"))
 
     user = User.query.get(session["user_id"])
-    # Get previously saved genres
-    selected_genres = user.get_favorite_genres()
-
     recommender = Recommendation(user, db)
-    recommended_movies_list = recommender.rec_by_genre()
 
-    # Group movies by genre for display
-    recommended_movies = {}
-    for movie in recommended_movies_list:
-        for genre in user.get_favorite_genres():
-            if genre.lower() in movie.genre.lower():
-                recommended_movies.setdefault(genre, []).append(movie)
-                break
+    # Algorithm-based recommendations
+    algo_recs = recommender.rec_by_similarity()
+    if len(algo_recs) < 10:
+        algo_recs += recommender.rec_by_favorites()
+    if len(algo_recs) < 10:
+        algo_recs += recommender.rec_top_rated()
+
+    seen = set()
+    unique_algo_recs = []
+    for m in algo_recs:
+        if m.id not in seen:
+            unique_algo_recs.append(m)
+            seen.add(m.id)
+
+    # Genre-based (your existing logic)
+    selected_genres = user.get_favorite_genres()
+    genre_recs = {genre: [] for genre in selected_genres}
+
+    for movie in recommender.rec_by_genre():
+        if not movie.genre:
+            continue
+
+        movie_genres = [g.strip() for g in movie.genre.split(",")]
+        for user_genre in selected_genres:
+            if user_genre in movie_genres:
+                genre_recs[user_genre].append(movie)
+                break  # Prevent adding same movie to multiple genres
+
+    # Top-rated movies
+    top_rated = recommender.rec_top_rated()
 
     return render_template("dashboard.html",
-                       username=user.username,
-                       selected_genres=selected_genres,
-                       movies=recommended_movies)
+                           username=user.username,
+                           algo_movies=unique_algo_recs,
+                           genre_movies=genre_recs,
+                           top_movies=top_rated)
 
 # Acount Route
 @app.route("/profile", methods=["GET", "POST"])

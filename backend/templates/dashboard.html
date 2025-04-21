@@ -10,13 +10,55 @@
     </header>
 
     <h3 class="mt-4">Recommended Movies</h3>
-    {% if movies %}
+
+    <form method="POST" action="{{ url_for('submit_favorites') }}">
+        {% if algo_movies %}
+            <h4>Just For You</h4>
+            <div class="row">
+                {% for movie in algo_movies %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{ movie.poster_url or 'https://via.placeholder.com/300x450?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ movie.title }}</h5>
+                                <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
+                                <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                                <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
+                                <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">+</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <hr class="border-secondary my-4">
+        {% endif %}
+
+        {% if top_movies %}
+        <h4>Top Rated</h4>
         <div class="row">
-            {% for genre, genre_movies in movies.items() %}
-            <form method="POST" action="{{ url_for('submit_favorites') }}">
-                <h4>{{ genre }}</h4><hr class="border-secondary my-3">
+            {% for movie in top_movies %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ movie.poster_url or 'https://via.placeholder.com/300x450?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ movie.title }}</h5>
+                            <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
+                            <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                            <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
+                            <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">+</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <hr class="border-secondary my-4">
+        {% endif %}
+
+        {% if genre_movies %}
+            {% for genre, genre_list in genre_movies.items() %}
+                <h4>{{ genre }} Picks</h4>
                 <div class="row">
-                    {% for movie in genre_movies %}
+                    {% for movie in genre_list %}
                         <div class="col-md-4">
                             <div class="card mb-4">
                                 <img src="{{ movie.poster_url or 'https://via.placeholder.com/300x450?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
@@ -25,25 +67,26 @@
                                     <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
                                     <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
                                     <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
-                                    
-                                    <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">
-                                        +
-                                    </button>
+                                    <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">+</button>
                                 </div>
                             </div>
                         </div>
                     {% endfor %}
                 </div>
+                <hr class="border-secondary my-4">
             {% endfor %}
-        </div>
-    {% else %}
-        <p class="text-muted">No recommendations yet. Please visit your profile to update your favorite genres.</p>
-    {% endif %}
-        
+        {% else %}
+            <p class="text-muted">No genre-based recommendations yet. Update your profile with favorite genres to see personalized picks.</p>
+        {% endif %}
+
+
+        <!-- Unified submit area -->
         <input type="hidden" name="favorites" id="favorites-input" value="">
-        <button onclick="submitFavorites()" class="btn btn-primary">Submit Favorites</button>
+        <button onclick="submitFavorites()" class="btn btn-primary mt-4">Submit Favorites</button>
     </form>
+
 </div>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
