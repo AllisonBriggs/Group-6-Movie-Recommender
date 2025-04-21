@@ -169,6 +169,7 @@ def profile():
     user = User.query.get(session["user_id"])
     selected_genres = user.get_favorite_genres()
     
+    
     return render_template("profile.html", username=user.username, selected_genres=selected_genres)
 
 # Movie Details
