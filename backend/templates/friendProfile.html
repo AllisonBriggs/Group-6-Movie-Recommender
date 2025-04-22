@@ -1,37 +1,19 @@
 {% extends "layout.html" %}
-{% block title %}Friends{% endblock %}
+{% block title %}{{ friend.username }}'s Profile{% endblock %}
 {% block body %}
 <div class="container">
     
     <header class="mt-4">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <h2 class="text-white">Friends</h2>
-        <p class="text-white">Welcome to your Friends page</p>
+        <h2 class="text-white">{{ friend.username }}'s Profile</h2>
+        <p class="text-white">Welcome to your {{ friend.username }}'s' page</p>
     </header>
 
     <section class="text-center mb-5">
-<<<<<<< HEAD
-        <h4 class="site-theme">What Your Friends Are Watching</h4>
-        <p class="text-muted">See what movies your friends have recently rated</p>
-        <div class="container">
-            <div class="row justify-content-center">
-                {% for movie in recent_friend_movies %}
-                <div class="col-md-3 mb-4">
-                    <div class="card bg-dark text-white h-100">
-                        <img src="{{ movie.poster_url or 'https://via.placeholder.com/200x300?text=No+Image' }}" class="card-img-top" alt="{{ movie.title }}">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div>
-                                <h5 class="card-title">{{ movie.title }}</h5>
-                                <p class="card-text">Watched by @{{ movie.username }}</p>
-                                <p class="card-text text-muted"><small>{{ movie.watched_on.strftime('%b %d, %Y') }}</small></p>
-                                {% if movie.review_text %}
-                                    <p class="card-text truncate"><em>"{{ movie.review_text }}"</em></p>
-                                {% endif %}
-=======
         <h4 class="site-theme">Recent Reviews</h4>
-        <p class="text-muted">Your friend's recent reviews</p>
+        <p class="text-muted">{{ friend.username }}'s recent reviews</p>
     </section>
-    
+
     <div class="d-flex align-items-center justify-content-between" style="position: relative;">
         <a class="carousel-control-prev" href="#movieCarousel" role="button" data-slide="prev" style="position: static;">
             <span class="carousel-control-prev-icon" style="width: 2rem; height: 2rem;" aria-hidden="true"></span>
@@ -58,7 +40,6 @@
                                     </div>
                                     <a href="{{ url_for('movie_detail', movie_id=movie.movie_id) }}" class="btn btn-primary mt-2">View Movie</a>
                                 </div>
->>>>>>> 1e9e3ec (Final updates to friends page (reformatted movies & added profile pages))
                             </div>
                         </div>
                         {% endif %}
@@ -74,16 +55,16 @@
         </a>
     
     </div>
-    
+
 
     <section class="text-center mb-5">
-        <h4 class="site-theme">Your Friends</h4>
-        <p class="text-muted">Your current following list</p>
+        <h4 class="site-theme">{{ friend.username}}'s Friends</h4>
+        <p class="text-muted">{{ friend.username }}'s current following list</p>
         <div class="container">
-            {% if friends %}
-            <div id="friendsCarousel" class="carousel slide" data-ride="carousel">
+            {% if profile_friends %}
+            <div id="profilefriendsCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    {% for chunk in friends|batch(3, '') %}
+                    {% for chunk in profile_friends|batch(3, '') %}
                     <div class="carousel-item {% if loop.first %}active{% endif %}">
                         <div class="row justify-content-center">
                             {% for user in chunk %}
@@ -95,55 +76,8 @@
                                                 <a href="{{ url_for('friend_profile', user_id=user.id) }}" class="site-theme">
                                                   @{{ user.username }}
                                                 </a>
-                                            </p>                                              
-                                            <form method="POST" action="{{ url_for('unfriend_request', user_id=user.id) }}">
-                                                <button type="submit" class="btn btn-secondary">Unfriend</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-                <a class="carousel-control-prev" href="#friendsCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#friendsCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            {% else %}
-                <p class="site-theme">You are not following anyone yet</p>
-            {% endif %}
-        </div>
-    </section>
-
-    <section class="text-center mb-5">
-        <h4 class="site-theme">Your Followers</h4>
-        <p class="text-muted">Your current follower list</p>
-        <div class="container">
-            {% if followers %}
-            <div id="followersCarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    {% for chunk in followers|batch(3, '') %}
-                    <div class="carousel-item {% if loop.first %}active{% endif %}">
-                        <div class="row justify-content-center">
-                            {% for user in chunk %}
-                                {% if user %}
-                                <div class="col-md-4 mb-3">
-                                    <div class="card bg-dark text-white">
-                                        <div class="card-body text-center">
-                                            <p class="card-text">
-                                                <a href="{{ url_for('friend_profile', user_id=user.id) }}" class="site-theme">
-                                                  @{{ user.username }}
-                                                </a>
-                                            </p>    
-                                            {% if user in friends %}
+                                            </p>      
+                                            {% if user in my_friends %}
                                             <form method="POST" action="{{ url_for('unfriend_request', user_id=user.id) }}">
                                                 <button type="submit" class="btn btn-secondary">Unfriend</button>
                                             </form>
@@ -171,12 +105,10 @@
                 </a>
             </div>
             {% else %}
-                <p class="site-theme">You have no followers yet</p>
+                <p class="site-theme">{{ friend.username }} is not following anyone yet</p>
             {% endif %}
         </div>
     </section>
-    <div class="text-center mb-5">
-        <a href="{{ url_for('add_friends') }}" class="site-theme">➕ Add Friends</a>
-    </div>
-</div>
+
+
 {% endblock %}

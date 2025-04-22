@@ -81,3 +81,8 @@ header {
 .site-theme {
   color: #6fc4f4;
 }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(29%) sepia(98%) saturate(1971%) hue-rotate(179deg) brightness(93%) contrast(88%);
+}
