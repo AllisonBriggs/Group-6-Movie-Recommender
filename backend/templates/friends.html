@@ -11,6 +11,7 @@
 
     <section class="text-center mb-5">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <h4 class="site-theme">What Your Friends Are Watching</h4>
         <p class="text-muted">See what movies your friends have recently rated</p>
         <div class="container">
@@ -38,6 +39,15 @@
             <span class="sr-only">Previous</span>
         </a>
         <div id="movieCarousel" class="carousel slide flex-grow-1" data-ride="carousel">
+=======
+        <h4 class="site-theme">Recent Reviews</h4>
+        <p class="text-muted">Your friend's recent reviews</p>
+    </section>
+
+    <div class="container-fluid position-relative my-4">
+        {% if recent_friend_movies %}
+        <div id="movieCarousel" class="carousel slide" data-ride="carousel">
+>>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
             <div class="carousel-inner">
                 {% for chunk in recent_friend_movies|batch(4, '') %}
                 <div class="carousel-item {% if loop.first %}active{% endif %}">
@@ -53,12 +63,19 @@
                                         <p class="card-text">Watched by @{{ movie.username }}</p>
                                         <p class="card-text text-muted"><small>{{ movie.watched_on.strftime('%b %d, %Y') }}</small></p>
                                         {% if movie.review_text %}
+<<<<<<< HEAD
                                             <p class="card-text"><em>"{{ movie.review_text }}"</em></p>
+=======
+                                            <p class="card-text truncate"><em>"{{ movie.review_text }}"</em></p>
+>>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
                                         {% endif %}
                                     </div>
                                     <a href="{{ url_for('movie_detail', movie_id=movie.movie_id) }}" class="btn btn-primary mt-2">View Movie</a>
                                 </div>
+<<<<<<< HEAD
 >>>>>>> 1e9e3ec (Final updates to friends page (reformatted movies & added profile pages))
+=======
+>>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
                             </div>
                         </div>
                         {% endif %}
@@ -67,12 +84,28 @@
                 </div>
                 {% endfor %}
             </div>
+            <a class="carousel-control-prev" href="#movieCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#movieCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
+<<<<<<< HEAD
         <a class="carousel-control-next" href="#movieCarousel" role="button" data-slide="next" style="position: static;">
             <span class="carousel-control-next-icon" style="width: 2rem; height: 2rem;" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     
+=======
+        {% else %}
+            <div class="row justify-content-center">
+                <p class="site-theme">None of your friends have rated any movies yet</p>
+            </div>
+        {% endif %}
+>>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
     </div>
     
 
