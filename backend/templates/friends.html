@@ -25,7 +25,7 @@
                                 <p class="card-text">Watched by @{{ movie.username }}</p>
                                 <p class="card-text text-muted"><small>{{ movie.watched_on.strftime('%b %d, %Y') }}</small></p>
                                 {% if movie.review_text %}
-                                    <p class="card-text"><em>"{{ movie.review_text }}"</em></p>
+                                    <p class="card-text truncate"><em>"{{ movie.review_text }}"</em></p>
                                 {% endif %}
                             </div>
                             <a href="{{ url_for('movie_detail', movie_id=movie.movie_id) }}" class="btn btn-primary mt-2">View Movie</a>
