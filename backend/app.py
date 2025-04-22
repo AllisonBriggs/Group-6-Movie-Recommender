@@ -135,13 +135,24 @@ def dashboard():
 
     if selected_genres:
         # Only show algo and top-rated *after* user picks favorite movies
-        if favorite_movie_ids:
-            algo_recs = recommender.rec_by_similarity()
-            if len(algo_recs) < 10:
-                algo_recs += recommender.rec_by_favorites()
-            if len(algo_recs) < 10:
-                algo_recs += recommender.rec_top_rated()
+        # Check if user has any ratings
+        has_reviews = False
+        if (Review.query.filter_by(user_id=user.id).count() > 0):
+            has_reviews = True
 
+        if favorite_movie_ids:
+            if has_reviews:
+                algo_recs = recommender.rec_by_similarity()
+            else:
+                algo_recs = recommender.rec_by_genre()
+                # algo_recs = recommender.rec_by_favorites()
+
+            if len(algo_recs) < 10:
+                more = recommender.rec_top_rated()
+                seen_ids = {m.id for m in algo_recs}
+                algo_recs += [m for m in more if m.id not in seen_ids]
+
+            # Deduplicate
             seen = set()
             unique_algo_recs = []
             for m in algo_recs:
@@ -151,6 +162,7 @@ def dashboard():
             algo_recs = unique_algo_recs
 
             top_rated = recommender.rec_top_rated()
+
 
         # Genre-based recommendations always show if genres are selected
         genre_recs = {genre: [] for genre in selected_genres}
