@@ -214,7 +214,7 @@ def profile():
         watchlist_movies=watchlist_movies,
         rated_movies=rated_movies,
         selected_genres=user.get_favorite_genres(),
-        favorite_movies=favorite_movies  # ← Pass to template
+        favorite_movies=favorite_movies  # Pass to template
     )
 
 
@@ -234,7 +234,7 @@ def friends():
     follower_ids = [fid for (fid,) in db.session.query(Friend.user_id).filter_by(friend_id=user.id).all()]
     followers = User.query.filter(User.id.in_(follower_ids)).all()
 
-    # ✅ Get recent reviews by friends
+    # Get recent reviews by friends
     recent_friend_reviews = (
         db.session.query(Review, Movie, User)
         .join(Movie, Review.movie_id == Movie.id)
@@ -254,7 +254,7 @@ def friends():
             "username": reviewer.username,
             "watched_on": review.review_date,
             "review_text": review.review_text,
-            "movie_id": movie.id  # ✅ Add movie_id for "View Movie" button
+            "movie_id": movie.id 
         })
 
 
@@ -265,8 +265,53 @@ def friends():
         query=query,
         friends=friends,
         followers=followers,
-        recent_friend_movies=recent_friend_movies  # ✅ pass this to template
+        recent_friend_movies=recent_friend_movies  
     )
+
+@app.route("/friend/<int:user_id>")
+def friend_profile(user_id):
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+
+    user = User.query.get(session["user_id"])
+    query = request.args.get("query", "")
+
+    friend = User.query.get_or_404(user_id)
+    friend_ids = [fid for (fid,) in db.session.query(Friend.friend_id).filter_by(user_id=user.id).all()]
+    my_friends = User.query.filter(User.id.in_(friend_ids)).all()
+
+    profile_friend_ids = [fid for (fid,) in db.session.query(Friend.friend_id).filter_by(user_id=friend.id).filter(Friend.friend_id != user.id).all()]
+    profile_friends = User.query.filter(User.id.in_(profile_friend_ids)).all()
+
+    # Get recent reviews by friends
+    recent_friend_reviews = (
+        db.session.query(Review, Movie, User)
+        .join(Movie, Review.movie_id == Movie.id)
+        .join(User, Review.user_id == User.id)
+        .filter(Review.user_id == friend.id)
+        .order_by(Review.review_date.desc())
+        .limit(20)
+        .all()
+    )
+
+
+    # Format for the template
+    recent_friend_movies = []
+    for review, movie, reviewer in recent_friend_reviews:
+        recent_friend_movies.append({
+            "title": movie.title,
+            "poster_url": movie.poster_url,
+            "username": reviewer.username,
+            "watched_on": review.review_date,
+            "review_text": review.review_text,
+            "movie_id": movie.id 
+        })
+
+    # You can add logic here to fetch their watched movies, reviews, etc.
+    return render_template("friendProfile.html", friend=friend, my_friends=my_friends, profile_friends=profile_friends, recent_friend_movies=recent_friend_movies)
+
+
 
 @app.route("/add-friends", methods=["GET", "POST"])
 def add_friends():

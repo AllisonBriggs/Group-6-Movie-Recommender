@@ -81,3 +81,39 @@ header {
 .site-theme {
   color: #6fc4f4;
 }
+/* General carousel styling improvements */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  opacity: 0.8;
+  position: absolute; /* Ensure proper positioning */
+}
+
+/* Make sure carousel container allows for absolute positioning */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the carousel arrows visible and properly sized */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(29%) sepia(98%) saturate(1971%) hue-rotate(179deg) brightness(93%) contrast(88%);
+  width: 25px;
+  height: 25px;
+  background-size: 100% 100%;
+}
+
+/* Remove the d-flex wrapper with position:relative for the movie carousel */
+#movieCarousel {
+  width: 100%;
+}
+
+/* Add padding to the carousel container to make room for the controls */
+.carousel-inner {
+  padding-left: 5%;
+  padding-right: 5%;
+}
