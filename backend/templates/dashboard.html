@@ -24,7 +24,7 @@
                                 <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
                                 <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
                                 <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
-                                <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">+</button>
+                                <button id="addToFavAlgo{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite(event, {{ movie.id }}, 'Algo')">+</button>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
                             <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
                             <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
-                            <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">+</button>
+                            <button id="addToFavTop{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite(event, {{ movie.id }}, 'Top')">+</button>
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                                     <p class="card-text"><strong>Director:</strong> {{ movie.director }}</p>
                                     <p class="card-text"><strong>Release Date:</strong> {{ movie.release_date }}</p>
                                     <a href="{{ url_for('movie_detail', movie_id=movie.id) }}" class="btn btn-primary">View Movie</a>
-                                    <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite({{ movie.id }})">+</button>
+                                    <button id="addToFav{{ movie.id }}" class="btn btn-danger" onclick="toggleFavorite(event, {{ movie.id }})">+</button>
                                 </div>
                             </div>
                         </div>
@@ -105,19 +105,25 @@
     const initialFavorites = {{ favorite_ids|tojson }};
     let favorites = [...initialFavorites];
 
-    function toggleFavorite(movie_id) {
+    function toggleFavorite(event, movie_id, section = '') {
         event.preventDefault();
 
-        const button = document.getElementById(`addToFav${movie_id}`);
-        const isFavorite = favorites.includes(movie_id);
+        const button = document.getElementById(`addToFav${section}${movie_id}`);
+        if (!button) {
+            console.error("Button not found for movie ID:", movie_id);
+            return;
+        }
+
+        const numericId = Number(movie_id);
+        const isFavorite = favorites.includes(numericId);
 
         if (isFavorite) {
-            favorites = favorites.filter(id => id !== movie_id);
+            favorites = favorites.filter(id => id !== numericId);
             button.classList.remove("btn-success");
             button.classList.add("btn-danger");
             button.textContent = "+";
         } else {
-            favorites.push(movie_id);
+            favorites.push(numericId);
             button.classList.remove("btn-danger");
             button.classList.add("btn-success");
             button.textContent = "✓";
@@ -125,6 +131,7 @@
 
         document.getElementById('favorites-input').value = JSON.stringify(favorites);
     }
+
 
     function submitFavorites() {
         if (favorites.length === 0) {
