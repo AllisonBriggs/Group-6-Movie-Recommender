@@ -124,46 +124,52 @@ def dashboard():
         return redirect(url_for("login"))
 
     user = User.query.get(session["user_id"])
+    selected_genres = user.get_favorite_genres()
+    favorite_movie_ids = user.get_favorite_movies()
+
     recommender = Recommendation(user, db)
 
-    # Algorithm-based recommendations
-    algo_recs = recommender.rec_by_similarity()
-    if len(algo_recs) < 10:
-        algo_recs += recommender.rec_by_favorites()
-    if len(algo_recs) < 10:
-        algo_recs += recommender.rec_top_rated()
+    algo_recs = []
+    top_rated = []
+    genre_recs = {}
 
-    seen = set()
-    unique_algo_recs = []
-    for m in algo_recs:
-        if m.id not in seen:
-            unique_algo_recs.append(m)
-            seen.add(m.id)
+    if selected_genres:
+        # Only show algo and top-rated *after* user picks favorite movies
+        if favorite_movie_ids:
+            algo_recs = recommender.rec_by_similarity()
+            if len(algo_recs) < 10:
+                algo_recs += recommender.rec_by_favorites()
+            if len(algo_recs) < 10:
+                algo_recs += recommender.rec_top_rated()
 
-    # Genre-based (your existing logic)
-    selected_genres = user.get_favorite_genres()
-    genre_recs = {genre: [] for genre in selected_genres}
+            seen = set()
+            unique_algo_recs = []
+            for m in algo_recs:
+                if m.id not in seen:
+                    unique_algo_recs.append(m)
+                    seen.add(m.id)
+            algo_recs = unique_algo_recs
 
-    for movie in recommender.rec_by_genre():
-        if not movie.genre:
-            continue
+            top_rated = recommender.rec_top_rated()
 
-        movie_genres = [g.strip() for g in movie.genre.split(",")]
-        for user_genre in selected_genres:
-            if user_genre in movie_genres:
-                genre_recs[user_genre].append(movie)
-                break  
+        # Genre-based recommendations always show if genres are selected
+        genre_recs = {genre: [] for genre in selected_genres}
+        for movie in recommender.rec_by_genre():
+            if not movie.genre:
+                continue
+            movie_genres = [g.strip() for g in movie.genre.split(",")]
+            for user_genre in selected_genres:
+                if user_genre in movie_genres:
+                    genre_recs[user_genre].append(movie)
+                    break  
 
-    # Top-rated movies
-    top_rated = recommender.rec_top_rated()
-
-    favorite_movie_ids = user.get_favorite_movies()
     return render_template("dashboard.html",
-                        username=user.username,
-                        algo_movies=unique_algo_recs,
-                        genre_movies=genre_recs,
-                        top_movies=top_rated,
-                        favorite_ids=favorite_movie_ids)
+                           username=user.username,
+                           algo_movies=algo_recs,
+                           genre_movies=genre_recs,
+                           top_movies=top_rated,
+                           favorite_ids=favorite_movie_ids)
+
 
 # Acount Route
 @app.route("/profile", methods=["GET", "POST"])
