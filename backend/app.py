@@ -214,11 +214,7 @@ def profile():
         watchlist_movies=watchlist_movies,
         rated_movies=rated_movies,
         selected_genres=user.get_favorite_genres(),
-<<<<<<< HEAD
         favorite_movies=favorite_movies  
-=======
-        favorite_movies=favorite_movies  # Pass to template
->>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
     )
 
 
@@ -269,11 +265,7 @@ def friends():
         query=query,
         friends=friends,
         followers=followers,
-<<<<<<< HEAD
-        recent_friend_movies=recent_friend_movies
-=======
         recent_friend_movies=recent_friend_movies  
->>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
     )
 
 @app.route("/friend/<int:user_id>")
@@ -319,11 +311,6 @@ def friend_profile(user_id):
     # You can add logic here to fetch their watched movies, reviews, etc.
     return render_template("friendProfile.html", friend=friend, my_friends=my_friends, profile_friends=profile_friends, recent_friend_movies=recent_friend_movies)
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
 @app.route("/add-friends", methods=["GET", "POST"])
 def add_friends():
     # Make sure use in session before searching for friends
