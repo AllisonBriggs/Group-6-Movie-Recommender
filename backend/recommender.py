@@ -55,9 +55,9 @@ class Recommendation:
         return sorted(similar_movies, key=lambda m: m.average_rating, reverse=True)[:top_n]
 
     def rec_top_rated(self, top_n=10):
-        """Return highest-rated movies (not already favorited)."""
-        fav_ids = self.user.get_favorite_movies()
-        return Movie.query.filter(~Movie.id.in_(fav_ids)).order_by(desc(Movie.average_rating)).limit(top_n).all()
+        """Return highest-rated movies overall."""
+        return Movie.query.order_by(desc(Movie.average_rating)).limit(top_n).all()
+
 
     def rec_trending(self, limit=10):
         """Returns trending movies (random selection for now)."""
