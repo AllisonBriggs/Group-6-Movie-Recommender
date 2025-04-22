@@ -217,6 +217,57 @@ def profile():
         favorite_movies=favorite_movies  
     )
 
+@app.route("/other", methods=["GET", "POST"])
+def profileOther():
+    if "user_id" not in session:
+        flash("Please log in first!", "warning")
+        return redirect(url_for("login"))
+
+    user = User.query.get(session["user_id"])
+
+    if request.method == "POST":
+        genre1 = request.form.get("genre1")
+        genre2 = request.form.get("genre2")
+        genre3 = request.form.get("genre3")
+
+        selected_genres = [g for g in [genre1, genre2, genre3] if g]
+        if len(set(selected_genres)) != len(selected_genres):
+            flash("Please select different genres.", "danger")
+            return redirect(url_for("profile"))
+
+        user.favorite_genres = ",".join(selected_genres)
+        db.session.commit()
+        flash("Favorite genres updated!", "success")
+        return redirect(url_for("profile"))
+
+    watchlist_entries = Watchlist.query.filter_by(user_id=user.id).all()
+    reviews = Review.query.filter_by(user_id=user.id).all()
+
+    watchlist_movies = [Movie.query.get(entry.movie_id) for entry in watchlist_entries]
+
+    rated_movies = []
+    for review in reviews:
+        movie = Movie.query.get(review.movie_id)
+        if movie:
+            rated_movies.append({
+                "title": movie.title,
+                "rating": review.rating,
+                "comment": review.review_text,
+                "date": review.review_date.strftime("%Y-%m-%d")
+            })
+
+    favorite_movie_ids = user.get_favorite_movies()
+    favorite_movies = Movie.query.filter(Movie.id.in_(favorite_movie_ids)).all() if favorite_movie_ids else []
+
+    return render_template(
+        "other.html",
+        username=user.username,
+        watchlist_movies=watchlist_movies,
+        rated_movies=rated_movies,
+        selected_genres=user.get_favorite_genres(),
+        favorite_movies=favorite_movies  
+    )
+
 
 @app.route("/friends", methods=["GET", "POST"])
 def friends():

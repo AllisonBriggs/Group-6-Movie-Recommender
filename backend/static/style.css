@@ -81,13 +81,6 @@ header {
 .site-theme {
   color: #6fc4f4;
 }
-<<<<<<< HEAD
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(29%) sepia(98%) saturate(1971%) hue-rotate(179deg) brightness(93%) contrast(88%);
-}
-=======
 /* General carousel styling improvements */
 .carousel-control-prev,
 .carousel-control-next {
@@ -124,4 +117,3 @@ header {
   padding-left: 5%;
   padding-right: 5%;
 }
->>>>>>> 50208d6cd1d6e52e1e3d59709ac3ae7762db1593
